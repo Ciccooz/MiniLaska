@@ -1,4 +1,4 @@
-#include "pawn.h"
+#include "rules.h"
 #include <math.h>
 
 
@@ -17,4 +17,3 @@ Se è rimasta ferma la mossa non è considerata valida
 Entrambe le coordinate devono essere variate perchè sono permessi solo movimenti in diagonale
 */
 int isSingleMove(int from[], int to[]);
-
