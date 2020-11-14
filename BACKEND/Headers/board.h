@@ -1,9 +1,9 @@
 #pragma once
 
 #include "rules.h"
-#include <stdlib.h>
-#include <string.h>
+#include <stdlib.h> /*for malloc/free*/
+#include <string.h> /*for memset*/
 
 PlayableBoard newBoard();
-Tower towerAt(PlayableBoard grid, int coords[2]);
 void freeBoard(PlayableBoard grid);
+int getRowSize(int row);

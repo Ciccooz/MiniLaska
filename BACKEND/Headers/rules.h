@@ -2,7 +2,6 @@
 
 #define GRID_SIZE 7
 #define TOWER_HEIGHT 3
-#define PLAYABLE_CELLS 25
 
 #define SOLDIER1 'a'
 #define SOLDIER2 'b'
@@ -12,4 +11,4 @@
 
 typedef char Pawn;
 typedef Pawn* Tower;
-typedef Tower* PlayableBoard;
+typedef Tower** PlayableBoard;

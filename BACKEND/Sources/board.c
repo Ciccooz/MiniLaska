@@ -13,41 +13,57 @@ PlayableBoard newBoard()
 
 PlayableBoard allocBoard()
 {
-   PlayableBoard board = (PlayableBoard) malloc(PLAYABLE_CELLS * sizeof(Tower));
-   int i;
-   for(i = 0; i < PLAYABLE_CELLS; i++)
-      board[i] = (Tower) malloc(TOWER_HEIGHT * sizeof(Pawn));
+   PlayableBoard board = (PlayableBoard) malloc(GRID_SIZE * sizeof(Tower*));
+
+   int row, col;
+   for(row = 0; row < GRID_SIZE; row++)
+   {
+      int rowSize = getRowSize(row);
+
+      board[row] = (Tower*) malloc(rowSize * sizeof(Tower));
+      for(col = 0; col < rowSize; col++)
+         board[row][col] = (Tower) malloc(TOWER_HEIGHT * sizeof(Pawn));
+   }
+
    return board;
 }
 
 void spawnPawns(PlayableBoard board)
 {
-   int i;
-   for(i = 0; i < PLAYABLE_CELLS; i++)
+   int row, col;
+   for(row = 0; row < GRID_SIZE; row++)
    {
-      memset(board[i], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
-      if(i < 11)
-         board[i][0] = SOLDIER1;
-      else if (i > 13)
-         board[i][0] = SOLDIER2;
+      int rowSize = getRowSize(row);
+      for(col = 0; col < rowSize; col++)
+      {
+         memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
+         if(row <= 2)
+            board[row][col][0] = SOLDIER1;
+         else if (row >= 4)
+            board[row][col][0] = SOLDIER2;
+      }
    }
 }
 
-Tower towerAt(PlayableBoard board, int coords[2])
+int getRowSize(int row)
 {
-   int index = ((coords[0] / 2) * 7) + (coords[1] / 2);
+   if(row % 2)
+      return 3;
 
-   if(coords[0] % 2)
-      index += 4;
-
-   return board[index];
+   return 4;
 }
 
 void freeBoard(PlayableBoard board)
 {
-   int i;
-   for(i = 0; i < PLAYABLE_CELLS; i++)
-      free(board[i]);
+   int row, col;
+   for(row = 0; row < GRID_SIZE; row++)
+   {
+      int rowSize = getRowSize(row);
+      for(col = 0; col < rowSize; col++)
+         free(board[row][col]);
+
+      free(board[row]);
+   }
 
    free(board);
 }
