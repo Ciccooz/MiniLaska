@@ -5,7 +5,7 @@ static void printUpperSeparator(int cellSide);
 static void printMidSeparator(int cellSide);
 static void printLowerSeparator(int cellSide);
 static void printCellContent(char content, int cellSide);
-
+static void printTopCoordinates(int cellSide);
 /*la cellSide deve essere divisibile per 3*/
 void printBoard(PlayableBoard board, int cellSide)
 {
@@ -13,14 +13,20 @@ void printBoard(PlayableBoard board, int cellSide)
 
     if(cellSide % TOWER_HEIGHT || cellSide < 0)
         return;
-        
+    
+    printTopCoordinates(cellSide);
     printUpperSeparator(cellSide);
     for(boardRow = 0; boardRow < GRID_SIZE; boardRow++)
     {
         for(UIRow = 0; UIRow < cellSide; UIRow++)
         {
             
-            printf("%c", (char)186);
+            if(UIRow == cellSide / 2)
+                printf("\t%d", boardRow);
+            else 
+                printf("\t ");
+
+            printf("%c", (char)0xba);
             for(boardCol = 0; boardCol < GRID_SIZE; boardCol++)
             {
 
@@ -32,7 +38,7 @@ void printBoard(PlayableBoard board, int cellSide)
                     printCellContent(pawn, cellSide);
                 }
 
-                printf("%c", (char)186);
+                printf("%c", (char)0xba);
             }
             printf("\n");
         }
@@ -47,11 +53,34 @@ void printBoard(PlayableBoard board, int cellSide)
     
 }
 
+static void printTopCoordinates(int cellSide)
+{
+    int currentChar = 0;
+    int boardCol;
+
+    printf("\n\t ");
+    for(boardCol = 0; boardCol < GRID_SIZE; boardCol++)
+    {
+        printf(" ");
+        for(currentChar = 0; currentChar < cellSide; currentChar++)
+        {
+            if(currentChar == cellSide / 2)
+                printf("%d", boardCol);
+            else 
+                printf(" ");            
+        }
+    }
+
+
+    printf("\n");
+
+}
+
 static void printHorizontalSeparator(int cellSide, unsigned char* symbols)
 {
     int i, j;
 
-    printf("%c", symbols[0]);
+    printf("\t %c", symbols[0]);
     for(i = 0; i < GRID_SIZE; i++)
     {
         for(j = 0; j < cellSide; j++)
