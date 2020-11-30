@@ -1,3 +1,5 @@
+#pragma once
+
 #include "rules.h"
 #include <math.h>
 
