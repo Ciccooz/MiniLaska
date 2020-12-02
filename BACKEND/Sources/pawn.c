@@ -1,4 +1,4 @@
-#include "..\\Headers\\pawn.h"
+#include "../Headers/pawn.h"
 
 char getTop(int from[], PlayableBoard board) {
 	int row = from[0];
@@ -18,9 +18,9 @@ int getTopIndex(int from[], PlayableBoard board) {
 	int row = from[0];
 	int col = from[1] / 2;
 	int index = -1;
-	
+
 	int i;
-	
+
 	for(i = 0; i < 3; i++) {
 		if(board[row][col][i] != NULL_PAWN)
 			index = i;
@@ -33,7 +33,7 @@ void changeTop(int from[], char top, PlayableBoard board) {
 	int row = from[0];
 	int col = from[1] / 2;
 	int index = getTopIndex(from, board);
-	
+
 	if(top == SOLDIER1)
 		board[row][col][index] = OFFICER1;
 

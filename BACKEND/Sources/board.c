@@ -1,4 +1,4 @@
-#include "..\\Headers\\board.h"
+#include "../Headers/board.h"
 
 static PlayableBoard allocBoard();
 static void spawnPawns(PlayableBoard grid);

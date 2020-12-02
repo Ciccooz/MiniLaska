@@ -1,4 +1,4 @@
-#include "..\\Headers\\UIBoard.h"
+#include "../Headers/UIBoard.h"
 
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
 void printBoard(PlayableBoard board, int cellSide)
@@ -7,7 +7,7 @@ void printBoard(PlayableBoard board, int cellSide)
 
     if(cellSide % TOWER_HEIGHT || cellSide < 0)
         return;
-    
+
     printUpperSeparator(cellSide);
     for(boardRow = 0; boardRow < GRID_SIZE; boardRow++)
     {
@@ -24,7 +24,7 @@ void printBoard(PlayableBoard board, int cellSide)
                     char pawn = board[boardRow][boardCol / 2][TOWER_HEIGHT - 1 - (UIRow / (cellSide / TOWER_HEIGHT))];
                     printCellContent(pawn, cellSide);
                 }
-                else 
+                else
                     printCellContent(UNPLAYABLE_PAWN, cellSide);
 
                 printf("%c", VERTICAL_SIDE);
@@ -41,7 +41,7 @@ void printBoard(PlayableBoard board, int cellSide)
         }
     }
 
-    
+
 }
 
 
@@ -50,7 +50,7 @@ static void printRowCoordinates(int cellSide, int UIRow, int boardRow)
 {
     if(UIRow == cellSide / 2)
         printf("\t%d", boardRow);
-    else 
+    else
         printf("\t ");
 }
 static void printColumnCoordinates(int cellSide)
@@ -66,8 +66,8 @@ static void printColumnCoordinates(int cellSide)
         {
             if(currentChar == cellSide / 2)
                 printf("%c", 'a' + boardCol);
-            else 
-                printf(" ");            
+            else
+                printf(" ");
         }
     }
 
@@ -91,7 +91,7 @@ static void printUpperSeparator(int cellSide)
 {
     unsigned char symbols[] = {0xc9, 0xcb, 0xbb};
     printHorizontalSeparator(
-        cellSide, 
+        cellSide,
         TOP_LEFT_CORNER,
         TOP_INTERSECTION,
         TOP_RIGHT_CORNER);
@@ -109,7 +109,7 @@ static void printLowerSeparator(int cellSide)
 {
     unsigned char symbols[] = {0xc8, 0xca, 0xbc};
     printHorizontalSeparator(
-        cellSide, 
+        cellSide,
         BOTTOM_LEFT_CORNER,
         BOTTOM_INTERSECTION,
         BOTTOM_RIGHT_CORNER);

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include "..\\..\\BACKEND\\Headers\\board.h"
+#include "../../BACKEND/Headers/board.h"
 
 #define UNPLAYABLE_PAWN (char)0xb0     /*░*/
 #define TOP_LEFT_CORNER (char)0xc9     /*╔*/

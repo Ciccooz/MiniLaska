@@ -1,4 +1,4 @@
-#include "..\\Headers\\errors.h"
+#include "../Headers/errors.h"
 
 int errorFill(int from[], int to[], PlayableBoard board)
 {
@@ -26,7 +26,7 @@ int errorFill(int from[], int to[], PlayableBoard board)
 
     if(isDoubleMove(from, to) && !canConquer(from, to, board))
         errors |= CANT_CONQUER;
-    
+
     if(!topIsNull(to, board))
         errors |= TOP_NOT_NULL;
 
@@ -55,7 +55,7 @@ void errorCheck(int errors)
 
     if(errors & CANT_CONQUER)
         printf("cant conquer\n");
-    
+
     if(errors & TOP_NOT_NULL)
         printf("top not null\n");
 }
