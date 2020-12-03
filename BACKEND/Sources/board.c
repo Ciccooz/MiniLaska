@@ -18,6 +18,46 @@ PlayableBoard newBoard()
    spawnPawns(board);
    return board;
 }
+int getRowSize(int row)
+{
+   if(row % 2)
+      return 3;
+
+   return 4;
+}
+Tower getTower(PlayableBoard board, unsigned int coords[2])
+{
+  return board[coords[0]][coords[1]];
+}
+/*
+Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
+procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
+*/
+void freeBoard(PlayableBoard board)
+{
+   int row, col;
+
+   if(board == NULL)
+      return;
+
+   for(row = 0; row < GRID_SIZE; row++)
+   {
+      int rowSize;
+
+      if(board[row] == NULL)
+         break;
+
+      rowSize = getRowSize(row);
+      for(col = 0; col < rowSize; col++)
+         free(board[row][col]);
+
+      free(board[row]);
+   }
+
+   free(board);
+}
+
+
 
 /*
 Alloca dinamicamente la memoria per il campo da gioco (limitato alle caselle giocabili) e
@@ -26,7 +66,7 @@ Se la calloc non riesce ad allocare memoria la funzione ripulisce tutto ciò che
 era già stato allocato prima che si verificasse l'eccezione chiamando freeBoard e restituisce
 NULL
 */
-PlayableBoard allocBoard()
+static PlayableBoard allocBoard()
 {
    int row, col;
    PlayableBoard board = (PlayableBoard) calloc(GRID_SIZE, sizeof(Tower*));
@@ -58,7 +98,7 @@ PlayableBoard allocBoard()
    return board;
 }
 
-void spawnPawns(PlayableBoard board)
+static void spawnPawns(PlayableBoard board)
 {
    int row, col;
    for(row = 0; row < GRID_SIZE; row++)
@@ -73,40 +113,4 @@ void spawnPawns(PlayableBoard board)
             board[row][col][0] = SOLDIER2;
       }
    }
-}
-
-int getRowSize(int row)
-{
-   if(row % 2)
-      return 3;
-
-   return 4;
-}
-
-/*
-Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
-procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
-*/
-void freeBoard(PlayableBoard board)
-{
-   int row, col;
-
-   if(board == NULL)
-      return;
-
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize;
-
-      if(board[row] == NULL)
-         break;
-
-      rowSize = getRowSize(row);
-      for(col = 0; col < rowSize; col++)
-         free(board[row][col]);
-
-      free(board[row]);
-   }
-
-   free(board);
 }

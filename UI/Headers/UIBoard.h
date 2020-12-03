@@ -16,6 +16,14 @@
 #define HORIZONTAL_SIDE     (char)0xcd   /*═*/
 #define VERTICAL_SIDE       (char)0xba   /*║*/
 
+/*
+cellSide indica la dimensione della cella (bordi esclusi) in char
+cellSide deve essere un multiplo di TOWER_HEIGHT
+*/
+void printBoard(PlayableBoard board, int cellSide);
+/*Effettua la conversione direttamente sulle coordinate in input*/
+void UIToBackendCoordinates(unsigned int UICoords[2]);
+
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
 static void printUpperSeparator(int cellSide);
 static void printMidSeparator(int cellSide);

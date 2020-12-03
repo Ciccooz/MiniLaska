@@ -8,3 +8,4 @@
 PlayableBoard newBoard();
 void freeBoard(PlayableBoard grid);
 int getRowSize(int row);
+Tower getTower(PlayableBoard board, unsigned int coords[2]);
