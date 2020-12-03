@@ -1,11 +1,4 @@
-#include <stdio.h>
-
-#include "BACKEND/Headers/rules.h"
-#include "BACKEND/Headers/board.h"
-#include "BACKEND/Headers/pawn.h"
-#include "BACKEND/Headers/validation.h"
-#include "BACKEND/Headers/errors.h"
-#include "UI/Headers/UI.h"
+#include "main.h"
 
 int main() {
   /*
@@ -37,9 +30,20 @@ int main() {
             scanf("%d", &n);
             if(n < 0)
               break;
+            refreshTerminal();
             printBoard(board, n);
         } while(1);
 
         freeBoard(board);
         printf("Board successfully freed\n");
+}
+
+static void refreshTerminal()
+{
+  #ifdef __unix__
+  system("clear");
+  #endif
+  #ifdef _WIN32
+  system("cls");
+  #endif
 }
