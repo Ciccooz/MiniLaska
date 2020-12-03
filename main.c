@@ -1,12 +1,14 @@
 #include <stdio.h>
 
-#include "Headers\\rules.h"
-#include "Headers\\board.h"
-#include "Headers\\pawn.h"
-#include "Headers\\validation.h"
-#include "Headers\\errors.h"
+#include "BACKEND/Headers/rules.h"
+#include "BACKEND/Headers/board.h"
+#include "BACKEND/Headers/pawn.h"
+#include "BACKEND/Headers/validation.h"
+#include "BACKEND/Headers/errors.h"
+#include "UI/Headers/UI.h"
 
 int main() {
+  /*
     PlayableBoard board = newBoard();
 
     int from[] = {0,0};
@@ -20,5 +22,24 @@ int main() {
     if(isValidMove(from, to, board))
         printf("\nValid\n");
     else
-        printf("\nNot Valid\n");
+        printf("\nNot Valid\n");*/
+
+        PlayableBoard board = newBoard();
+        int n;
+        if(board == NULL)
+          return 1;
+
+        printf("Memory for board successfully allocated\n");
+
+        do
+        {
+            printf("Insert size (negative number to exit): ");
+            scanf("%d", &n);
+            if(n < 0)
+              break;
+            printBoard(board, n);
+        } while(1);
+
+        freeBoard(board);
+        printf("Board successfully freed\n");
 }

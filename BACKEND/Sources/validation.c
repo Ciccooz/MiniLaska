@@ -1,8 +1,8 @@
-#include "..\\Headers\\validation.h"
+#include "../Headers/validation.h"
 
 
 int isValidMove(int from[], int to[], PlayableBoard board)
-{  
+{
     int errors = errorFill(from, to, board);
     errorCheck(errors);
 
@@ -106,7 +106,7 @@ int canConquer(int from[], int to[], PlayableBoard board)
     int row = to[0];
     int col = to[1];
     int previous[2];
-    
+
     char fromTop = getTop(from, board);
     char previousTop;
 
