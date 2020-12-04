@@ -3,17 +3,14 @@
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
 void printBoard(PlayableBoard board, int cellSide)
 {
-    int boardRow, boardCol, UIRow, UICol;
-
-    if(cellSide % TOWER_HEIGHT || cellSide < 0)
-        return;
+    int boardRow, boardCol, terminalRow, UICol;
 
     printUpperSeparator(cellSide);
     for(boardRow = 0; boardRow < GRID_SIZE; boardRow++)
     {
-        for(UIRow = 0; UIRow < cellSide; UIRow++)
+        for(terminalRow = 0; terminalRow < cellSide; terminalRow++)
         {
-            printRowCoordinates(cellSide, UIRow, boardRow);
+            printRowCoordinates(cellSide, terminalRow, boardRow);
 
             printf("%c", VERTICAL_SIDE);
             for(boardCol = 0; boardCol < GRID_SIZE; boardCol++)
@@ -21,7 +18,13 @@ void printBoard(PlayableBoard board, int cellSide)
 
                 if(boardRow % 2 == boardCol % 2)
                 {
-                    char pawn = board[boardRow][boardCol / 2][TOWER_HEIGHT - 1 - (UIRow / (cellSide / TOWER_HEIGHT))];
+                    int UICoords[2];
+                    int pawnIndex = TOWER_HEIGHT - 1 - (terminalRow / (cellSide / TOWER_HEIGHT)); /*indice della pedina da printare*/
+                    char pawn;
+
+                    UICoords[0] = boardRow;
+                    UICoords[1] = boardCol;
+                    pawn = UICoordinatesToTower(board, UICoords)[pawnIndex];
                     printCellContent(pawn, cellSide);
                 }
                 else
@@ -40,18 +43,22 @@ void printBoard(PlayableBoard board, int cellSide)
             printColumnCoordinates(cellSide);
         }
     }
+}
 
-
+Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
+{
+  return board[UICoords[0]][UICoords[1] / 2];
 }
 
 
 
-static void printRowCoordinates(int cellSide, int UIRow, int boardRow)
+static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
-    if(UIRow == cellSide / 2)
-        printf("\t%d", boardRow);
+    printf("\t");
+    if(terminalRow == cellSide / 2)
+        printf("%d", boardRow);
     else
-        printf("\t ");
+        printf(" ");
 }
 static void printColumnCoordinates(int cellSide)
 {
@@ -70,8 +77,7 @@ static void printColumnCoordinates(int cellSide)
                 printf(" ");
         }
     }
-
-    printf("\n\n");
+    printf("\n");
 }
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right)
 {
@@ -89,7 +95,6 @@ static void printHorizontalSeparator(int cellSide, char left, char intersection,
 }
 static void printUpperSeparator(int cellSide)
 {
-    unsigned char symbols[] = {0xc9, 0xcb, 0xbb};
     printHorizontalSeparator(
         cellSide,
         TOP_LEFT_CORNER,
@@ -98,7 +103,6 @@ static void printUpperSeparator(int cellSide)
 }
 static void printMidSeparator(int cellSide)
 {
-    unsigned char symbols[] = {0xcc, 0xce, 0xb9};
     printHorizontalSeparator(
         cellSide,
         MID_LEFT_SIDE,
@@ -107,7 +111,6 @@ static void printMidSeparator(int cellSide)
 }
 static void printLowerSeparator(int cellSide)
 {
-    unsigned char symbols[] = {0xc8, 0xca, 0xbc};
     printHorizontalSeparator(
         cellSide,
         BOTTOM_LEFT_CORNER,
