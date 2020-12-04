@@ -4,13 +4,16 @@ int errorFill(int from[2], int to[2], PlayableBoard board)
 {
     int errors = 0;
 
-	Tower fromTower = UICoordinatesToTower(board, from);
-	Tower toTower   = UICoordinatesToTower(board, to);
+    Tower fromTower;
+    Tower toTower;
 
     if(!coordinatesWithinBounds(from, to)) {
         errors |= OUT_OF_BOUNDS;
         return errors;
     }
+
+    fromTower = UICoordinatesToTower(board, from);
+    toTower = UICoordinatesToTower(board, to);
 
     if(!movesFromPlayableCell(from))
         errors |= NOT_PLAYABLE_CELL;
