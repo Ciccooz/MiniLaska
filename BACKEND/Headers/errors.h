@@ -2,6 +2,7 @@
 
 #include "rules.h"
 #include "validation.h"
+#include "../../UI/Headers/UIBoard.h"
 #include <stdio.h>
 
 #define OUT_OF_BOUNDS           1
@@ -17,7 +18,7 @@
 /*Controlla quali errori possono essere verificati nel caso in cui si tenti di eseguire una mossa
 Se si verifica un errore, si porta un bit della variabile char a 1
 Infine la variabile viene restituita...........................................................*/
-int errorFill(int from[], int to[], PlayableBoard board);
+int errorFill(int from[2], int to[2], PlayableBoard board);
 
 /*Controlla bit a bit una variabile char precedentemente returnata
 Se il bit è a 1 si è verificato l'errore, altrimenti è 0.......................................*/

@@ -110,3 +110,17 @@ void freeBoard(PlayableBoard board)
 
    free(board);
 }
+
+Tower getPrevious(int from[2], int to[2], PlayableBoard board)
+{
+	int coord[2];
+	int row = (from[0] + to[0]) / 2;
+	int col = (from[1] + to[1]) / 2;
+	
+	coord[0] = row;
+	coord[1] = col;
+	
+	Tower previous = UICoordinatesToTower(board, coord);
+	
+	return previous;
+}

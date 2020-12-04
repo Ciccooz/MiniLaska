@@ -1,77 +1,56 @@
 #include "../Headers/validation.h"
 
 
-int isValidMove(int from[], int to[], PlayableBoard board)
+int isValidMove(int from[2], int to[2], PlayableBoard board)
 {
     int errors = errorFill(from, to, board);
     errorCheck(errors);
 
-    return  coordinatesWithinBounds(from, to) &&
-            movesFromPlayableCell(from) &&
-
-            ((isGoingUp(from, to) && canGoUp(from, to, board)) ||
-            (isGoingDown(from, to) && canGoDown(from, to, board)))  &&
-
-            (isSingleMove(from, to) ||
-            (isDoubleMove(from, to) && canConquer(from, to, board))) &&
-
-            topIsNull(to, board);
+    return  !errors;
 }
 
-int coordinatesWithinBounds(int from[], int to[])
+int coordinatesWithinBounds(int from[2], int to[2])
 {
 	int validRows = (from[0] >= 0 && from[0] < GRID_SIZE) && (to[0] >= 0 && to[0] < GRID_SIZE);
 	int validCols = (from[1] >= 0 && from[1] < GRID_SIZE) && (to[1] >= 0 && to[1] < GRID_SIZE);
+	
 	return validRows && validCols;
 }
 
-int movesFromPlayableCell(int from[])
+int movesFromPlayableCell(int from[2])
 {
     return (from[0] % 2) == (from[1] % 2);
 }
 
-int isGoingUp(int from[], int to[])
+int isGoingUp(int from[2], int to[2])
 {
     return from[0] > to[0];
 }
 
-int isGoingDown(int from[], int to[])
+int isGoingDown(int from[2], int to[2])
 {
     return from[0] < to[0];
 }
 
-int canGoUp(int from[], int to[], PlayableBoard board)
+int canGoUp(Tower tower)
 {
-    /*
-    int isGoingUp = from[0] > to[0];
-
-    if(isGoingUp)
-    */
-    return getTop(from, board) != SOLDIER1;
+    return getTop(tower) != SOLDIER1;
 }
 
-int canGoDown(int from[], int to[], PlayableBoard board)
+int canGoDown(Tower tower)
 {
-    /*
-    int isGoingDown = from[0] > to[0];
-
-    if(isGoingDown)
-    */
-    return getTop(from, board) != SOLDIER2;
+    return getTop(tower) != SOLDIER2;
 }
 
-int isInSamePosition(int from[], int to[])
+int isInSamePosition(int from[2], int to[2])
 {
-    int row = abs(from[0] - to[0]);
-    int col = abs(from[1] - to[1]);
-
-    int movingRow = row == 0;
-    int movingCol = col == 0;
+    int movingRow = from[0] == to[0];
+    int movingCol = from[1] == to[1];
 
     return movingRow && movingCol;
 }
 
-int isMovingTooMuch(int from[], int to[])
+int isMovingTooMuch(int from[2], int to[2])
 {
     int row = abs(from[0] - to[0]);
     int col = abs(from[1] - to[1]);
@@ -82,47 +61,34 @@ int isMovingTooMuch(int from[], int to[])
     return movingRow || movingCol;
 }
 
-int isSingleMove(int from[], int to[])
+int isSingleMove(int from[2], int to[2])
 {
     int singleRow = (abs(from[0] - to[0]) == 1);
     int singleCol = (abs(from[1] - to[1]) == 1);
+	
     return singleRow && singleCol;
 }
 
-int isDoubleMove(int from[], int to[])
+int isDoubleMove(int from[2], int to[2])
 {
     int doubleRow = (abs(from[0] - to[0]) == 2);
     int doubleCol = (abs(from[1] - to[1]) == 2);
+	
     return doubleRow && doubleCol;
 }
 
-int topIsNull(int from[], PlayableBoard board)
+int topIsNull(Tower tower)
 {
-    return getTop(from, board) == NULL_PAWN;
+    return getTop(tower) == NULL_PAWN;
 }
 
-int canConquer(int from[], int to[], PlayableBoard board)
+int canConquer(int from[2], int to[2], PlayableBoard board)
 {
-    int row = to[0];
-    int col = to[1];
-    int previous[2];
-
-    char fromTop = getTop(from, board);
-    char previousTop;
-
-    if(from[0] > to[0])
-        row--;
-    else
-        row++;
-
-    if(from[1] > to[1])
-        col--;
-    else
-        col++;
-
-    previous[0] = row;
-    previous[1] = col;
-    previousTop = getTop(previous, board);
+	Tower fromTower = UICoordinatesToTower(board, from);
+	Tower previous  = getPrevious(from, to, board);
+	
+	char fromTop 	 = getTop(fromTower);
+	char previousTop = getTop(previous);    
 
     return (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
            (previousTop == SOLDIER2 || previousTop == OFFICER2) ||
