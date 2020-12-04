@@ -111,52 +111,15 @@ static void spawnPawns(PlayableBoard board)
    }
 }
 
-int getRowSize(int row)
-{
-   if(row % 2)
-      return 3;
-
-   return 4;
-}
-
-/*
-Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
-procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
-*/
-void freeBoard(PlayableBoard board)
-{
-   int row, col;
-
-   if(board == NULL)
-      return;
-
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize;
-
-      if(board[row] == NULL)
-         break;
-
-      rowSize = getRowSize(row);
-      for(col = 0; col < rowSize; col++)
-         free(board[row][col]);
-
-      free(board[row]);
-   }
-
-   free(board);
-}
-
 Tower getPrevious(int from[2], int to[2], PlayableBoard board)
 {
+  Tower previous;
 	int coord[2];
-	int row = (from[0] + to[0]) / 2;
-	int col = (from[1] + to[1]) / 2;
-	
-	coord[0] = row;
-	coord[1] = col;
-	
-	Tower previous = UICoordinatesToTower(board, coord);
-	
+	coord[0] = (from[0] + to[0]) / 2;
+	coord[1] = (from[1] + to[1]) / 2;
+
+  previous = UICoordinatesToTower(board, coord);
+
+
 	return previous;
 }
