@@ -16,6 +16,9 @@ int coordinatesWithinBounds(int from[2], int to[2]);
 /*Controlla che la posizione di partenza sia una posizione giocabile.............*/
 int movesFromPlayableCell(int from[2]);
 
+/*Controlla che il movimento sia effettuato in diagonale.........................*/
+int movesDiagonally(int from[2], int to[2]);
+
 /*Controlla se si vuole spostare la pedina (o la torre) verso l'alto.............*/
 int isGoingUp(int from[2], int to[2]);
 
@@ -44,7 +47,7 @@ int isDoubleMove(int from[2], int to[2]);
 int topIsNull(Tower tower);
 
 /*Controlla se la cella precedente (in base alla mossa appena fatta)
-possa essere conquistata, ovvero deve essere diversa dalla pedina 
+possa essere conquistata, ovvero deve essere diversa dalla pedina
 (o la pedina che controlla la torre) con la quale si intende conquistare
 la pedina (o la torre)...........................................................*/
 int canConquer(int from[2], int to[2], PlayableBoard board);

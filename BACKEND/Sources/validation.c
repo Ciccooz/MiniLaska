@@ -13,13 +13,18 @@ int coordinatesWithinBounds(int from[2], int to[2])
 {
 	int validRows = (from[0] >= 0 && from[0] < GRID_SIZE) && (to[0] >= 0 && to[0] < GRID_SIZE);
 	int validCols = (from[1] >= 0 && from[1] < GRID_SIZE) && (to[1] >= 0 && to[1] < GRID_SIZE);
-	
+
 	return validRows && validCols;
 }
 
 int movesFromPlayableCell(int from[2])
 {
     return (from[0] % 2) == (from[1] % 2);
+}
+
+int movesDiagonally(int from[2], int to[2])
+{
+	return abs(from[0] - to[0]) == abs(from[1] - to[1]);
 }
 
 int isGoingUp(int from[2], int to[2])
@@ -65,7 +70,7 @@ int isSingleMove(int from[2], int to[2])
 {
     int singleRow = (abs(from[0] - to[0]) == 1);
     int singleCol = (abs(from[1] - to[1]) == 1);
-	
+
     return singleRow && singleCol;
 }
 
@@ -73,7 +78,7 @@ int isDoubleMove(int from[2], int to[2])
 {
     int doubleRow = (abs(from[0] - to[0]) == 2);
     int doubleCol = (abs(from[1] - to[1]) == 2);
-	
+
     return doubleRow && doubleCol;
 }
 
@@ -86,9 +91,9 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
 	Tower previous  = getPrevious(from, to, board);
-	
+
 	char fromTop 	 = getTop(fromTower);
-	char previousTop = getTop(previous);    
+	char previousTop = getTop(previous);
 
     return (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
            (previousTop == SOLDIER2 || previousTop == OFFICER2) ||

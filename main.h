@@ -8,3 +8,4 @@
 #include "UI/Headers/UI.h"
 
 static void refreshTerminal();
+static void getCoordinates(const char* title, int coords[2]);

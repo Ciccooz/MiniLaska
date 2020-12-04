@@ -1,41 +1,42 @@
 #include "main.h"
 
-int main() {
-  /*
-    PlayableBoard board = newBoard();
+int main()
+{
+	int from[2];
+	int to[2];
+	PlayableBoard board = newBoard();
+	if(board == NULL)
+		return 1;
 
-    int from[] = {0,0};
-    int to[] = {2,2};
+	printf("Memory for board successfully allocated\n");
 
-    printf("From: (%d, %d)\n", from[0], from[1]);
-    printf("To: (%d, %d)\n\n", to[0], to[1]);
+	do
+	{
+		refreshTerminal();
+		printBoard(board, 6);
+		getCoordinates("FROM", from);
+		if(from[0] < 0)
+			break;
+		getCoordinates("TO", to);
 
-    printf("Top: '%c'\n", getTop(to, board));
+		if(isValidMove(from, to, board))
+			move(board, from, to);
 
-    if(isValidMove(from, to, board))
-        printf("\nValid\n");
-    else
-        printf("\nNot Valid\n");*/
+	} while(1);
 
-        PlayableBoard board = newBoard();
-        int n;
-        if(board == NULL)
-          return 1;
+	freeBoard(board);
+	printf("Board successfully freed\n");
+}
 
-        printf("Memory for board successfully allocated\n");
+static void getCoordinates(const char* title, int coords[2])
+{
+	char temp;
+	printf("%s:\n\tColumn: ", title);
+	scanf(" %c", &temp);
+	coords[1] = temp - 'a';
 
-        do
-        {
-            printf("Insert size (negative number to exit): ");
-            scanf("%d", &n);
-            if(n < 0)
-              break;
-            refreshTerminal();
-            printBoard(board, n);
-        } while(1);
-
-        freeBoard(board);
-        printf("Board successfully freed\n");
+	printf("\tRow: ");
+	scanf("%d", &coords[0]);
 }
 
 static void refreshTerminal()

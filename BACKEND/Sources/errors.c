@@ -3,7 +3,7 @@
 int errorFill(int from[2], int to[2], PlayableBoard board)
 {
     int errors = 0;
-	
+
 	Tower fromTower = UICoordinatesToTower(board, from);
 	Tower toTower   = UICoordinatesToTower(board, to);
 
@@ -14,6 +14,9 @@ int errorFill(int from[2], int to[2], PlayableBoard board)
 
     if(!movesFromPlayableCell(from))
         errors |= NOT_PLAYABLE_CELL;
+
+    if(!movesDiagonally(from, to))
+        errors |= NOT_DIAGONAL;
 
     if(isGoingUp(from, to) && !canGoUp(fromTower))
         errors |= CANT_GO_UP;
