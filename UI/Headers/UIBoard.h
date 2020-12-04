@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include "../../BACKEND/Headers/board.h"
+#include "../../BACKEND/Headers/rules.h"
 
 #define UNPLAYABLE_PAWN     (char)0xb0   /*░*/
 #define TOP_LEFT_CORNER     (char)0xc9   /*╔*/
@@ -21,8 +22,8 @@ cellSide indica la dimensione della cella (bordi esclusi) in char
 cellSide deve essere un multiplo di TOWER_HEIGHT
 */
 void printBoard(PlayableBoard board, int cellSide);
-/*Effettua la conversione direttamente sulle coordinate in input*/
-void UIToBackendCoordinates(unsigned int UICoords[2]);
+/*Restituisce la torre corrispondente alle UICoords date*/
+Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2]);
 
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
 static void printUpperSeparator(int cellSide);

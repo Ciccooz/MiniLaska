@@ -25,10 +25,6 @@ int getRowSize(int row)
 
    return 4;
 }
-Tower getTower(PlayableBoard board, unsigned int coords[2])
-{
-  return board[coords[0]][coords[1]];
-}
 /*
 Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
 procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
