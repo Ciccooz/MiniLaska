@@ -1,8 +1,11 @@
 #include "../Headers/errors.h"
 
-int errorFill(int from[], int to[], PlayableBoard board)
+int errorFill(int from[2], int to[2], PlayableBoard board)
 {
     int errors = 0;
+	
+	Tower fromTower = UICoordinatesToTower(board, from);
+	Tower toTower   = UICoordinatesToTower(board, to);
 
     if(!coordinatesWithinBounds(from, to)) {
         errors |= OUT_OF_BOUNDS;
@@ -12,10 +15,10 @@ int errorFill(int from[], int to[], PlayableBoard board)
     if(!movesFromPlayableCell(from))
         errors |= NOT_PLAYABLE_CELL;
 
-    if(isGoingUp(from, to) && !canGoUp(from, to, board))
+    if(isGoingUp(from, to) && !canGoUp(fromTower))
         errors |= CANT_GO_UP;
 
-    if(isGoingDown(from, to) && !canGoDown(from, to, board))
+    if(isGoingDown(from, to) && !canGoDown(fromTower))
         errors |= CANT_GO_DOWN;
 
     if(isInSamePosition(from, to))
@@ -27,7 +30,7 @@ int errorFill(int from[], int to[], PlayableBoard board)
     if(isDoubleMove(from, to) && !canConquer(from, to, board))
         errors |= CANT_CONQUER;
 
-    if(!topIsNull(to, board))
+    if(!topIsNull(toTower))
         errors |= TOP_NOT_NULL;
 
     return errors;
