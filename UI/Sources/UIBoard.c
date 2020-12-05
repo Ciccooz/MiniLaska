@@ -3,27 +3,31 @@
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
 void printBoard(PlayableBoard board, int cellSide)
 {
-    int boardRow, boardCol, terminalRow, UICol;
+    int boardRow, terminalRow;
+    char boardCol;
 
     printUpperSeparator(cellSide);
-    for(boardRow = 0; boardRow < GRID_SIZE; boardRow++)
+    for(boardRow = FIRST_ROW; boardRow > 0; boardRow --)
     {
         for(terminalRow = 0; terminalRow < cellSide; terminalRow++)
         {
             printRowCoordinates(cellSide, terminalRow, boardRow);
 
             printf("%c", VERTICAL_SIDE);
-            for(boardCol = 0; boardCol < GRID_SIZE; boardCol++)
+            for(boardCol = FIRST_COLUMN; boardCol < FIRST_COLUMN + GRID_SIZE; boardCol++)
             {
+                int UICoords[2];
+                UserInput userInput;
+                userInput.column = boardCol;
+                userInput.row = boardRow;
 
-                if(boardRow % 2 == boardCol % 2)
+                UserInputToUICoords(userInput, UICoords);
+
+                if(UICoords[0] % 2 == UICoords[1] % 2)
                 {
-                    int UICoords[2];
                     int pawnIndex = TOWER_HEIGHT - 1 - (terminalRow / (cellSide / TOWER_HEIGHT)); /*indice della pedina da printare*/
                     char pawn;
 
-                    UICoords[0] = boardRow;
-                    UICoords[1] = boardCol;
                     pawn = UICoordinatesToTower(board, UICoords)[pawnIndex];
                     printCellContent(pawn, cellSide);
                 }
@@ -35,7 +39,7 @@ void printBoard(PlayableBoard board, int cellSide)
             printf("\n");
         }
 
-        if(boardRow < GRID_SIZE - 1)
+        if(boardRow > 1)
             printMidSeparator(cellSide);
         else
         {
@@ -50,7 +54,11 @@ Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
   return board[UICoords[0]][UICoords[1] / 2];
 }
 
-
+void UserInputToUICoords(UserInput input, int UICoordinates[2])
+{
+  UICoordinates[0] = GRID_SIZE - input.row;
+  UICoordinates[1] = input.column - FIRST_COLUMN;
+}
 
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
@@ -63,16 +71,16 @@ static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 static void printColumnCoordinates(int cellSide)
 {
     int currentChar = 0;
-    int boardCol;
+    char boardCol;
 
     printf("\t ");
-    for(boardCol = 0; boardCol < GRID_SIZE; boardCol++)
+    for(boardCol = FIRST_COLUMN; boardCol < FIRST_COLUMN + GRID_SIZE; boardCol++)
     {
         printf(" ");
         for(currentChar = 0; currentChar < cellSide; currentChar++)
         {
             if(currentChar == cellSide / 2)
-                printf("%c", 'a' + boardCol);
+                printf("%c", boardCol);
             else
                 printf(" ");
         }

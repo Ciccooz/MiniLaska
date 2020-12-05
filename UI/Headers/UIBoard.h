@@ -17,6 +17,15 @@
 #define HORIZONTAL_SIDE     (char)0xcd   /*═*/
 #define VERTICAL_SIDE       (char)0xba   /*║*/
 
+#define FIRST_COLUMN 'a'
+#define FIRST_ROW GRID_SIZE
+
+typedef struct
+{
+  char column;
+  int row;
+} UserInput;
+
 /*
 cellSide indica la dimensione della cella (bordi esclusi) in char
 cellSide deve essere un multiplo di TOWER_HEIGHT
@@ -24,7 +33,7 @@ cellSide deve essere un multiplo di TOWER_HEIGHT
 void printBoard(PlayableBoard board, int cellSide);
 /*Restituisce la torre corrispondente alle UICoords date*/
 Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2]);
-
+void UserInputToUICoords(UserInput input, int UICoordinates[2]);
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
 static void printUpperSeparator(int cellSide);
 static void printMidSeparator(int cellSide);

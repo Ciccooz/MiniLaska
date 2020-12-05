@@ -2,8 +2,9 @@
 
 int main()
 {
-	int from[2];
-	int to[2];
+  int counter = 0;
+	int UIFrom[2];
+	int UITo[2];
 	PlayableBoard board = newBoard();
 	if(board == NULL)
 		return 1;
@@ -14,29 +15,32 @@ int main()
 	{
 		refreshTerminal();
 		printBoard(board, 6);
-		getCoordinates("FROM", from);
-		if(from[0] < 0)
-			break;
-		getCoordinates("TO", to);
 
-		if(isValidMove(from, to, board))
-			move(board, from, to);
+    do
+    {
+      getCoordinates("FROM", UIFrom);
+      getCoordinates("TO", UITo);
+    } while(!isValidMove(UIFrom, UITo, board));
 
-	} while(1);
+		move(board, UIFrom, UITo);
+    counter++;
+
+	} while(counter < 5);
 
 	freeBoard(board);
 	printf("Board successfully freed\n");
 }
 
-static void getCoordinates(const char* title, int coords[2])
+static void getCoordinates(const char* title, int UICoords[2])
 {
-	char temp;
+	UserInput input;
 	printf("%s:\n\tColumn: ", title);
-	scanf(" %c", &temp);
-	coords[1] = temp - 'a';
+	scanf(" %c", &input.column);
 
 	printf("\tRow: ");
-	scanf("%d", &coords[0]);
+	scanf("%d", &input.row);
+
+  UserInputToUICoords(input, UICoords);
 }
 
 static void refreshTerminal()
