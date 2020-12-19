@@ -1,7 +1,6 @@
 #pragma once
 
-#include "rules.h"
-#include "board.h"
+#include "../../includer.h"
 
 /*Restituisce la pedina (o la pedina che comanda la torre) che occupa la cella selezionata
 Se la cella è vuota, viene restituito il NULL_PAWN (ovvero uno spazio vuoto)............*/

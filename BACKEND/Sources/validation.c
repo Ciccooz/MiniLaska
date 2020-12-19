@@ -1,12 +1,11 @@
 #include "../Headers/validation.h"
 
 
-int isValidMove(int from[2], int to[2], PlayableBoard board)
+int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn)
 {
-    int errors = errorFill(from, to, board);
-    errorCheck(errors);
+    int errors = errorFill(from, to, board, oTurn);
 
-    return  !errors;
+    return  errors;
 }
 
 int coordinatesWithinBounds(int from[2], int to[2])
@@ -99,4 +98,13 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
            (previousTop == SOLDIER2 || previousTop == OFFICER2) ||
            (fromTop == SOLDIER2 || fromTop == OFFICER2) &&
            (previousTop == SOLDIER1 || previousTop == OFFICER1);
+}
+
+int isYourPawn(int from[2], PlayableBoard board, int oTurn){
+	Tower fromTower = UICoordinatesToTower(board, from);
+	
+	char top = getTop(fromTower);
+	
+	return ((top == SOLDIER1 || top == OFFICER1) && !oTurn) ||
+		   ((top == SOLDIER2 || top == OFFICER2) && oTurn);
 }

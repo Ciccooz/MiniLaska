@@ -18,6 +18,7 @@ PlayableBoard newBoard()
    spawnPawns(board);
    return board;
 }
+
 int getRowSize(int row)
 {
    if(row % 2)
@@ -105,20 +106,21 @@ static void spawnPawns(PlayableBoard board)
          memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
          if(row <= 2)
             board[row][col][0] = SOLDIER1;
-         else if (row >= 4)
-            board[row][col][0] = SOLDIER2;
+		
+		if(row >=4)
+			 board[row][col][0] = SOLDIER2;
       }
    }
 }
 
 Tower getPrevious(int from[2], int to[2], PlayableBoard board)
 {
-  Tower previous;
+	Tower previous;
 	int coord[2];
 	coord[0] = (from[0] + to[0]) / 2;
 	coord[1] = (from[1] + to[1]) / 2;
 
-  previous = UICoordinatesToTower(board, coord);
+	previous = UICoordinatesToTower(board, coord);
 
 
 	return previous;

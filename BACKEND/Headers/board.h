@@ -1,9 +1,9 @@
 #pragma once
 
-#include "rules.h"
-#include "../../UI/Headers/UIBoard.h"
 #include <stdlib.h> /*for malloc/free*/
 #include <string.h> /*for memset*/
+#include "../../includer.h"
+
 
 PlayableBoard newBoard();
 void freeBoard(PlayableBoard grid);
