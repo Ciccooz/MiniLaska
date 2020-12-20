@@ -1,9 +1,6 @@
 #pragma once
 
-#include "rules.h"
-#include "validation.h"
 #include "../../UI/Headers/UIBoard.h"
-#include <stdio.h>
 
 #define OUT_OF_BOUNDS           0x01
 #define NOT_PLAYABLE_CELL       0x02
@@ -23,4 +20,4 @@ int errorFill(int from[2], int to[2], PlayableBoard board);
 
 /*Controlla bit a bit una variabile char precedentemente returnata
 Se il bit è a 1 si è verificato l'errore, altrimenti è 0.......................................*/
-void errorCheck(int errors);
+void promptErrors(int errors);

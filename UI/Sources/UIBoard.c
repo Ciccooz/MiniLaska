@@ -53,13 +53,19 @@ Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
 {
   return board[UICoords[0]][UICoords[1] / 2];
 }
-
 void UserInputToUICoords(UserInput input, int UICoordinates[2])
 {
   UICoordinates[0] = GRID_SIZE - input.row;
   UICoordinates[1] = input.column - FIRST_COLUMN;
 }
+Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])
+{
+  int coords[2];
+  coords[0] = (UIPos1[0] + UIPos2[0]) / 2;
+  coords[1] = (UIPos1[1] + UIPos2[1]) / 2;
 
+  return UICoordinatesToTower(board, coords);
+}
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
     printf("\t");

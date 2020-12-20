@@ -21,9 +21,9 @@ PlayableBoard newBoard()
 int getRowSize(int row)
 {
    if(row % 2)
-      return 3;
+      return GRID_SIZE / 2;
 
-   return 4;
+   return (GRID_SIZE / 2) + 1;
 }
 /*
 Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
@@ -109,17 +109,4 @@ static void spawnPawns(PlayableBoard board)
             board[row][col][0] = SOLDIER2;
       }
    }
-}
-
-Tower getPrevious(int from[2], int to[2], PlayableBoard board)
-{
-  Tower previous;
-	int coord[2];
-	coord[0] = (from[0] + to[0]) / 2;
-	coord[1] = (from[1] + to[1]) / 2;
-
-  previous = UICoordinatesToTower(board, coord);
-
-
-	return previous;
 }

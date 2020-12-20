@@ -1,12 +1,7 @@
 #pragma once
 
+#include <string.h>
 #include "../../UI/Headers/UIBoard.h"
-#include "validation.h"
-#include "rules.h"
-#include "board.h"
-#include "pawn.h"
-#include "math.h"
-#include <stdlib.h>
 
 void move(PlayableBoard board, int UIFrom[2], int UITo[2]);
 

@@ -4,7 +4,8 @@
 int isValidMove(int from[2], int to[2], PlayableBoard board)
 {
     int errors = errorFill(from, to, board);
-    errorCheck(errors);
+    if(errors)
+      promptErrors(errors);
 
     return  !errors;
 }
@@ -90,13 +91,13 @@ int topIsNull(Tower tower)
 int canConquer(int from[2], int to[2], PlayableBoard board)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
-	Tower previous  = getPrevious(from, to, board);
+	Tower midTower  = getTowerInBetween(board, from, to);
 
 	char fromTop 	 = getTop(fromTower);
-	char previousTop = getTop(previous);
+	char midTowerTop = getTop(midTower);
 
     return (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
-           (previousTop == SOLDIER2 || previousTop == OFFICER2) ||
+           (midTowerTop == SOLDIER2 || midTowerTop == OFFICER2) ||
            (fromTop == SOLDIER2 || fromTop == OFFICER2) &&
-           (previousTop == SOLDIER1 || previousTop == OFFICER1);
+           (midTowerTop == SOLDIER1 || midTowerTop == OFFICER1);
 }

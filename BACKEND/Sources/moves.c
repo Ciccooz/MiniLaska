@@ -6,7 +6,7 @@ void move(PlayableBoard board, int UIFrom[2], int UITo[2])
     Tower fromTower = UICoordinatesToTower(board, UIFrom);
 
     if(isDoubleMove(UIFrom, UITo))
-        conquer(getPrevious(UIFrom, UITo, board), fromTower);
+        conquer(getTowerInBetween(board, UIFrom, UITo), fromTower);
 
     deepCopy(UICoordinatesToTower(board, UITo), fromTower);
     clearCell(fromTower);

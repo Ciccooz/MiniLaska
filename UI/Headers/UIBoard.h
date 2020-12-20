@@ -1,8 +1,8 @@
 #pragma once
 
 #include <stdio.h>
-#include "../../BACKEND/Headers/board.h"
 #include "../../BACKEND/Headers/rules.h"
+#include "../../BACKEND/Headers/pawn.h"
 
 #define UNPLAYABLE_PAWN     (char)0xb0   /*░*/
 #define TOP_LEFT_CORNER     (char)0xc9   /*╔*/
@@ -34,6 +34,8 @@ void printBoard(PlayableBoard board, int cellSide);
 /*Restituisce la torre corrispondente alle UICoords date*/
 Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2]);
 void UserInputToUICoords(UserInput input, int UICoordinates[2]);
+Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2]);
+
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
 static void printUpperSeparator(int cellSide);
 static void printMidSeparator(int cellSide);

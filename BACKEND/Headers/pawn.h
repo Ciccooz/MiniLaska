@@ -1,13 +1,19 @@
 #pragma once
 
 #include "rules.h"
-#include "board.h"
+#include "laskaTypes.h"
+
+#define SOLDIER1 'x'
+#define SOLDIER2 'o'
+#define OFFICER1 'X'
+#define OFFICER2 'O'
+#define NULL_PAWN ' '
 
 /*Restituisce la pedina (o la pedina che comanda la torre) che occupa la cella selezionata
 Se la cella è vuota, viene restituito il NULL_PAWN (ovvero uno spazio vuoto)............*/
 char getTop(Tower tower);
 
-/*Restituisce l'indice nella quale si trova la pedina 
+/*Restituisce l'indice nella quale si trova la pedina
 (o la pedina che comanda la torre) nella cella selezionata
 Se la cella è vuota, restituisce -1.....................................................*/
 int getTopIndex(Tower tower);

@@ -18,8 +18,8 @@ int main()
 
     do
     {
-      getCoordinates("FROM", UIFrom);
-      getCoordinates("TO", UITo);
+      getUserInput("FROM", UIFrom);
+      getUserInput("TO", UITo);
     } while(!isValidMove(UIFrom, UITo, board));
 
 		move(board, UIFrom, UITo);
@@ -31,7 +31,7 @@ int main()
 	printf("Board successfully freed\n");
 }
 
-static void getCoordinates(const char* title, int UICoords[2])
+static void getUserInput(const char* title, int UICoords[2])
 {
 	UserInput input;
 	printf("%s:\n\tColumn: ", title);

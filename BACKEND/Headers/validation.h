@@ -1,11 +1,11 @@
 #pragma once
 
-#include "rules.h"
+#include <math.h>
 #include "errors.h"
+#include "rules.h"
+#include "board.h"
 #include "pawn.h"
 #include "../../UI/Headers/UIBoard.h"
-#include <math.h>
-#include <stdlib.h>
 
 /*Esegue tutti i controlli che seguono...........................................*/
 int isValidMove(int from[2], int to[2], PlayableBoard board);
