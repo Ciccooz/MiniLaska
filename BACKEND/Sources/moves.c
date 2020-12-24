@@ -1,5 +1,10 @@
 #include "../Headers/moves.h"
 
+#include <string.h>
+#include "../../UI/Headers/laskaBoard.h"
+#include "../Headers/playableBoard.h"
+#include "../Headers/rules.h"
+#include "../Headers/tower.h"
 
 void move(PlayableBoard board, int UIFrom[2], int UITo[2])
 {

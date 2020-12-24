@@ -1,8 +1,6 @@
 #pragma once
 
-#include <stdlib.h>
-#include <string.h>
-#include "pawn.h"
+#include "laskaTypes.h"
 
 PlayableBoard newBoard();
 void freeBoard(PlayableBoard grid);

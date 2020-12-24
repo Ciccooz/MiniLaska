@@ -1,5 +1,9 @@
 #include "../Headers/errors.h"
 
+#include <stdio.h>
+#include "../Headers/validation.h"
+#include "../../UI/Headers/laskaBoard.h"
+
 int errorFill(int from[2], int to[2], PlayableBoard board)
 {
     int errors = 0;
@@ -45,7 +49,7 @@ int errorFill(int from[2], int to[2], PlayableBoard board)
 void promptErrors(int errors)
 {
     printf("Invalid move:\n");
-    
+
     if(errors & OUT_OF_BOUNDS)
         printf("\tCoordinates are out of bounds\n");
 

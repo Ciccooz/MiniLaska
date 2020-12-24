@@ -1,5 +1,9 @@
 #include "../Headers/validation.h"
 
+#include <math.h>
+#include "../Headers/rules.h"
+#include "../Headers/tower.h"
+#include "../../UI/Headers/laskaBoard.h"
 
 int isValidMove(int from[2], int to[2], PlayableBoard board)
 {

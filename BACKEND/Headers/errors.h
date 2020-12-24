@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../UI/Headers/UIBoard.h"
+#include "laskaTypes.h"
 
 #define OUT_OF_BOUNDS           0x01
 #define NOT_PLAYABLE_CELL       0x02

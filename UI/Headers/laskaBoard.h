@@ -1,8 +1,6 @@
 #pragma once
 
-#include <stdio.h>
-#include "../../BACKEND/Headers/rules.h"
-#include "../../BACKEND/Headers/pawn.h"
+#include "../../BACKEND/Headers/laskaTypes.h"
 
 #define UNPLAYABLE_PAWN     (char)0xb0   /*░*/
 #define TOP_LEFT_CORNER     (char)0xc9   /*╔*/
@@ -30,7 +28,7 @@ typedef struct
 cellSide indica la dimensione della cella (bordi esclusi) in char
 cellSide deve essere un multiplo di TOWER_HEIGHT
 */
-void printBoard(PlayableBoard board, int cellSide);
+void printBoard(PlayableBoard board);
 /*Restituisce la torre corrispondente alle UICoords date*/
 Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2]);
 void UserInputToUICoords(UserInput input, int UICoordinates[2]);

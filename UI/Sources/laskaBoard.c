@@ -1,8 +1,13 @@
-#include "../Headers/UIBoard.h"
+#include "../Headers/laskaBoard.h"
+
+#include <stdio.h>
+#include "../../main.h"
+#include "../../BACKEND/Headers/rules.h"
 
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
-void printBoard(PlayableBoard board, int cellSide)
+void printBoard(PlayableBoard board)
 {
+    int cellSide = TOWER_HEIGHT;
     int boardRow, terminalRow;
     char boardCol;
 

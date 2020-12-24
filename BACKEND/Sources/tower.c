@@ -1,4 +1,6 @@
-#include "../Headers/pawn.h"
+#include "../Headers/tower.h"
+
+#include "../Headers/rules.h"
 
 char getTop(Tower tower)
 {
@@ -35,7 +37,7 @@ void changeTop(Tower tower, char newTop)
 void promote(Tower tower)
 {
 	char top = getTop(tower);
-	
+
 	if(top == SOLDIER1)
 		changeTop(tower, OFFICER1);
 

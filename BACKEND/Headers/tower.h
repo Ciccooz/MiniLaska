@@ -1,6 +1,5 @@
 #pragma once
 
-#include "rules.h"
 #include "laskaTypes.h"
 
 #define SOLDIER1 'x'

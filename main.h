@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-#include "BACKEND/Headers/board.h"
-#include "UI/Headers/UIBoard.h"
+#include "BACKEND/Headers/playableBoard.h"
+#include "UI/Headers/laskaBoard.h"
 #include "BACKEND/Headers/moves.h"
 #include "BACKEND/Headers/validation.h"
-
-
 static void refreshTerminal();
 
 /*

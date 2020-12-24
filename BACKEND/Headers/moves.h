@@ -1,7 +1,6 @@
 #pragma once
 
-#include <string.h>
-#include "../../UI/Headers/UIBoard.h"
+#include "laskaTypes.h"
 
 void move(PlayableBoard board, int UIFrom[2], int UITo[2]);
 

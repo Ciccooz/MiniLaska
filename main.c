@@ -14,7 +14,7 @@ int main()
 	do
 	{
 		refreshTerminal();
-		printBoard(board, 6);
+		printBoard(board);
 
     do
     {
@@ -25,7 +25,7 @@ int main()
 		move(board, UIFrom, UITo);
     counter++;
 
-	} while(counter < 5);
+	} while(counter < 1);
 
 	freeBoard(board);
 	printf("Board successfully freed\n");
