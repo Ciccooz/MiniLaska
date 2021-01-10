@@ -1,9 +1,12 @@
 #pragma once
+#include "laskaTypes.h"
 
-#include <stdio.h>
-#include "../../includer.h"
+/**
+*@file 			errors.h
+*@brief			All'interno di questo file si trovano i metodi relativi agli errori di input
+**/
 
-
+/******************************DEFINITIONS*********************************/
 #define OUT_OF_BOUNDS           0x01
 #define NOT_PLAYABLE_CELL       0x02
 #define NOT_DIAGONAL            0x04
@@ -14,14 +17,32 @@
 #define CANT_CONQUER            0x80
 #define TOP_NOT_NULL            0x100
 #define NOT_YOUR_PAWN			0x200
+#define MUST_CONQUER			0x400
 
-/*Controlla quali errori possono essere verificati nel caso in cui si tenti di eseguire una mossa
-Se si verifica un errore, si porta un bit della variabile char a 1
-Infine la variabile viene restituita...........................................................*/
+/********************************METHODS***********************************/
+/**
+*@brief 			Effettua tutti i controlli dell'input dell'utente
+*@details			Nel caso in cui l'utente inserisca un input che genera 
+*					errori, in base all'errore generato, si mette in OR un 
+*					intero chiamato 'errors', con tutti i bit posti 
+*					inizialmente a 0, con la variabile corrispondente 
+*					all'errore.
+*
+*@param	from[2]		Un array con le coordinate della pedina da muovere
+*@param	to[2]		Un array contenente le coordinate di destinazione
+*@param	board		La matrice contenente tutte le pedine
+*@param	oTurn		Indica di chi è il turno 
+*
+*@return				L'intero 'errors' dichiarato all'inizio del metodo
+**/
 int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn);
 
-/*Controlla bit a bit una variabile char precedentemente returnata
-Se il bit è a 1 si è verificato l'errore, altrimenti è 0.......................................*/
+/**
+*@brief 				Stampa a video l'errore che si è generato
+*@details				La variabile 'errors' viene messa in AND con le variabili che
+*						corrispondono ad un certo errore. Se l'AND da come risultato 1,
+*						significa che è presente quell'errore e viene stampato a video.
+*
+*@param	errors			Intero che contiene gli errori
+**/
 void errorCheck(int errors);
-
-

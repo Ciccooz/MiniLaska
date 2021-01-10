@@ -1,5 +1,11 @@
 #include "../Headers/validation.h"
 
+#include <math.h>
+#include "../Headers/rules.h"
+#include "../Headers/tower.h"
+#include "../Headers/input.h"
+#include "../Headers/playableBoard.h"
+#include "../../UI/Headers/laskaBoard.h"
 
 int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn)
 {
@@ -100,11 +106,206 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
            (previousTop == SOLDIER1 || previousTop == OFFICER1);
 }
 
-int isYourPawn(int from[2], PlayableBoard board, int oTurn){
+int isYourPawn(int from[2], PlayableBoard board, int oTurn)
+{
 	Tower fromTower = UICoordinatesToTower(board, from);
 	
 	char top = getTop(fromTower);
 	
 	return ((top == SOLDIER1 || top == OFFICER1) && !oTurn) ||
 		   ((top == SOLDIER2 || top == OFFICER2) && oTurn);
+}
+
+int mustConquer(PlayableBoard board, int oTurn)
+{
+	int row, col;
+	int fromBoard[2], toBoard[2];
+	Tower fromTower, toTower;
+	int xCounter = 0, oCounter = 0;
+	char fromTop;
+	
+	for(row = 0; row < GRID_SIZE; row++)
+	{
+		fromBoard[0] = row;
+		
+		for(col = 0; col < GRID_SIZE; col++)
+		{
+			if((row + col) % 2 == 0)
+			{
+				fromBoard[1] = col;
+				
+				fromTower = UICoordinatesToTower(board, fromBoard);
+				fromTop   = getTop(fromTower);
+				
+				if(oTurn)
+				{
+					if(fromTop == SOLDIER2)
+					{
+						/*UP*/
+						if(fromBoard[0] - 2 >= 0)
+						{
+							toBoard[0] = fromBoard[0] - 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+						}
+					}
+					
+					if(fromTop == OFFICER2)
+					{						
+						/*DOWN*/
+						if(fromBoard[0] + 2 < GRID_SIZE)
+						{
+							toBoard[0] = fromBoard[0] + 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+						}
+						
+						
+						/*UP*/
+						if(fromBoard[0] - 2 >= 0)
+						{
+							toBoard[0] = fromBoard[0] - 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									oCounter++;
+							}
+						}
+					}
+				}
+				
+				else
+				{
+					if(fromTop == SOLDIER1)
+					{
+						/*DOWN*/
+						if(fromBoard[0] + 2 < GRID_SIZE)
+						{
+							toBoard[0] = fromBoard[0] + 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+						}
+					}
+					
+					if(fromTop == OFFICER1)
+					{
+						/*DOWN*/
+						if(fromBoard[0] + 2 < GRID_SIZE)
+						{
+							toBoard[0] = fromBoard[0] + 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+						}
+						
+						
+						/*UP*/
+						if(fromBoard[0] - 2 >= 0)
+						{
+							toBoard[0] = fromBoard[0] - 2;
+						
+							/*LEFT*/
+							if(fromBoard[1] - 2 >= 0)
+							{
+								toBoard[1] = fromBoard[1] - 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+							
+							/*RIGHT*/
+							if(fromBoard[1] + 2 < GRID_SIZE)
+							{
+								toBoard[1] = fromBoard[1] + 2;
+								toTower = UICoordinatesToTower(board, toBoard);
+								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
+									xCounter++;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	if(oTurn)
+		return oCounter != 0;
+	else
+		return xCounter != 0;
 }
