@@ -90,9 +90,8 @@ cellSide deve essere un multiplo di TOWER_HEIGHT
 *						per intero la griglia.
 *
 *@param board			La griglia da stampare
-*@param cellSide		La dimensione delle singole celle
 **/
-void printBoard(PlayableBoard board, int cellSide);
+void printBoard(PlayableBoard board);
 
 /*Restituisce la torre corrispondente alle UICoords date*/
 /**
@@ -104,7 +103,7 @@ void printBoard(PlayableBoard board, int cellSide);
 *@note			 		La griglia utilizzata dal programma non utilizza alcune
 *				 		celle, quindi le coordinate delle colonne sono diverse.
 *				 		Per selezionare la cella corretta, è necessario inserire
-*				 		la riga, senza modifiche, e la colonna, divisa per 2. 
+*				 		la riga, senza modifiche, e la colonna, divisa per 2.
 *
 *@param board	 		La griglia contentente le torri
 *@param UICoords 		Le coordinate da cui prendere la torre
@@ -114,8 +113,8 @@ Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2]);
 /**
 *@brief 		 		Converte le coordinate dell'utente in quelle della UI
 *
-*@note			 		L'utente ha come indice riga da 1 a 7, mentre come indice 
-*				 		colonna dalla lettera 'a' alla 'g'. La griglia dell'UI ha 
+*@note			 		L'utente ha come indice riga da 1 a 7, mentre come indice
+*				 		colonna dalla lettera 'a' alla 'g'. La griglia dell'UI ha
 *				 		righe e colonne con indici che vanno da 0 a 6.
 *
 *@param input	 		Input dell'utente
@@ -127,7 +126,7 @@ void UserInputToUICoords(UserInput input, int UICoords[2]);
 *@brief 		 		Stampa i separatori in base ai parametri passati
 *@details 		 		Stampa per primo, e per una sola volta, il parametro 'left'.
 *				 		Poi per ogni cella viene stampato il carattere #HORIZONTAL_SIDE
-*				 		e alla fine della cella il parametro 'intersection', questo 
+*				 		e alla fine della cella il parametro 'intersection', questo
 *				 		processo è ripetuto per tutta la lunghezza della griglia.
 *				 		Una volta finita la griglia verrà stampato il parametro 'right'.
 *
@@ -136,6 +135,21 @@ void UserInputToUICoords(UserInput input, int UICoords[2]);
 *@param intersection	Carattere che viene stampato in mezzo
 *@param right 			Carattere stampato alla fine della griglia
 **/
+
+/**
+*@brief 		Restituisce la torre compresa tra due celle
+*@details 		Ricava le coordinate della torre facendo la media,
+*				tra le coordinate della cella di partenza e quella di
+*				destinazione. Ottiene la torre chiamando il metodo
+*				UICoordinatesToTower(), passando come parametri la griglia
+*				e le coordinate appena trovate
+*
+*@param from[2] Coordinate di partenza
+*@param to[2]	Coordinate di destinazione
+*@param	grid	Griglia contenente le torri
+**/
+Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2]);
+
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
 
 /**
@@ -182,7 +196,7 @@ static void printColumnCoordinates(int cellSide);
 
 /**
 *@brief 		 		Stampa le coordinate delle righe
-*@details				La coordinata viene stampata solo se terminalRow è 
+*@details				La coordinata viene stampata solo se terminalRow è
 *						pari a cellSide/2.
 *
 *@param cellSide		Dimensioni della singola cella

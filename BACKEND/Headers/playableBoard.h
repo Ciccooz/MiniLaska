@@ -16,7 +16,7 @@ l'allocazione di memoria
 
 /**
 *@brief 		Crea una nuova griglia ed inserisce le pedine
-*@details 		Chiama il metodo allocBoard() e, se l'allocazione è 
+*@details 		Chiama il metodo allocBoard() e, se l'allocazione è
 *				andata a buon fine, chiama il metodo spawnPawns(),
 *				altrimenti restituisce NULL.
 **/
@@ -33,7 +33,7 @@ NULL
 /**
 *@brief 		Alloca dinamicamente la memoria del campo da gioco
 *@details 		Prima alloca l'array che conterrà le righe della griglia,
-*				poi alloca le righe della griglia utilizzando dimesioni 
+*				poi alloca le righe della griglia utilizzando dimesioni
 *				diverse, ottenute tramite il metodo getRowSize().
 *				Nel caso in cui una delle allocazioni non vada a buon fine,
 *				chiama il metodo freeBoard().
@@ -47,7 +47,7 @@ static PlayableBoard allocBoard();
 /**
 *@brief 		Posiziona le pedine sulla griglia
 *@details 		Per prima cosa riempe la griglia di #NULL_PAWN. Poi
-*				nella prima metà della griglia posiziona le pedine #SOLDIER1 e 
+*				nella prima metà della griglia posiziona le pedine #SOLDIER1 e
 *				nella seconda metà #SOLDIER2, la riga in mezzo non viene riempita.
 *				Il numero di pedine posizionate in ogni riga dipende dal valore
 *				restituito da getRowSize().
@@ -74,23 +74,9 @@ procede direttamente con la free del buffer in cui tale puntatore è memorizzato
 /**
 *@brief 		Libera la memoria allocata per il campo da gioco
 *@details 		Libera la memoria delle singole torri, poi della riga
-*				nella quale si trovano le torri. Infine fa la free del 
+*				nella quale si trovano le torri. Infine fa la free del
 *				puntatore dell'intera griglia.
 *
 *@param	grid	Griglia dalla quale liberare la memoria
 **/
 void freeBoard(PlayableBoard grid);
-
-/**
-*@brief 		Restituisce la torre compresa tra due celle
-*@details 		Ricava le coordinate della torre facendo la media,
-*				tra le coordinate della cella di partenza e quella di
-*				destinazione. Ottiene la torre chiamando il metodo 
-*				UICoordinatesToTower(), passando come parametri la griglia 
-*				e le coordinate appena trovate
-*
-*@param from[2] Coordinate di partenza
-*@param to[2]	Coordinate di destinazione
-*@param	grid	Griglia contenente le torri
-**/
-Tower getPrevious(int from[2], int to[2], PlayableBoard board);

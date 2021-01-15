@@ -68,7 +68,7 @@
 /**
 *@brief 		Errore CANT_CONQUER
 *
-*@details		Errore che si riscontra quando si cerca di conquistare 
+*@details		Errore che si riscontra quando si cerca di conquistare
 *				una torre, ma non è possibile.
 **/
 #define CANT_CONQUER            0x80
@@ -99,16 +99,16 @@
 /********************************METHODS***********************************/
 /**
 *@brief 			Effettua tutti i controlli dell'input dell'utente
-*@details			Nel caso in cui l'utente inserisca un input che genera 
-*					errori, in base all'errore generato, si mette in OR un 
-*					intero chiamato 'errors', con tutti i bit posti 
-*					inizialmente a 0, con la variabile corrispondente 
+*@details			Nel caso in cui l'utente inserisca un input che genera
+*					errori, in base all'errore generato, si mette in OR un
+*					intero chiamato 'errors', con tutti i bit posti
+*					inizialmente a 0, con la variabile corrispondente
 *					all'errore.
 *
 *@param	from[2]		Un array con le coordinate della pedina da muovere
 *@param	to[2]		Un array contenente le coordinate di destinazione
 *@param	board		La matrice contenente tutte le pedine
-*@param	oTurn		Indica di chi è il turno 
+*@param	oTurn		Indica di chi è il turno
 *
 *@return				L'intero 'errors' dichiarato all'inizio del metodo
 **/
@@ -122,4 +122,4 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn);
 *
 *@param	errors			Intero che contiene gli errori
 **/
-void errorCheck(int errors);
+void promptErrors(int errors);
