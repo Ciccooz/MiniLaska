@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Headers/playableBoard.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Mini Laska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_52212a02977afd6492be800572ba12e7.html">BACKEND</a></li><li class="navelem"><a class="el" href="dir_ac41980f87bbfa4c235334d8085962d5.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">playableBoard.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="playable_board_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="laska_types_8h.html">laskaTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">Alloca la memoria per il campo da gioco tramite la chiamata ad allocBoard e posiziona le pedine</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">nella posizione di inizio partita tramite la chiamata a spawnPawns</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">Restituisce il puntatore base (PlayableBoard) o NULL in caso si verificasse un&#39;eccezione durante</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">l&#39;allocazione di memoria</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> <a class="code" href="playable_board_8h.html#af145e39e1bee0c8e4e5dccca17094f98">newBoard</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">Alloca dinamicamente la memoria per il campo da gioco (limitato alle caselle giocabili) e</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">restituisce il puntatore base (PlayableBoard)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">Se la calloc non riesce ad allocare memoria la funzione ripulisce tutto ciò che eventualmente</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">era già stato allocato prima che si verificasse l&#39;eccezione chiamando freeBoard e restituisce</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">NULL</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="playable_board_8h.html#a2ffcb02581cd5e87e972dcdc3bde6d4f">   45</a></span>&#160;<span class="keyword">static</span> <a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> <a class="code" href="playable_board_8h.html#a2ffcb02581cd5e87e972dcdc3bde6d4f">allocBoard</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="playable_board_8h.html#a26ca26bbcd5a9825f33659a490d3435a">   57</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="playable_board_8h.html#a26ca26bbcd5a9825f33659a490d3435a">spawnPawns</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> grid);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">int</span> <a class="code" href="playable_board_8h.html#a37b83a14c9c47dfae66b295438dd4868">getRowSize</a>(<span class="keywordtype">int</span> row);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">procede direttamente con la free del buffer in cui tale puntatore è memorizzato.</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> <a class="code" href="playable_board_8h.html#a17861426a321ce33c3fe10252850f400">freeBoard</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> grid);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> <a class="code" href="playable_board_8h.html#a71c4eb2b0ee11b31b17b040c1c190ef7">getPrevious</a>(<span class="keywordtype">int</span> from[2], <span class="keywordtype">int</span> to[2], <a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aplayable_board_8h_html_a71c4eb2b0ee11b31b17b040c1c190ef7"><div class="ttname"><a href="playable_board_8h.html#a71c4eb2b0ee11b31b17b040c1c190ef7">getPrevious</a></div><div class="ttdeci">Tower getPrevious(int from[2], int to[2], PlayableBoard board)</div><div class="ttdoc">Restituisce la torre compresa tra due celle.</div><div class="ttdef"><b>Definition:</b> playableBoard.c:101</div></div>
+<div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:22</div></div>
+<div class="ttc" id="aplayable_board_8h_html_a2ffcb02581cd5e87e972dcdc3bde6d4f"><div class="ttname"><a href="playable_board_8h.html#a2ffcb02581cd5e87e972dcdc3bde6d4f">allocBoard</a></div><div class="ttdeci">static PlayableBoard allocBoard()</div><div class="ttdoc">Alloca dinamicamente la memoria del campo da gioco.</div></div>
+<div class="ttc" id="aplayable_board_8h_html_af145e39e1bee0c8e4e5dccca17094f98"><div class="ttname"><a href="playable_board_8h.html#af145e39e1bee0c8e4e5dccca17094f98">newBoard</a></div><div class="ttdeci">PlayableBoard newBoard()</div><div class="ttdoc">Crea una nuova griglia ed inserisce le pedine.</div><div class="ttdef"><b>Definition:</b> playableBoard.c:9</div></div>
+<div class="ttc" id="aplayable_board_8h_html_a26ca26bbcd5a9825f33659a490d3435a"><div class="ttname"><a href="playable_board_8h.html#a26ca26bbcd5a9825f33659a490d3435a">spawnPawns</a></div><div class="ttdeci">static void spawnPawns(PlayableBoard grid)</div><div class="ttdoc">Posiziona le pedine sulla griglia.</div></div>
+<div class="ttc" id="alaska_types_8h_html"><div class="ttname"><a href="laska_types_8h.html">laskaTypes.h</a></div><div class="ttdoc">All'interno di questo file sono presenti i tipi utilizzati all'interno del codice.</div></div>
+<div class="ttc" id="aplayable_board_8h_html_a17861426a321ce33c3fe10252850f400"><div class="ttname"><a href="playable_board_8h.html#a17861426a321ce33c3fe10252850f400">freeBoard</a></div><div class="ttdeci">void freeBoard(PlayableBoard grid)</div><div class="ttdoc">Libera la memoria allocata per il campo da gioco.</div><div class="ttdef"><b>Definition:</b> playableBoard.c:77</div></div>
+<div class="ttc" id="aplayable_board_8h_html_a37b83a14c9c47dfae66b295438dd4868"><div class="ttname"><a href="playable_board_8h.html#a37b83a14c9c47dfae66b295438dd4868">getRowSize</a></div><div class="ttdeci">int getRowSize(int row)</div><div class="ttdoc">Restituisce la grandezza di una riga.</div><div class="ttdef"><b>Definition:</b> playableBoard.c:69</div></div>
+<div class="ttc" id="alaska_types_8h_html_a017584424bfd55dd8e59b0d31521f608"><div class="ttname"><a href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a></div><div class="ttdeci">Pawn * Tower</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:17</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

@@ -1,6 +1,10 @@
 #include "../Headers/errors.h"
 
-int errorFill(int from[2], int to[2], PlayableBoard board)
+#include <stdio.h>
+#include "../Headers/validation.h"
+#include "../../UI/Headers/laskaBoard.h"
+
+int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
 {
     int errors = 0;
 
@@ -38,6 +42,12 @@ int errorFill(int from[2], int to[2], PlayableBoard board)
 
     if(!topIsNull(toTower))
         errors |= TOP_NOT_NULL;
+	
+	if(!isYourPawn(from, board, oTurn))
+		errors |= NOT_YOUR_PAWN;
+	
+	if((isDoubleMove(from, to) && canConquer(from, to, board)) != mustConquer(board, oTurn))
+		errors |= MUST_CONQUER;
 
     return errors;
 }
@@ -67,4 +77,10 @@ void errorCheck(int errors)
 
     if(errors & TOP_NOT_NULL)
         printf("top not null\n");
+	
+	if(errors & NOT_YOUR_PAWN)
+		printf("not your pawn\n");
+	
+	if(errors & MUST_CONQUER)
+		printf("must conquer\n");
 }

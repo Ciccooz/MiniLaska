@@ -1,5 +1,10 @@
 #include "../Headers/moves.h"
 
+#include <string.h>
+#include "../../UI/Headers/laskaBoard.h"
+#include "../Headers/playableBoard.h"
+#include "../Headers/rules.h"
+#include "../Headers/tower.h"
 
 void move(PlayableBoard board, int UIFrom[2], int UITo[2])
 {
@@ -34,6 +39,7 @@ static void deepCopy(Tower destination, Tower source)
     for(i = 0; i < TOWER_HEIGHT; i++)
         destination[i] = source[i];
 }
+
 static void clearCell(Tower tower)
 {
     memset(tower, NULL_PAWN, TOWER_HEIGHT * sizeof(char));

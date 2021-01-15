@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Headers/moves.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Mini Laska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_52212a02977afd6492be800572ba12e7.html">BACKEND</a></li><li class="navelem"><a class="el" href="dir_ac41980f87bbfa4c235334d8085962d5.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">moves.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="moves_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="laska_types_8h.html">laskaTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moves_8h.html#a32420be81ad66f34bfdf5e856fd8615a">move</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">int</span> UIFrom[2], <span class="keywordtype">int</span> UITo[2]);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="moves_8h.html#a6e10794c721ffbda75bbf56a3032dc3d">   30</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="moves_8h.html#a6e10794c721ffbda75bbf56a3032dc3d">conquer</a>(<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquered, <a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquerer);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="moves_8h.html#a31e9e1effca701e9ded9b7a04fbcdbc0">   38</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="moves_8h.html#a31e9e1effca701e9ded9b7a04fbcdbc0">deepCopy</a>(<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> destination, <a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> source);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="moves_8h.html#a3a8076cec4ea8cce9e0223e2c478c7ea">   45</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="moves_8h.html#a3a8076cec4ea8cce9e0223e2c478c7ea">clearCell</a>(<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="amoves_8h_html_a32420be81ad66f34bfdf5e856fd8615a"><div class="ttname"><a href="moves_8h.html#a32420be81ad66f34bfdf5e856fd8615a">move</a></div><div class="ttdeci">void move(PlayableBoard board, int UIFrom[2], int UITo[2])</div><div class="ttdoc">Muove una torre.</div><div class="ttdef"><b>Definition:</b> moves.c:9</div></div>
+<div class="ttc" id="amoves_8h_html_a3a8076cec4ea8cce9e0223e2c478c7ea"><div class="ttname"><a href="moves_8h.html#a3a8076cec4ea8cce9e0223e2c478c7ea">clearCell</a></div><div class="ttdeci">static void clearCell(Tower tower)</div><div class="ttdoc">Cancella una torre.</div></div>
+<div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:22</div></div>
+<div class="ttc" id="amoves_8h_html_a31e9e1effca701e9ded9b7a04fbcdbc0"><div class="ttname"><a href="moves_8h.html#a31e9e1effca701e9ded9b7a04fbcdbc0">deepCopy</a></div><div class="ttdeci">static void deepCopy(Tower destination, Tower source)</div><div class="ttdoc">Sovrascrive una torre al posto di un'altra.</div></div>
+<div class="ttc" id="alaska_types_8h_html"><div class="ttname"><a href="laska_types_8h.html">laskaTypes.h</a></div><div class="ttdoc">All'interno di questo file sono presenti i tipi utilizzati all'interno del codice.</div></div>
+<div class="ttc" id="amoves_8h_html_a6e10794c721ffbda75bbf56a3032dc3d"><div class="ttname"><a href="moves_8h.html#a6e10794c721ffbda75bbf56a3032dc3d">conquer</a></div><div class="ttdeci">static void conquer(Tower conquered, Tower conquerer)</div><div class="ttdoc">Conquista una pedina.</div></div>
+<div class="ttc" id="alaska_types_8h_html_a017584424bfd55dd8e59b0d31521f608"><div class="ttname"><a href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a></div><div class="ttdeci">Pawn * Tower</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:17</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>
