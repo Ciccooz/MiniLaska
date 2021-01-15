@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Progetto/develop/miniLaska/main.h</title>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/main.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,25 +62,42 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">C:/Users/cicco/Desktop/Progetto/develop/miniLaska/main.h</div>  </div>
+<div class="title">C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/main.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="main_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="includer_8h.html">includer.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8h.html#a86ed8902ff0b133bbefe6776b27c99ed">refreshTerminal</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="main_8h.html#a5ee9c214883d4b2ac88c26e3bae24c8e">   22</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="main_8h.html#a5ee9c214883d4b2ac88c26e3bae24c8e">checkPromotion</a>(<a class="code" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> boar, <span class="keywordtype">int</span> UITo[2]);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8h.html#a93afe4b0ff2f8f561bd9f13a2fabd50b">hasWon</a>(<a class="code" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a> names);</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="laska_types_8h.html">BACKEND/Headers/laskaTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="input_8h.html">BACKEND/Headers/input.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rules_8h.html">BACKEND/Headers/rules.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="errors_8h.html">BACKEND/Headers/errors.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tower_8h.html">BACKEND/Headers/tower.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="playable_board_8h.html">BACKEND/Headers/playableBoard.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8h.html#a86ed8902ff0b133bbefe6776b27c99ed">refreshTerminal</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="main_8h.html#a1362b5840115466e0ca99e848f1e9fc0">   28</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="main_8h.html#a1362b5840115466e0ca99e848f1e9fc0">checkPromotion</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">int</span> UITo[2]);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8h.html#a93afe4b0ff2f8f561bd9f13a2fabd50b">hasWon</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a> names);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8h.html#a8384b8b4cf32a077caa7d250b2083cf2">countPawns</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">char</span> soldierTop, <span class="keywordtype">char</span> officerTop);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8h.html#a388bb2e7619dfde1d0a3d1dd41a5053e">countMoves</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">char</span> soldierTop, <span class="keywordtype">char</span> officerTop);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="amain_8h_html_a93afe4b0ff2f8f561bd9f13a2fabd50b"><div class="ttname"><a href="main_8h.html#a93afe4b0ff2f8f561bd9f13a2fabd50b">hasWon</a></div><div class="ttdeci">int hasWon(PlayableBoard board, Names names)</div><div class="ttdoc">Controlla se un giocatore ha vinto.</div><div class="ttdef"><b>Definition:</b> main.c:106</div></div>
-<div class="ttc" id="aincluder_8h_html"><div class="ttname"><a href="includer_8h.html">includer.h</a></div><div class="ttdoc">Questo file è utilizzato per includere tutte le librerie necessarie.</div></div>
-<div class="ttc" id="amain_8h_html_a86ed8902ff0b133bbefe6776b27c99ed"><div class="ttname"><a href="main_8h.html#a86ed8902ff0b133bbefe6776b27c99ed">refreshTerminal</a></div><div class="ttdeci">void refreshTerminal()</div><div class="ttdoc">Esegue il comando per la pulizia dello schermo del terminale.</div><div class="ttdef"><b>Definition:</b> main.c:162</div></div>
-<div class="ttc" id="arules_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> rules.h:46</div></div>
-<div class="ttc" id="amain_8h_html_a5ee9c214883d4b2ac88c26e3bae24c8e"><div class="ttname"><a href="main_8h.html#a5ee9c214883d4b2ac88c26e3bae24c8e">checkPromotion</a></div><div class="ttdeci">static void checkPromotion(PlayableBoard boar, int UITo[2])</div><div class="ttdoc">Controlla se è necessario promuovere una pedina.</div></div>
-<div class="ttc" id="ainput_8h_html_a7493dd5fbd529e6440fec379ffbded7a"><div class="ttname"><a href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a></div><div class="ttdeci">Name * Names</div><div class="ttdef"><b>Definition:</b> input.h:11</div></div>
+<div class="ttc" id="atower_8h_html"><div class="ttname"><a href="tower_8h.html">tower.h</a></div><div class="ttdoc">File nella quale si trovano i metodi relativi alle torri.</div></div>
+<div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div><div class="ttdoc">All'interno di questo file si trovano i metodi relativi agli errori di input.</div></div>
+<div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:22</div></div>
+<div class="ttc" id="amain_8h_html_a1362b5840115466e0ca99e848f1e9fc0"><div class="ttname"><a href="main_8h.html#a1362b5840115466e0ca99e848f1e9fc0">checkPromotion</a></div><div class="ttdeci">static void checkPromotion(PlayableBoard board, int UITo[2])</div><div class="ttdoc">Controlla se è necessario promuovere una pedina.</div></div>
+<div class="ttc" id="amain_8h_html_a93afe4b0ff2f8f561bd9f13a2fabd50b"><div class="ttname"><a href="main_8h.html#a93afe4b0ff2f8f561bd9f13a2fabd50b">hasWon</a></div><div class="ttdeci">int hasWon(PlayableBoard board, Names names)</div><div class="ttdoc">Controlla se un giocatore ha vinto.</div><div class="ttdef"><b>Definition:</b> main.c:87</div></div>
+<div class="ttc" id="amain_8h_html_a8384b8b4cf32a077caa7d250b2083cf2"><div class="ttname"><a href="main_8h.html#a8384b8b4cf32a077caa7d250b2083cf2">countPawns</a></div><div class="ttdeci">int countPawns(PlayableBoard board, char soldierTop, char officerTop)</div><div class="ttdef"><b>Definition:</b> main.c:116</div></div>
+<div class="ttc" id="amain_8h_html_a86ed8902ff0b133bbefe6776b27c99ed"><div class="ttname"><a href="main_8h.html#a86ed8902ff0b133bbefe6776b27c99ed">refreshTerminal</a></div><div class="ttdeci">void refreshTerminal()</div><div class="ttdoc">Esegue il comando per la pulizia dello schermo del terminale.</div><div class="ttdef"><b>Definition:</b> main.c:492</div></div>
+<div class="ttc" id="arules_8h_html"><div class="ttname"><a href="rules_8h.html">rules.h</a></div><div class="ttdoc">In questo file vengono definite le variabili più utilizzate.</div></div>
+<div class="ttc" id="alaska_types_8h_html"><div class="ttname"><a href="laska_types_8h.html">laskaTypes.h</a></div><div class="ttdoc">All'interno di questo file sono presenti i tipi utilizzati all'interno del codice.</div></div>
+<div class="ttc" id="ainput_8h_html_a7493dd5fbd529e6440fec379ffbded7a"><div class="ttname"><a href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a></div><div class="ttdeci">Name * Names</div><div class="ttdef"><b>Definition:</b> input.h:18</div></div>
+<div class="ttc" id="aplayable_board_8h_html"><div class="ttname"><a href="playable_board_8h.html">playableBoard.h</a></div><div class="ttdoc">In questo file si trovano i metodi legati alla griglia di gioco.</div></div>
+<div class="ttc" id="ainput_8h_html"><div class="ttname"><a href="input_8h.html">input.h</a></div><div class="ttdoc">In questo file sono presenti metodi per l'input dell'utente.</div></div>
+<div class="ttc" id="amain_8h_html_a388bb2e7619dfde1d0a3d1dd41a5053e"><div class="ttname"><a href="main_8h.html#a388bb2e7619dfde1d0a3d1dd41a5053e">countMoves</a></div><div class="ttdeci">int countMoves(PlayableBoard board, char soldierTop, char officerTop)</div><div class="ttdef"><b>Definition:</b> main.c:146</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

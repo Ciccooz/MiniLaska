@@ -35,7 +35,7 @@
 /********************************METHODS***********************************/
 /**
 *@brief 			Restituisce la pedina che comanda la torre
-*@details			Viene restituito NULL_PAWN nel caso in cui la cella
+*@details			Viene restituito #NULL_PAWN nel caso in cui la cella
 *					sia vuota.
 *
 *@param	tower		La torre da cui prendere la pedina	
@@ -60,10 +60,10 @@ void changeTop(Tower tower, char newTop);
 
 /**
 *@brief 			Promuove la pedina che comanda la torre
-*@details 			Effettua la promozione di una pedina da SOLDIER ad 
-*					OFFICIER, chiamando il metodo changeTop() ed inserendo 
-*					come parametri la torre da sostituire e la nuova pedina,
-*					ovvero un OFFICIER.
+*@details 			Effettua la promozione di una pedina da #SOLDIER1 ad #OFFICER1,
+*					oppure da #SOLDIER2 ad #OFFICER2 chiamando il metodo changeTop() 
+*					ed inserendo come parametri la torre da sostituire e la nuova pedina,
+*					ovvero un #OFFICER1 o un #OFFICER2.
 *
 *@param	tower 		La torre la cui pedina che la comanda verrà promossa
 **/

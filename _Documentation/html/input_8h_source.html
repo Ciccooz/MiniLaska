@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Progetto/develop/miniLaska/BACKEND/Headers/input.h</title>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Headers/input.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,29 +70,32 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="input_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../../includer.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="laska_types_8h.html">laskaTypes.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/******************************DEFINITIONS*********************************/</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">char</span>* <a class="code" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">   11</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a>* <a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8h.html#a5103b63e39538ededc4d058d6628b464">getGameMode</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a> <a class="code" href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">getNames</a>(<span class="keywordtype">int</span> gameMode);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">Prende l&#39;user input e lo converte a coordinate UI (matrice 7x7 con indici da 0 a 6)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">Il risultato viene storato direttamente in UICoords</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title, <span class="keywordtype">int</span> UICoords[2], <a class="code" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board);</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">   13</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">char</span>* <a class="code" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">   18</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a>* <a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8h.html#a5103b63e39538ededc4d058d6628b464">getGameMode</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a> <a class="code" href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">getNames</a>(<span class="keywordtype">int</span> gameMode);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">Prende l&#39;user input e lo converte a coordinate UI (matrice 7x7 con indici da 0 a 6)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">Il risultato viene storato direttamente in UICoords</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title, <span class="keywordtype">int</span> UICoords[2], <a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="ainput_8h_html_a5103b63e39538ededc4d058d6628b464"><div class="ttname"><a href="input_8h.html#a5103b63e39538ededc4d058d6628b464">getGameMode</a></div><div class="ttdeci">int getGameMode()</div><div class="ttdef"><b>Definition:</b> input.c:3</div></div>
-<div class="ttc" id="ainput_8h_html_ace12fb824e557a97606e33f86edd69d9"><div class="ttname"><a href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a></div><div class="ttdeci">char * Name</div><div class="ttdef"><b>Definition:</b> input.h:10</div></div>
-<div class="ttc" id="ainput_8h_html_a01497a5c97da516e44d7acbb8502b940"><div class="ttname"><a href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">getNames</a></div><div class="ttdeci">Names getNames(int gameMode)</div><div class="ttdef"><b>Definition:</b> input.c:17</div></div>
-<div class="ttc" id="arules_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> rules.h:46</div></div>
-<div class="ttc" id="ainput_8h_html_afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><div class="ttname"><a href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a></div><div class="ttdeci">int getCoordinates(const char *title, int UICoords[2], PlayableBoard board)</div><div class="ttdef"><b>Definition:</b> input.c:56</div></div>
-<div class="ttc" id="ainput_8h_html_a7493dd5fbd529e6440fec379ffbded7a"><div class="ttname"><a href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a></div><div class="ttdeci">Name * Names</div><div class="ttdef"><b>Definition:</b> input.h:11</div></div>
+<div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:22</div></div>
+<div class="ttc" id="ainput_8h_html_a5103b63e39538ededc4d058d6628b464"><div class="ttname"><a href="input_8h.html#a5103b63e39538ededc4d058d6628b464">getGameMode</a></div><div class="ttdeci">int getGameMode()</div><div class="ttdoc">Chiede all'utente di inserire la modalità di gioco.</div><div class="ttdef"><b>Definition:</b> input.c:8</div></div>
+<div class="ttc" id="ainput_8h_html_ace12fb824e557a97606e33f86edd69d9"><div class="ttname"><a href="input_8h.html#ace12fb824e557a97606e33f86edd69d9">Name</a></div><div class="ttdeci">char * Name</div><div class="ttdef"><b>Definition:</b> input.h:13</div></div>
+<div class="ttc" id="ainput_8h_html_a01497a5c97da516e44d7acbb8502b940"><div class="ttname"><a href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">getNames</a></div><div class="ttdeci">Names getNames(int gameMode)</div><div class="ttdoc">Chiede i nomi dei giocatori.</div><div class="ttdef"><b>Definition:</b> input.c:22</div></div>
+<div class="ttc" id="ainput_8h_html_afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><div class="ttname"><a href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a></div><div class="ttdeci">int getCoordinates(const char *title, int UICoords[2], PlayableBoard board)</div><div class="ttdoc">Chiede all'utente le coordinate della mossa.</div><div class="ttdef"><b>Definition:</b> input.c:61</div></div>
+<div class="ttc" id="alaska_types_8h_html"><div class="ttname"><a href="laska_types_8h.html">laskaTypes.h</a></div><div class="ttdoc">All'interno di questo file sono presenti i tipi utilizzati all'interno del codice.</div></div>
+<div class="ttc" id="ainput_8h_html_a7493dd5fbd529e6440fec379ffbded7a"><div class="ttname"><a href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a></div><div class="ttdeci">Name * Names</div><div class="ttdef"><b>Definition:</b> input.h:18</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

@@ -2,14 +2,14 @@
 
 /**
 *@file 			rules.h
-@brief			In questo file vengono definite le variabili più utilizzate
+*@brief			In questo file vengono definite le variabili più utilizzate
 **/
 
 /******************************DEFINITIONS*********************************/
 /**
 *@brief 		Grandezza della griglia
 **/
-#define GRID_SIZE    7
+#define GRID_SIZE 7
 
 /**
 *@brief 		Altezza massima delle torri

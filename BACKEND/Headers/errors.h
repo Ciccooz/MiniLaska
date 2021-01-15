@@ -7,16 +7,93 @@
 **/
 
 /******************************DEFINITIONS*********************************/
+/**
+*@brief 		Errore OUT_OF_BOUNDS
+*
+*@details		Errore generato dopo aver messo in input delle coordinate
+*				al di fuori della griglia.
+**/
 #define OUT_OF_BOUNDS           0x01
+
+/**
+*@brief 		Errore NOT_PLAYABLE_CELL
+*
+*@details		Errore che si verifica quando le coordinate
+*				portano ad una cella che non può mai essere
+*				utilizzata.
+**/
 #define NOT_PLAYABLE_CELL       0x02
+
+/**
+*@brief 		Errore NOT_DIAGONAL
+*
+*@details		Errore che si riscontra quando si prova a muoversi
+*				in orizzontale o in verticale.
+**/
 #define NOT_DIAGONAL            0x04
+
+/**
+*@brief 		Errore CANT_GO_UP
+*
+*@details		Si genera questo errore dopo che l'utente ha provato
+*				a muovere verso l'alto una pedina che non può spostarsi in
+*				quella direzione.
+**/
 #define CANT_GO_UP              0x08
+
+/**
+*@brief 		Errore CANT_GO_DOWN
+*
+*@details		Si genera questo errore dopo che l'utente ha provato
+*				a muovere verso il basso una pedina che non può spostarsi in
+*				quella direzione.
+**/
 #define CANT_GO_DOWN            0x10
+
+/**
+*@brief 		Errore NOT_MOVING
+*
+*@details		Errore generato quando si cerca di far rimanere ferma una torre.
+**/
 #define NOT_MOVING              0x20
+
+/**
+*@brief 		Errore MOVING_TOO_MUCH
+*
+*@details		Errore che si verifica quando ci si vuole muovere di più
+*				di due posizioni.
+**/
 #define MOVING_TOO_MUCH         0x40
+
+/**
+*@brief 		Errore CANT_CONQUER
+*
+*@details		Errore che si riscontra quando si cerca di conquistare 
+*				una torre, ma non è possibile.
+**/
 #define CANT_CONQUER            0x80
+
+/**
+*@brief 		Errore TOP_NOT_NULL
+*
+*@details		Si genera questo errore quando ci si vuole spostare in una cella
+*				non vuota.
+**/
 #define TOP_NOT_NULL            0x100
+
+/**
+*@brief 		Errore NOT_YOUR_PAWN
+*
+*@details		Errore generato quando l'utente prova a muovere una pedina non sua.
+**/
 #define NOT_YOUR_PAWN			0x200
+
+/**
+*@brief 		Errore MUST_CONQUER
+*
+*@details		Errore che si verifica quando l'utente cerca di fare un'altra mossa
+*				al posto di conquistare una torre.
+**/
 #define MUST_CONQUER			0x400
 
 /********************************METHODS***********************************/

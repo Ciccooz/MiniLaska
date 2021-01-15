@@ -1,11 +1,17 @@
 var searchData=
 [
-  ['name_60',['Name',['../input_8h.html#ace12fb824e557a97606e33f86edd69d9',1,'input.h']]],
-  ['names_61',['Names',['../input_8h.html#a7493dd5fbd529e6440fec379ffbded7a',1,'input.h']]],
-  ['newboard_62',['newBoard',['../board_8h.html#af145e39e1bee0c8e4e5dccca17094f98',1,'newBoard():&#160;board.c'],['../board_8c.html#af145e39e1bee0c8e4e5dccca17094f98',1,'newBoard():&#160;board.c']]],
-  ['not_5fdiagonal_63',['NOT_DIAGONAL',['../errors_8h.html#add2f9b53dc081daf762a245d9e89e62a',1,'errors.h']]],
-  ['not_5fmoving_64',['NOT_MOVING',['../errors_8h.html#a422b8670e9585d462bc320b0a9c57c03',1,'errors.h']]],
-  ['not_5fplayable_5fcell_65',['NOT_PLAYABLE_CELL',['../errors_8h.html#aed776554daee0a8f64cb9bd7a56b969c',1,'errors.h']]],
-  ['not_5fyour_5fpawn_66',['NOT_YOUR_PAWN',['../errors_8h.html#a86277ce7456a0e916b7d167031799ca7',1,'errors.h']]],
-  ['null_5fpawn_67',['NULL_PAWN',['../rules_8h.html#a77d1498353b622ca8530829140082604',1,'rules.h']]]
+  ['main_49',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]],
+  ['main_2ec_50',['main.c',['../main_8c.html',1,'']]],
+  ['main_2eh_51',['main.h',['../main_8h.html',1,'']]],
+  ['mid_5fintersection_52',['MID_INTERSECTION',['../laska_board_8h.html#a25fc7e610050452ec81e6e76b41968a9',1,'laskaBoard.h']]],
+  ['mid_5fleft_5fside_53',['MID_LEFT_SIDE',['../laska_board_8h.html#a0011eb96b16ac3ca1b8ca147cc7d99ec',1,'laskaBoard.h']]],
+  ['mid_5fright_5fside_54',['MID_RIGHT_SIDE',['../laska_board_8h.html#aedeba3b4616f132ef7aa8d87a6a4dff9',1,'laskaBoard.h']]],
+  ['move_55',['move',['../moves_8h.html#a32420be81ad66f34bfdf5e856fd8615a',1,'move(PlayableBoard board, int UIFrom[2], int UITo[2]):&#160;moves.c'],['../moves_8c.html#a32420be81ad66f34bfdf5e856fd8615a',1,'move(PlayableBoard board, int UIFrom[2], int UITo[2]):&#160;moves.c']]],
+  ['moves_2ec_56',['moves.c',['../moves_8c.html',1,'']]],
+  ['moves_2eh_57',['moves.h',['../moves_8h.html',1,'']]],
+  ['movesdiagonally_58',['movesDiagonally',['../validation_8h.html#a5ad2bddabebb40e62f86b38fe8912db9',1,'movesDiagonally(int from[2], int to[2]):&#160;validation.c'],['../validation_8c.html#a5ad2bddabebb40e62f86b38fe8912db9',1,'movesDiagonally(int from[2], int to[2]):&#160;validation.c']]],
+  ['movesfromplayablecell_59',['movesFromPlayableCell',['../validation_8h.html#a8d20b20af68ee407f78e49ee0333d968',1,'movesFromPlayableCell(int from[2]):&#160;validation.c'],['../validation_8c.html#a8d20b20af68ee407f78e49ee0333d968',1,'movesFromPlayableCell(int from[2]):&#160;validation.c']]],
+  ['moving_5ftoo_5fmuch_60',['MOVING_TOO_MUCH',['../errors_8h.html#ac3d642ecf029a26174579b83655eda08',1,'errors.h']]],
+  ['must_5fconquer_61',['MUST_CONQUER',['../errors_8h.html#a63ac156b9484494529a74cc02d090157',1,'errors.h']]],
+  ['mustconquer_62',['mustConquer',['../validation_8h.html#ac41079c7132f677936998918c4a621d4',1,'mustConquer(PlayableBoard board, int oTurn):&#160;validation.c'],['../validation_8c.html#ac41079c7132f677936998918c4a621d4',1,'mustConquer(PlayableBoard board, int oTurn):&#160;validation.c']]]
 ];

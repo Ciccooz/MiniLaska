@@ -17,7 +17,8 @@ l'allocazione di memoria
 /**
 *@brief 		Crea una nuova griglia ed inserisce le pedine
 *@details 		Chiama il metodo allocBoard() e, se l'allocazione è 
-*				andata a buon fine, chiama il metodo spawnPawns().
+*				andata a buon fine, chiama il metodo spawnPawns(),
+*				altrimenti restituisce NULL.
 **/
 PlayableBoard newBoard();
 
@@ -45,9 +46,9 @@ static PlayableBoard allocBoard();
 
 /**
 *@brief 		Posiziona le pedine sulla griglia
-*@details 		Per prima cosa riempe la griglia di NULL_PAWN. Poi
-*				nella prima metà della griglia posiziona le pedine SOLDIER1 e 
-*				nella seconda metà SOLDIER2, la riga in mezzo non viene riempita.
+*@details 		Per prima cosa riempe la griglia di #NULL_PAWN. Poi
+*				nella prima metà della griglia posiziona le pedine #SOLDIER1 e 
+*				nella seconda metà #SOLDIER2, la riga in mezzo non viene riempita.
 *				Il numero di pedine posizionate in ogni riga dipende dal valore
 *				restituito da getRowSize().
 *
@@ -70,7 +71,14 @@ Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un pu
 procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
 */
 
-/*DA FARE***************************************************************************************************************************/
+/**
+*@brief 		Libera la memoria allocata per il campo da gioco
+*@details 		Libera la memoria delle singole torri, poi della riga
+*				nella quale si trovano le torri. Infine fa la free del 
+*				puntatore dell'intera griglia.
+*
+*@param	grid	Griglia dalla quale liberare la memoria
+**/
 void freeBoard(PlayableBoard grid);
 
 /**

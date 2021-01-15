@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Progetto/develop/miniLaska/BACKEND/Headers/input.h</title>
+<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Headers/input.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,7 +75,7 @@ $(function() {
 
 <p>In questo file sono presenti metodi per l'input dell'utente.  
 <a href="#details">Continua...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="includer_8h_source.html">../../includer.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="laska_types_8h_source.html">laskaTypes.h</a>&quot;</code><br />
 </div>
 <p><a href="input_8h_source.html">Vai al codice sorgente di questo file.</a></p>
 <table class="memberdecls">
@@ -89,10 +89,13 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
 <tr class="memitem:a5103b63e39538ededc4d058d6628b464"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a5103b63e39538ededc4d058d6628b464">getGameMode</a> ()</td></tr>
+<tr class="memdesc:a5103b63e39538ededc4d058d6628b464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chiede all'utente di inserire la modalità di gioco.  <a href="input_8h.html#a5103b63e39538ededc4d058d6628b464">Continua...</a><br /></td></tr>
 <tr class="separator:a5103b63e39538ededc4d058d6628b464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01497a5c97da516e44d7acbb8502b940"><td class="memItemLeft" align="right" valign="top"><a class="el" href="input_8h.html#a7493dd5fbd529e6440fec379ffbded7a">Names</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">getNames</a> (int gameMode)</td></tr>
+<tr class="memdesc:a01497a5c97da516e44d7acbb8502b940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chiede i nomi dei giocatori.  <a href="input_8h.html#a01497a5c97da516e44d7acbb8502b940">Continua...</a><br /></td></tr>
 <tr class="separator:a01497a5c97da516e44d7acbb8502b940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a> (const char *title, int UICoords[2], <a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board)</td></tr>
+<tr class="memitem:afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">getCoordinates</a> (const char *title, int UICoords[2], <a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board)</td></tr>
+<tr class="memdesc:afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chiede all'utente le coordinate della mossa.  <a href="input_8h.html#afc59a11bc5e8fd63fb7d9fb4a8af8ca2">Continua...</a><br /></td></tr>
 <tr class="separator:afc59a11bc5e8fd63fb7d9fb4a8af8ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
@@ -109,6 +112,7 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Definizione del tipo Name, come array di caratteri </p>
 
 </div>
 </div>
@@ -123,6 +127,7 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Definizione del tipo Names, come array di Name </p>
 
 </div>
 </div>
@@ -148,7 +153,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
           <td class="paramname"><em>board</em>&#160;</td>
         </tr>
         <tr>
@@ -158,6 +163,17 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Chiede all'utente le coordinate della mossa. </p>
+<p>Dopo che l'utente ha inserito le coordinate, controlla che i valori siano giusti, se sono giusti li salva in UICoords e returna 1, altrimenti returna 0.</p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Spiega se si inseriscono coordinate della cella di partenza o destinazione.</td></tr>
+    <tr><td class="paramname">UICoords[2]</td><td>Array nella quale vengono salvate le coordinate.</td></tr>
+    <tr><td class="paramname">board</td><td>Griglia contente tutte le torri. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -176,6 +192,9 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Chiede all'utente di inserire la modalità di gioco. </p>
+<p>L'utente può scegliere tra la modalità Player contro Player oppure Player contro IA. </p>
+
 </div>
 </div>
 <a id="a01497a5c97da516e44d7acbb8502b940"></a>
@@ -193,6 +212,15 @@ Funzioni</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Chiede i nomi dei giocatori. </p>
+<p>In base alla modalità scelta, chiede i nomi dei giocatori. Se l'utente ha scelto Player contro Player, allora chiede i due nomi dei giocatori. Se ha scelto Player contro IA, allora il metodo chiederà solo il nome dell'utente.</p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameMode</td><td>Modalità scelta dall'utente </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

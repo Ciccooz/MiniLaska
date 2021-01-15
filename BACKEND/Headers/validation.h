@@ -117,7 +117,7 @@ int isDoubleMove(int from[2], int to[2]);
 /**
 *@brief 				Controlla che la cella selezionata sia vuota
 *@details				Ricava la pedina che controlla la torre utilizzando il
-*						metodo getTop() e controlla se è uguale a NULL_PAWN.
+*						metodo getTop() e controlla se è uguale a #NULL_PAWN.
 *
 *@param tower			La torre da controllare
 **/

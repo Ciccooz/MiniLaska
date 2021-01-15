@@ -8,21 +8,21 @@
 
 /********************************METHODS***********************************/
 /**
-*@brief 				Muove la pedina (o la torre)
-*@details 				Seleziona la pedina (o la torre) nella cella 
-*						indicata dall'utente e la muove nella cella scelta.
+*@brief 				Muove una torre
+*@details 				Seleziona la torre nella cella indicata
+*						dall'utente e la muove nella cella scelta.
 *
 *@param	board 			La matrice contenente tutte le pedine
 *@param	UIFrom[2] 		Un array con le coordinate da cui muovere la pedina
-*@param	UITo[2] 		Un array che contiene le coordinatedi destinazione.
+*@param	UITo[2] 		Un array che contiene le coordinatedi destinazione
 **/
 void move(PlayableBoard board, int UIFrom[2], int UITo[2]);
 
 /**
 *@brief 				Conquista una pedina
-*@details				Nello specifico prende la pedina che controlla una 
-*						torre e la conquista, ovvero la conquista e la 
-*						tiene alla base della torre.
+*@details				Nello specifico prende la pedina che controlla la 
+*						torre da conquistare e la mette alla base della 
+*						torre che ha effettuato la conquista.
 * 				
 *@param	conquered 		La torre che viene conquistata
 *@param	conquerer 		La torre che effettua la conquista.

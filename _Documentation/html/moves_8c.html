@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Progetto/develop/miniLaska/BACKEND/Sources/moves.c</title>
+<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Sources/moves.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,17 +72,22 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="moves_8h_source.html">../Headers/moves.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="laska_board_8h_source.html">../../UI/Headers/laskaBoard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="playable_board_8h_source.html">../Headers/playableBoard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rules_8h_source.html">../Headers/rules.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tower_8h_source.html">../Headers/tower.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:a32420be81ad66f34bfdf5e856fd8615a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a32420be81ad66f34bfdf5e856fd8615a">move</a> (<a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int UIFrom[2], int UITo[2])</td></tr>
-<tr class="memdesc:a32420be81ad66f34bfdf5e856fd8615a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muove la pedina (o la torre)  <a href="moves_8c.html#a32420be81ad66f34bfdf5e856fd8615a">Continua...</a><br /></td></tr>
+<tr class="memitem:a32420be81ad66f34bfdf5e856fd8615a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a32420be81ad66f34bfdf5e856fd8615a">move</a> (<a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int UIFrom[2], int UITo[2])</td></tr>
+<tr class="memdesc:a32420be81ad66f34bfdf5e856fd8615a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muove una torre.  <a href="moves_8c.html#a32420be81ad66f34bfdf5e856fd8615a">Continua...</a><br /></td></tr>
 <tr class="separator:a32420be81ad66f34bfdf5e856fd8615a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e10794c721ffbda75bbf56a3032dc3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a6e10794c721ffbda75bbf56a3032dc3d">conquer</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquered, <a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquerer)</td></tr>
+<tr class="memitem:a6e10794c721ffbda75bbf56a3032dc3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a6e10794c721ffbda75bbf56a3032dc3d">conquer</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquered, <a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> conquerer)</td></tr>
 <tr class="separator:a6e10794c721ffbda75bbf56a3032dc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31e9e1effca701e9ded9b7a04fbcdbc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a31e9e1effca701e9ded9b7a04fbcdbc0">deepCopy</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> destination, <a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> source)</td></tr>
+<tr class="memitem:a31e9e1effca701e9ded9b7a04fbcdbc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a31e9e1effca701e9ded9b7a04fbcdbc0">deepCopy</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> destination, <a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> source)</td></tr>
 <tr class="separator:a31e9e1effca701e9ded9b7a04fbcdbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a8076cec4ea8cce9e0223e2c478c7ea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a3a8076cec4ea8cce9e0223e2c478c7ea">clearCell</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
+<tr class="memitem:a3a8076cec4ea8cce9e0223e2c478c7ea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moves_8c.html#a3a8076cec4ea8cce9e0223e2c478c7ea">clearCell</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
 <tr class="separator:a3a8076cec4ea8cce9e0223e2c478c7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
@@ -98,7 +103,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">static void clearCell </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>tower</em></td><td>)</td>
           <td></td>
         </tr>
@@ -124,13 +129,13 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">static void conquer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>conquered</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>conquerer</em>&#160;</td>
         </tr>
         <tr>
@@ -160,13 +165,13 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">static void deepCopy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>destination</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>source</em>&#160;</td>
         </tr>
         <tr>
@@ -193,7 +198,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">void move </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
         </tr>
         <tr>
@@ -216,13 +221,13 @@ Funzioni</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Muove la pedina (o la torre) </p>
-<p>Seleziona la pedina (o la torre) nella cella indicata dall'utente e la muove nella cella scelta.</p>
+<p>Muove una torre. </p>
+<p>Seleziona la torre nella cella indicata dall'utente e la muove nella cella scelta.</p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">board</td><td>La matrice contenente tutte le pedine </td></tr>
     <tr><td class="paramname">UIFrom[2]</td><td>Un array con le coordinate da cui muovere la pedina </td></tr>
-    <tr><td class="paramname">UITo[2]</td><td>Un array che contiene le coordinatedi destinazione. </td></tr>
+    <tr><td class="paramname">UITo[2]</td><td>Un array che contiene le coordinatedi destinazione </td></tr>
   </table>
   </dd>
 </dl>

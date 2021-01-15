@@ -9,8 +9,6 @@
 
 #include "UI/Headers/laskaBoard.h"
 
-
-
 int main()
 {
 	int gameMode = getGameMode();

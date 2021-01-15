@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Progetto/develop/miniLaska/BACKEND/Sources/validation.c</title>
+<title>Mini Laska: Riferimenti per il file C:/Users/cicco/Desktop/Stuff To Push/develop/miniLaska/BACKEND/Sources/validation.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,10 +72,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="validation_8h_source.html">../Headers/validation.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="rules_8h_source.html">../Headers/rules.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tower_8h_source.html">../Headers/tower.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="input_8h_source.html">../Headers/input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="playable_board_8h_source.html">../Headers/playableBoard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="laska_board_8h_source.html">../../UI/Headers/laskaBoard.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funzioni</h2></td></tr>
-<tr class="memitem:ade1e22783cbd34fab0036dc3787345fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ade1e22783cbd34fab0036dc3787345fc">isValidMove</a> (int from[2], int to[2], <a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int oTurn)</td></tr>
+<tr class="memitem:ade1e22783cbd34fab0036dc3787345fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ade1e22783cbd34fab0036dc3787345fc">isValidMove</a> (int from[2], int to[2], <a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int oTurn)</td></tr>
 <tr class="memdesc:ade1e22783cbd34fab0036dc3787345fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chiama il metodo <a class="el" href="errors_8h.html#a1089525fabda34060f3f7d91ef17088e" title="Effettua tutti i controlli dell&#39;input dell&#39;utente.">errorFill()</a>  <a href="validation_8c.html#ade1e22783cbd34fab0036dc3787345fc">Continua...</a><br /></td></tr>
 <tr class="separator:ade1e22783cbd34fab0036dc3787345fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae94faa716805821aba181728332c4100"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ae94faa716805821aba181728332c4100">coordinatesWithinBounds</a> (int from[2], int to[2])</td></tr>
@@ -93,10 +99,10 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a8dcad2b03545b9ebdfd1c6eeb1f079d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a8dcad2b03545b9ebdfd1c6eeb1f079d9">isGoingDown</a> (int from[2], int to[2])</td></tr>
 <tr class="memdesc:a8dcad2b03545b9ebdfd1c6eeb1f079d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se ci si vuole spostare verso il basso.  <a href="validation_8c.html#a8dcad2b03545b9ebdfd1c6eeb1f079d9">Continua...</a><br /></td></tr>
 <tr class="separator:a8dcad2b03545b9ebdfd1c6eeb1f079d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ebd85cf0f75fa325de962c440be76e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a2ebd85cf0f75fa325de962c440be76e0">canGoUp</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
+<tr class="memitem:a2ebd85cf0f75fa325de962c440be76e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a2ebd85cf0f75fa325de962c440be76e0">canGoUp</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
 <tr class="memdesc:a2ebd85cf0f75fa325de962c440be76e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se la torre si può spostare in alto.  <a href="validation_8c.html#a2ebd85cf0f75fa325de962c440be76e0">Continua...</a><br /></td></tr>
 <tr class="separator:a2ebd85cf0f75fa325de962c440be76e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa41c2b62ecdc4267dc5fac84823a012f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#aa41c2b62ecdc4267dc5fac84823a012f">canGoDown</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
+<tr class="memitem:aa41c2b62ecdc4267dc5fac84823a012f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#aa41c2b62ecdc4267dc5fac84823a012f">canGoDown</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
 <tr class="memdesc:aa41c2b62ecdc4267dc5fac84823a012f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se la torre si può spostare in basso.  <a href="validation_8c.html#aa41c2b62ecdc4267dc5fac84823a012f">Continua...</a><br /></td></tr>
 <tr class="separator:aa41c2b62ecdc4267dc5fac84823a012f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35fcc8a0b3d251cbeecbcef40e4fdd41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a35fcc8a0b3d251cbeecbcef40e4fdd41">isInSamePosition</a> (int from[2], int to[2])</td></tr>
@@ -111,15 +117,18 @@ Funzioni</h2></td></tr>
 <tr class="memitem:a1dde915e37c5b0ef4809d42973c4a383"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a1dde915e37c5b0ef4809d42973c4a383">isDoubleMove</a> (int from[2], int to[2])</td></tr>
 <tr class="memdesc:a1dde915e37c5b0ef4809d42973c4a383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla che ci si vuole muovere di esattamente due posizioni.  <a href="validation_8c.html#a1dde915e37c5b0ef4809d42973c4a383">Continua...</a><br /></td></tr>
 <tr class="separator:a1dde915e37c5b0ef4809d42973c4a383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b948532790e0a759fd698f23b96eb25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a8b948532790e0a759fd698f23b96eb25">topIsNull</a> (<a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
+<tr class="memitem:a8b948532790e0a759fd698f23b96eb25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#a8b948532790e0a759fd698f23b96eb25">topIsNull</a> (<a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> tower)</td></tr>
 <tr class="memdesc:a8b948532790e0a759fd698f23b96eb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla che la cella selezionata sia vuota.  <a href="validation_8c.html#a8b948532790e0a759fd698f23b96eb25">Continua...</a><br /></td></tr>
 <tr class="separator:a8b948532790e0a759fd698f23b96eb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd035c86e87ae961136420c3beae2e1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#afd035c86e87ae961136420c3beae2e1c">canConquer</a> (int from[2], int to[2], <a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board)</td></tr>
+<tr class="memitem:afd035c86e87ae961136420c3beae2e1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#afd035c86e87ae961136420c3beae2e1c">canConquer</a> (int from[2], int to[2], <a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board)</td></tr>
 <tr class="memdesc:afd035c86e87ae961136420c3beae2e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se si può conquistare la pedina che comanda una torre.  <a href="validation_8c.html#afd035c86e87ae961136420c3beae2e1c">Continua...</a><br /></td></tr>
 <tr class="separator:afd035c86e87ae961136420c3beae2e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8a701a6afb71f0d983c4fac524a63a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ab8a701a6afb71f0d983c4fac524a63a3">isYourPawn</a> (int from[2], <a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int oTurn)</td></tr>
+<tr class="memitem:ab8a701a6afb71f0d983c4fac524a63a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ab8a701a6afb71f0d983c4fac524a63a3">isYourPawn</a> (int from[2], <a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int oTurn)</td></tr>
 <tr class="memdesc:ab8a701a6afb71f0d983c4fac524a63a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla che la torre appartenga al giocatore.  <a href="validation_8c.html#ab8a701a6afb71f0d983c4fac524a63a3">Continua...</a><br /></td></tr>
 <tr class="separator:ab8a701a6afb71f0d983c4fac524a63a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41079c7132f677936998918c4a621d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="validation_8c.html#ac41079c7132f677936998918c4a621d4">mustConquer</a> (<a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, int oTurn)</td></tr>
+<tr class="memdesc:ac41079c7132f677936998918c4a621d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlla se l'utente è costretto a conquistare.  <a href="validation_8c.html#ac41079c7132f677936998918c4a621d4">Continua...</a><br /></td></tr>
+<tr class="separator:ac41079c7132f677936998918c4a621d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentazione delle funzioni</h2>
 <a id="afd035c86e87ae961136420c3beae2e1c"></a>
@@ -143,7 +152,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
           <td class="paramname"><em>board</em>&#160;</td>
         </tr>
         <tr>
@@ -155,7 +164,7 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Controlla se si può conquistare la pedina che comanda una torre. </p>
-<p>Nello specifico controlla se la cella precedente, ricavata tramite il metodo <a class="el" href="board_8h.html#a71c4eb2b0ee11b31b17b040c1c190ef7" title="Restituisce la torre tra due celle.">getPrevious()</a>, è diversa da quella con la quale si vuole conquistare.</p>
+<p>Nello specifico controlla se la cella precedente, ricavata tramite il metodo <a class="el" href="playable_board_8h.html#a71c4eb2b0ee11b31b17b040c1c190ef7" title="Restituisce la torre compresa tra due celle.">getPrevious()</a>, è diversa da quella con la quale si vuole conquistare.</p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">from[2]</td><td>Un array con le coordinate della pedina da muovere </td></tr>
@@ -176,7 +185,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int canGoDown </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>tower</em></td><td>)</td>
           <td></td>
         </tr>
@@ -184,7 +193,7 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Controlla se la torre si può spostare in basso. </p>
-<p>Ricava la pedina che comanda la torre utilizzando il metodo <a class="el" href="pawn_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a>, e controlla se è diversa da SOLDIER2, perchè è l'unica pedina che non si può muovere verso il basso.</p>
+<p>Ricava la pedina che comanda la torre utilizzando il metodo <a class="el" href="tower_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a>, e controlla se è diversa da SOLDIER2, perchè è l'unica pedina che non si può muovere verso il basso.</p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">tower</td><td>La torre da controllare </td></tr>
@@ -203,7 +212,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int canGoUp </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>tower</em></td><td>)</td>
           <td></td>
         </tr>
@@ -211,7 +220,7 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Controlla se la torre si può spostare in alto. </p>
-<p>Ricava la pedina che comanda la torre utilizzando il metodo <a class="el" href="pawn_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a>, e controlla se è diversa da SOLDIER1, dato che è l'unica pedina che non si può muovere verso l'alto.</p>
+<p>Ricava la pedina che comanda la torre utilizzando il metodo <a class="el" href="tower_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a>, e controlla se è diversa da SOLDIER1, dato che è l'unica pedina che non si può muovere verso l'alto.</p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">tower</td><td>La torre da controllare </td></tr>
@@ -501,7 +510,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
         </tr>
         <tr>
@@ -547,7 +556,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
         </tr>
         <tr>
@@ -642,6 +651,42 @@ Funzioni</h2></td></tr>
 
 </div>
 </div>
+<a id="ac41079c7132f677936998918c4a621d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41079c7132f677936998918c4a621d4">&#9670;&nbsp;</a></span>mustConquer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mustConquer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>oTurn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Controlla se l'utente è costretto a conquistare. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>La matrice che contiene le pedine </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8b948532790e0a759fd698f23b96eb25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b948532790e0a759fd698f23b96eb25">&#9670;&nbsp;</a></span>topIsNull()</h2>
 
@@ -651,7 +696,7 @@ Funzioni</h2></td></tr>
         <tr>
           <td class="memname">int topIsNull </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="rules_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a>&#160;</td>
           <td class="paramname"><em>tower</em></td><td>)</td>
           <td></td>
         </tr>
@@ -659,7 +704,7 @@ Funzioni</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Controlla che la cella selezionata sia vuota. </p>
-<p>Ricava la pedina che controlla la torre utilizzando il metodo <a class="el" href="pawn_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a> e controlla se è uguale a NULL_PAWN.</p>
+<p>Ricava la pedina che controlla la torre utilizzando il metodo <a class="el" href="tower_8h.html#a47ddb790f65c65ab0b7e761ef3e02911" title="Restituisce la pedina che comanda la torre.">getTop()</a> e controlla se è uguale a <a class="el" href="tower_8h.html#a77d1498353b622ca8530829140082604" title="Cella vuota.">NULL_PAWN</a>.</p>
 <dl class="params"><dt>Parametri</dt><dd>
   <table class="params">
     <tr><td class="paramname">tower</td><td>La torre da controllare </td></tr>
