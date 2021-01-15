@@ -5,18 +5,19 @@
 #include "../../BACKEND/Headers/rules.h"
 
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
-void printBoard(PlayableBoard board, int cellSide)
+void printBoard(PlayableBoard board)
 {
+    int cellSide = TOWER_HEIGHT;
     int boardRow, terminalRow;
     char boardCol;
 
-    printUpperSeparator(cellSide);	
+    printUpperSeparator(cellSide);
     for(boardRow = FIRST_ROW; boardRow > 0; boardRow --)
     {
         for(terminalRow = 0; terminalRow < cellSide; terminalRow++)
         {
             printRowCoordinates(cellSide, terminalRow, boardRow);
-			
+
             printf("%c", VERTICAL_SIDE);
             for(boardCol = FIRST_COLUMN; boardCol < FIRST_COLUMN + GRID_SIZE; boardCol++)
             {
@@ -26,7 +27,7 @@ void printBoard(PlayableBoard board, int cellSide)
                 userInput.row = boardRow;
 
                 UserInputToUICoords(userInput, UICoords);
-				
+
                 if(UICoords[0] % 2 == UICoords[1] % 2)
                 {
                     int pawnIndex = TOWER_HEIGHT - 1 - (terminalRow / (cellSide / TOWER_HEIGHT)); /*indice della pedina da printare*/
@@ -35,7 +36,6 @@ void printBoard(PlayableBoard board, int cellSide)
                     pawn = UICoordinatesToTower(board, UICoords)[pawnIndex];
                     printCellContent(pawn, cellSide);
                 }
-				
                 else
                     printCellContent(UNPLAYABLE_PAWN, cellSide);
 
@@ -46,7 +46,6 @@ void printBoard(PlayableBoard board, int cellSide)
 
         if(boardRow > 1)
             printMidSeparator(cellSide);
-		
         else
         {
             printLowerSeparator(cellSide);
@@ -59,13 +58,19 @@ Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
 {
   return board[UICoords[0]][UICoords[1] / 2];
 }
-
-void UserInputToUICoords(UserInput input, int UICoords[2])
+void UserInputToUICoords(UserInput input, int UICoordinates[2])
 {
-  UICoords[0] = GRID_SIZE - input.row;
-  UICoords[1] = input.column - FIRST_COLUMN;
+  UICoordinates[0] = GRID_SIZE - input.row;
+  UICoordinates[1] = input.column - FIRST_COLUMN;
 }
+Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])
+{
+  int coords[2];
+  coords[0] = (UIPos1[0] + UIPos2[0]) / 2;
+  coords[1] = (UIPos1[1] + UIPos2[1]) / 2;
 
+  return UICoordinatesToTower(board, coords);
+}
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
     printf("\t");
@@ -74,14 +79,12 @@ static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
     else
         printf(" ");
 }
-
 static void printColumnCoordinates(int cellSide)
 {
     int currentChar = 0;
     char boardCol;
 
     printf("\t ");
-	
     for(boardCol = FIRST_COLUMN; boardCol < FIRST_COLUMN + GRID_SIZE; boardCol++)
     {
         printf(" ");
@@ -89,15 +92,12 @@ static void printColumnCoordinates(int cellSide)
         {
             if(currentChar == cellSide / 2)
                 printf("%c", boardCol);
-			
             else
                 printf(" ");
         }
     }
-	
     printf("\n");
 }
-
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right)
 {
     int i, j;
@@ -107,13 +107,11 @@ static void printHorizontalSeparator(int cellSide, char left, char intersection,
     {
         for(j = 0; j < cellSide; j++)
             printf("%c", HORIZONTAL_SIDE);
-		
         printf("%c", intersection);
     }
 
     printf("\b%c\n", right);
 }
-
 static void printUpperSeparator(int cellSide)
 {
     printHorizontalSeparator(
@@ -122,7 +120,6 @@ static void printUpperSeparator(int cellSide)
         TOP_INTERSECTION,
         TOP_RIGHT_CORNER);
 }
-
 static void printMidSeparator(int cellSide)
 {
     printHorizontalSeparator(
@@ -131,7 +128,6 @@ static void printMidSeparator(int cellSide)
         MID_INTERSECTION,
         MID_RIGHT_SIDE);
 }
-
 static void printLowerSeparator(int cellSide)
 {
     printHorizontalSeparator(
@@ -140,7 +136,6 @@ static void printLowerSeparator(int cellSide)
         BOTTOM_INTERSECTION,
         BOTTOM_RIGHT_CORNER);
 }
-
 static void printCellContent(char content, int cellSide)
 {
     int i;

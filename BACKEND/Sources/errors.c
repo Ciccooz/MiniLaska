@@ -52,28 +52,30 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
     return errors;
 }
 
-void errorCheck(int errors)
+void promptErrors(int errors)
 {
+    printf("Invalid move:\n");
+
     if(errors & OUT_OF_BOUNDS)
-        printf("out of bounds\n");
+        printf("\tCoordinates are out of bounds\n");
 
     if(errors & NOT_PLAYABLE_CELL)
-        printf("not playable cell\n");
+        printf("\tStarting position is not a playable cell\n");
 
     if(errors & CANT_GO_UP)
-        printf("cant go up\n");
+        printf("\tThat pawn cannot move up\n");
 
     if(errors & CANT_GO_DOWN)
-        printf("cant go down\n");
+        printf("\tThat pawn cannot move down\n");
 
     if(errors & NOT_MOVING)
-        printf("not moving\n");
+        printf("\tYou have to make a move\n");
 
     if(errors & MOVING_TOO_MUCH)
-        printf("moving too much\n");
+        printf("\tYou cannot move that far\n");
 
     if(errors & CANT_CONQUER)
-        printf("cant conquer\n");
+        printf("\tYou cannot conquer that pawn\n");
 
     if(errors & TOP_NOT_NULL)
         printf("top not null\n");

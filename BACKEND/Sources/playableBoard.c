@@ -4,8 +4,16 @@
 #include <string.h>
 #include "../Headers/rules.h"
 #include "../Headers/tower.h"
-#include "../../UI/Headers/laskaBoard.h"
 
+static PlayableBoard allocBoard();
+static void spawnPawns(PlayableBoard grid);
+
+/*
+Alloca la memoria per il campo da gioco tramite la chiamata ad allocBoard e posiziona le pedine
+nella posizione di inizio partita tramite la chiamata a spawnPawns
+Restituisce il puntatore base (PlayableBoard) o NULL in caso si verificasse un'eccezione durante
+l'allocazione di memoria
+*/
 PlayableBoard newBoard()
 {
    PlayableBoard board = allocBoard();
@@ -15,7 +23,50 @@ PlayableBoard newBoard()
    spawnPawns(board);
    return board;
 }
+int getRowSize(int row)
+{
+   if(row % 2)
+      return GRID_SIZE / 2;
 
+   return (GRID_SIZE / 2) + 1;
+}
+/*
+Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
+procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
+*/
+void freeBoard(PlayableBoard board)
+{
+   int row, col;
+
+   if(board == NULL)
+      return;
+
+   for(row = 0; row < GRID_SIZE; row++)
+   {
+      int rowSize;
+
+      if(board[row] == NULL)
+         break;
+
+      rowSize = getRowSize(row);
+      for(col = 0; col < rowSize; col++)
+         free(board[row][col]);
+
+      free(board[row]);
+   }
+
+   free(board);
+}
+
+
+
+/*
+Alloca dinamicamente la memoria per il campo da gioco (limitato alle caselle giocabili) e
+restituisce il puntatore base (PlayableBoard)
+Se la calloc non riesce ad allocare memoria la funzione ripulisce tutto ciò che eventualmente
+era già stato allocato prima che si verificasse l'eccezione chiamando freeBoard e restituisce
+NULL
+*/
 static PlayableBoard allocBoard()
 {
    int row, col;
@@ -53,60 +104,14 @@ static void spawnPawns(PlayableBoard board)
    int row, col;
    for(row = 0; row < GRID_SIZE; row++)
    {
-		int rowSize = getRowSize(row);
-		for(col = 0; col < rowSize; col++)
-		{
-			memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
-			if(row <= 2)
-				board[row][col][0] = SOLDIER1;
-		
-			if(row >=4)
-				board[row][col][0] = SOLDIER2;
-		}
-	}
-}
-
-int getRowSize(int row)
-{
-   if(row % 2)
-      return 3;
-
-   return 4;
-}
-
-void freeBoard(PlayableBoard board)
-{
-   int row, col;
-
-   if(board == NULL)
-      return;
-
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize;
-
-      if(board[row] == NULL)
-         break;
-
-      rowSize = getRowSize(row);
+      int rowSize = getRowSize(row);
       for(col = 0; col < rowSize; col++)
-         free(board[row][col]);
-
-      free(board[row]);
+      {
+         memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
+         if(row <= 2)
+            board[row][col][0] = SOLDIER1;
+         else if (row >= 4)
+            board[row][col][0] = SOLDIER2;
+      }
    }
-
-   free(board);
-}
-
-Tower getPrevious(int from[2], int to[2], PlayableBoard board)
-{
-	Tower previous;
-	
-	int coord[2];
-	coord[0] = (from[0] + to[0]) / 2;
-	coord[1] = (from[1] + to[1]) / 2;
-
-	previous = UICoordinatesToTower(board, coord);
-
-	return previous;
 }
