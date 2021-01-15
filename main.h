@@ -16,8 +16,8 @@
 void refreshTerminal();
 
 /**
-@brief			Controlla se è necessario promuovere una pedina
-@details		Se una torre raggiunge il lato opposto del campo, 
+*@brief			Controlla se è necessario promuovere una pedina
+*@details		Se una torre raggiunge il lato opposto del campo, 
 *				allora deve essere promossa. Quindi viene chiamato 
 *				il metodo promote(), passando come parametro la 
 *				torre da promuovere.
@@ -28,8 +28,8 @@ void refreshTerminal();
 static void checkPromotion(PlayableBoard board, int UITo[2]);
 
 /**
-@brief			Controlla se un giocatore ha vinto
-@details		Controlla quante pedine di ogni giocatore sono rimaste,
+*@brief			Controlla se un giocatore ha vinto
+*@details		Controlla quante pedine di ogni giocatore sono rimaste,
 *				se non ce ne sono, allora l'altro giocatore ha vinto la 
 *				partita.
 *
@@ -38,6 +38,20 @@ static void checkPromotion(PlayableBoard board, int UITo[2]);
 **/
 int hasWon(PlayableBoard board, Names names);
 
+/**
+*@brief			Controlla quante torri sono rimaste da giocare
+*
+*@param board 	La matrice contenente tutte le torri
+*@param soldierTop Serve a contare le torri che hanno come top soldierTop
+*@param officerTop Serve a contare le torri che hanno come top officerTop
+**/
 int countPawns(PlayableBoard board, char soldierTop, char officerTop);
 
+/**
+*@brief			Conta le mosse disponibili
+*
+*@param board 	La matrice contenente tutte le torri
+*@param soldierTop Serve a contare le torri che hanno come top soldierTop
+*@param officerTop Serve a contare le torri che hanno come top officerTop
+**/
 int countMoves(PlayableBoard board, char soldierTop, char officerTop);
