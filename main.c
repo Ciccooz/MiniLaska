@@ -59,13 +59,8 @@ int hasWon(PlayableBoard board, Names names)
 	int p0Pawns = countPawns(board, SOLDIER0, OFFICER0);
 	int p1Pawns = countPawns(board, SOLDIER1, OFFICER1);
 
-	printf("\np0Pawns: %d\n", p0Pawns);
-	printf("p1Pawns: %d\n", p1Pawns);
 
-	printf("p0Moves: %d\n", p0Moves);
-	printf("p1Moves: %d\n", p1Moves);
-
-	if((p0Pawns == 0) || (!hasAvailableMoves(board, 0))
+	if((p0Pawns == 0) || (!hasAvailableMoves(board, 0)))
 	{
 		printf("%s HAS won", names[1]);
 		return 1;
@@ -116,7 +111,7 @@ int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
   int verticalDir = player ? -1 : 1;
   int horizontalDir = 1;
   int destinationCoords[2];
-  int i, offset;
+  int i, j, offset;
 
   for(i = 0; i <= 2; i++)
   {
@@ -130,7 +125,7 @@ int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
         if(isValidMove(playerPos, destinationCoords, board, player))
           return 1;
       }
-      horizontalDir = -1;
+      horizontalDir *= -1;
     }
 
     if(playerPawn == OFFICER0 || playerPawn == OFFICER1)
@@ -145,16 +140,16 @@ int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
 int hasAvailableMoves(PlayableBoard board, int player)
 {
   int coordinates[2];
+  int row, col;
+
   for(row = 0; row < GRID_SIZE; row++)
-  {
-    for(col = getRowSize(row), col >= 0; col--)
+    for(col = 0; col < GRID_SIZE; col++)
     {
       if(row % 2 != col % 2)
         continue;
 
       coordinates[0] = row;
       coordinates[1] = col;
-      Pawn towerTop = getTop(UICoordinatesToTower(board, coordinates));
 
       if(!isYourPawn(coordinates, board, player))
         continue;
@@ -162,7 +157,6 @@ int hasAvailableMoves(PlayableBoard board, int player)
       if(canMoveInSurroundingArea(board, coordinates, player))
         return 1;
     }
-  }
 
   return 0;
 }
