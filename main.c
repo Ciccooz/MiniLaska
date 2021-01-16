@@ -59,22 +59,19 @@ int hasWon(PlayableBoard board, Names names)
 	int p0Pawns = countPawns(board, SOLDIER0, OFFICER0);
 	int p1Pawns = countPawns(board, SOLDIER1, OFFICER1);
 
-	int p0Moves = countMoves(board, SOLDIER0, OFFICER0);
-	int p1Moves = countMoves(board, SOLDIER1, OFFICER1);
-
 	printf("\np0Pawns: %d\n", p0Pawns);
 	printf("p1Pawns: %d\n", p1Pawns);
 
 	printf("p0Moves: %d\n", p0Moves);
 	printf("p1Moves: %d\n", p1Moves);
 
-	if((p0Pawns == 0) || (p0Moves == 0))
+	if((p0Pawns == 0) || (!hasAvailableMoves(board, 0))
 	{
 		printf("%s HAS won", names[1]);
 		return 1;
 	}
 
-	if((p1Pawns == 0) || (p1Moves == 0))
+	if((p1Pawns == 0) || (!hasAvailableMoves(board, 1)))
 	{
 		printf("%s HAS won", names[0]);
 		return 1;
@@ -111,6 +108,63 @@ int countPawns(PlayableBoard board, char soldierTop, char officerTop)
 	}
 
 	return counter;
+}
+
+int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
+{
+  Pawn playerPawn = getTop(UICoordinatesToTower(board, playerPos));
+  int verticalDir = player ? -1 : 1;
+  int horizontalDir = 1;
+  int destinationCoords[2];
+  int i, offset;
+
+  for(i = 0; i <= 2; i++)
+  {
+    for(j = 0; j < 2; j++)
+    {
+      for(offset = 1; offset <= 2; offset++)
+      {
+        destinationCoords[0] = playerPos[0] + verticalDir * offset;
+        destinationCoords[1] = playerPos[1] + horizontalDir * offset;
+
+        if(isValidMove(playerPos, destinationCoords, board, player))
+          return 1;
+      }
+      horizontalDir = -1;
+    }
+
+    if(playerPawn == OFFICER0 || playerPawn == OFFICER1)
+      verticalDir *= -1;
+    else
+      break;
+  }
+
+  return 0;
+}
+
+int hasAvailableMoves(PlayableBoard board, int player)
+{
+  int coordinates[2];
+  for(row = 0; row < GRID_SIZE; row++)
+  {
+    for(col = getRowSize(row), col >= 0; col--)
+    {
+      if(row % 2 != col % 2)
+        continue;
+
+      coordinates[0] = row;
+      coordinates[1] = col;
+      Pawn towerTop = getTop(UICoordinatesToTower(board, coordinates));
+
+      if(!isYourPawn(coordinates, board, player))
+        continue;
+
+      if(canMoveInSurroundingArea(board, coordinates, player))
+        return 1;
+    }
+  }
+
+  return 0;
 }
 
 int countMoves(PlayableBoard board, char soldierTop, char officerTop)
