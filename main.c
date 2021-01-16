@@ -44,9 +44,9 @@ int main()
     move(board, UIFrom, UITo);
     checkPromotion(board, UITo);
     refreshTerminal();
-    printf("\n%s moved from (%d, %c) to (%d, %c)", names[playerTurn], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
+    printf("\n%s moved from (%d, %c) to (%d, %c)\n", names[playerTurn], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
     playerTurn= !playerTurn;
-    if(++counter == 2)
+    if(++counter == 4)
       break;
 	}while(1);
 

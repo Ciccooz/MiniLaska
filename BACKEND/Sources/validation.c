@@ -5,9 +5,9 @@
 #include "../Headers/tower.h"
 #include "../../UI/Headers/laskaBoard.h"
 
-int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn)
+int isValidMove(int from[2], int to[2], PlayableBoard board, int playerTurn)
 {
-    int errors = errorFill(from, to, board);
+    int errors = errorFill(from, to, board, playerTurn);
     if(errors)
       promptErrors(errors);
 
@@ -116,7 +116,7 @@ int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
 		   ((top == SOLDIER1 || top == OFFICER1) && playerTurn == 1);
 }
 
-int mustConquer(PlayableBoard board, int oTurn)
+int mustConquer(PlayableBoard board, int playerTurn)
 {
 	int row, col;
 	int fromBoard[2], toBoard[2];
@@ -137,7 +137,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 				fromTower = UICoordinatesToTower(board, fromBoard);
 				fromTop   = getTop(fromTower);
 
-				if(oTurn)
+				if(playerTurn)
 				{
 					if(fromTop == SOLDIER1)
 					{
@@ -304,7 +304,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 		}
 	}
 
-	if(oTurn)
+	if(playerTurn)
 		return oCounter != 0;
 	else
 		return xCounter != 0;
