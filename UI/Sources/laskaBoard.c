@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include "../../main.h"
 #include "../../BACKEND/Headers/rules.h"
+#include "../../BACKEND/Headers/input.h"
+
 
 /*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
 void printBoard(PlayableBoard board)

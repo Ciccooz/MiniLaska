@@ -1,6 +1,13 @@
 #pragma once
 #include "laskaTypes.h"
 
+typedef struct
+{
+  char column;
+  int row;
+} UserInput;
+
+
 /**
 *@file 			input.h
 *@brief			In questo file sono presenti metodi per l'input dell'utente
@@ -28,8 +35,8 @@ int getGameMode();
 /**
 *@brief 			Chiede i nomi dei giocatori
 *@details 			In base alla modalità scelta, chiede i nomi dei giocatori.
-*					Se l'utente ha scelto Player contro Player, allora chiede 
-*					i due nomi dei giocatori. Se ha scelto Player contro IA, 
+*					Se l'utente ha scelto Player contro Player, allora chiede
+*					i due nomi dei giocatori. Se ha scelto Player contro IA,
 *					allora il metodo chiederà solo il nome dell'utente.
 *
 *@param gameMode	Modalità scelta dall'utente

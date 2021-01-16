@@ -52,72 +52,11 @@ int main()
       break;
 	}while(!(gameOver = isGameOver(board)));
 
+
 	freeBoard(board);
 	printf("\nBoard successfully freed\n");
 }
 
-int hasWon(PlayableBoard board, Names names)
-{
-	int p0Pawns = countPawns(board, SOLDIER0, OFFICER0);
-	int p1Pawns = countPawns(board, SOLDIER1, OFFICER1);
-
-
-	if((p0Pawns == 0) || (!hasAvailableMoves(board, 0)))
-	{
-		printf("%s HAS won", names[1]);
-		return 1;
-	}
-
-	if((p1Pawns == 0) || (!hasAvailableMoves(board, 1)))
-	{
-		printf("%s HAS won", names[0]);
-		return 1;
-	}
-
-	return 0;
-}
-
-int countPawns(PlayableBoard board, char soldierTop, char officerTop)
-{
-	int row, col;
-	int counter = 0;
-
-	int coord[2];
-	Tower tower;
-	char top;
-
-	for(row = 0; row < GRID_SIZE; row++)
-	{
-		coord[0] = row;
-
-		for(col = 0; col < GRID_SIZE; col++)
-		{
-			if((row + col) % 2 == 0)
-			{
-				coord[1] = col;
-				tower = UICoordinatesToTower(board, coord);
-				top = getTop(tower);
-
-				if((top == soldierTop) || (top == officerTop))
-					counter++;
-			}
-		}
-	}
-
-	return counter;
-}
-
-
-
-static void checkPromotion(PlayableBoard board, int UITo[2])
-{
-	Tower promoted = UICoordinatesToTower(board, UITo);
-	Pawn promotedTop = getTop(promoted);
-
-	if((UITo[0] == 6 && promotedTop == SOLDIER1) || (UITo[0] == 0 && promotedTop == SOLDIER1))
-		if(promotedTop != OFFICER0 || promotedTop != OFFICER1)
-			promote(promoted);
-}
 
 void refreshTerminal()
 {

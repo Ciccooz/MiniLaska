@@ -73,12 +73,6 @@
 **/
 #define FIRST_ROW 			GRID_SIZE
 
-typedef struct
-{
-  char column;
-  int row;
-} UserInput;
-
 /********************************METHODS***********************************/
 /*
 cellSide indica la dimensione della cella (bordi esclusi) in char
