@@ -69,7 +69,7 @@ int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 	fgets(move, 4, stdin);
 
 	printf("\nMove: %s", move);
-	printf("Length:%d\n\n", (int)strlen(move));
+	printf("Length:%ld\n\n", strlen(move));
 
 	if(atoi(&move[0]) != 0)
 		printf("'%d' is an integer\n", atoi(&move[0]));

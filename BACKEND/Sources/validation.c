@@ -44,12 +44,12 @@ int isGoingDown(int from[2], int to[2])
 
 int canGoUp(Tower tower)
 {
-    return getTop(tower) != SOLDIER1;
+    return getTop(tower) != SOLDIER0;
 }
 
 int canGoDown(Tower tower)
 {
-    return getTop(tower) != SOLDIER2;
+    return getTop(tower) != SOLDIER1;
 }
 
 int isInSamePosition(int from[2], int to[2])
@@ -100,20 +100,20 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
 	char fromTop 	 = getTop(fromTower);
 	char midTowerTop = getTop(midTower);
 
-    return (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
-           (midTowerTop == SOLDIER2 || midTowerTop == OFFICER2) ||
-           (fromTop == SOLDIER2 || fromTop == OFFICER2) &&
-           (midTowerTop == SOLDIER1 || midTowerTop == OFFICER1);
+    return (fromTop == SOLDIER0 || fromTop == OFFICER0) &&
+           (midTowerTop == SOLDIER1 || midTowerTop == OFFICER1) ||
+           (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
+           (midTowerTop == SOLDIER0 || midTowerTop == OFFICER0);
 }
 
-int isYourPawn(int from[2], PlayableBoard board, int oTurn)
+int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
-	
+
 	char top = getTop(fromTower);
-	
-	return ((top == SOLDIER1 || top == OFFICER1) && !oTurn) ||
-		   ((top == SOLDIER2 || top == OFFICER2) && oTurn);
+
+	return ((top == SOLDIER0 || top == OFFICER0) && playerTurn == 0) ||
+		   ((top == SOLDIER1 || top == OFFICER1) && playerTurn == 1);
 }
 
 int mustConquer(PlayableBoard board, int oTurn)
@@ -123,29 +123,29 @@ int mustConquer(PlayableBoard board, int oTurn)
 	Tower fromTower, toTower;
 	int xCounter = 0, oCounter = 0;
 	char fromTop;
-	
+
 	for(row = 0; row < GRID_SIZE; row++)
 	{
 		fromBoard[0] = row;
-		
+
 		for(col = 0; col < GRID_SIZE; col++)
 		{
 			if((row + col) % 2 == 0)
 			{
 				fromBoard[1] = col;
-				
+
 				fromTower = UICoordinatesToTower(board, fromBoard);
 				fromTop   = getTop(fromTower);
-				
+
 				if(oTurn)
 				{
-					if(fromTop == SOLDIER2)
+					if(fromTop == SOLDIER1)
 					{
 						/*UP*/
 						if(fromBoard[0] - 2 >= 0)
 						{
 							toBoard[0] = fromBoard[0] - 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -154,7 +154,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									oCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -165,14 +165,14 @@ int mustConquer(PlayableBoard board, int oTurn)
 							}
 						}
 					}
-					
-					if(fromTop == OFFICER2)
-					{						
+
+					if(fromTop == OFFICER1)
+					{
 						/*DOWN*/
 						if(fromBoard[0] + 2 < GRID_SIZE)
 						{
 							toBoard[0] = fromBoard[0] + 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -181,7 +181,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									oCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -191,13 +191,13 @@ int mustConquer(PlayableBoard board, int oTurn)
 									oCounter++;
 							}
 						}
-						
-						
+
+
 						/*UP*/
 						if(fromBoard[0] - 2 >= 0)
 						{
 							toBoard[0] = fromBoard[0] - 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -206,7 +206,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									oCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -218,16 +218,16 @@ int mustConquer(PlayableBoard board, int oTurn)
 						}
 					}
 				}
-				
+
 				else
 				{
-					if(fromTop == SOLDIER1)
+					if(fromTop == SOLDIER0)
 					{
 						/*DOWN*/
 						if(fromBoard[0] + 2 < GRID_SIZE)
 						{
 							toBoard[0] = fromBoard[0] + 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -236,7 +236,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									xCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -247,14 +247,14 @@ int mustConquer(PlayableBoard board, int oTurn)
 							}
 						}
 					}
-					
-					if(fromTop == OFFICER1)
+
+					if(fromTop == OFFICER0)
 					{
 						/*DOWN*/
 						if(fromBoard[0] + 2 < GRID_SIZE)
 						{
 							toBoard[0] = fromBoard[0] + 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -263,7 +263,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									xCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -273,13 +273,13 @@ int mustConquer(PlayableBoard board, int oTurn)
 									xCounter++;
 							}
 						}
-						
-						
+
+
 						/*UP*/
 						if(fromBoard[0] - 2 >= 0)
 						{
 							toBoard[0] = fromBoard[0] - 2;
-						
+
 							/*LEFT*/
 							if(fromBoard[1] - 2 >= 0)
 							{
@@ -288,7 +288,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
 									xCounter++;
 							}
-							
+
 							/*RIGHT*/
 							if(fromBoard[1] + 2 < GRID_SIZE)
 							{
@@ -303,7 +303,7 @@ int mustConquer(PlayableBoard board, int oTurn)
 			}
 		}
 	}
-	
+
 	if(oTurn)
 		return oCounter != 0;
 	else

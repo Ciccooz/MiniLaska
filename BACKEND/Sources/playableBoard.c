@@ -109,9 +109,9 @@ static void spawnPawns(PlayableBoard board)
       {
          memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
          if(row <= 2)
-            board[row][col][0] = SOLDIER1;
+            board[row][col][0] = SOLDIER0;
          else if (row >= 4)
-            board[row][col][0] = SOLDIER2;
+            board[row][col][0] = SOLDIER1;
       }
    }
 }

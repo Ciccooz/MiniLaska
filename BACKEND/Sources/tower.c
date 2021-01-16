@@ -37,10 +37,10 @@ void changeTop(Tower tower, char newTop)
 void promote(Tower tower)
 {
 	char top = getTop(tower);
-	
+
+	if(top == SOLDIER0)
+		changeTop(tower, OFFICER0);
+
 	if(top == SOLDIER1)
 		changeTop(tower, OFFICER1);
-
-	if(top == SOLDIER2)
-		changeTop(tower, OFFICER2);
 }

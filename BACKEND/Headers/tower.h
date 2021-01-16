@@ -10,22 +10,22 @@
 /**
 *@brief 		Soldier x
 **/
-#define SOLDIER1  'x'
+#define SOLDIER0  'x'
 
 /**
 *@brief 		Soldier o
 **/
-#define SOLDIER2  'o'
+#define SOLDIER1  'o'
 
 /**
 *@brief 		Officer X
 **/
-#define OFFICER1  'X'
+#define OFFICER0  'X'
 
 /**
 *@brief 		Officer O
 **/
-#define OFFICER2  'O'
+#define OFFICER1  'O'
 
 /**
 *@brief 		Cella vuota
@@ -38,7 +38,7 @@
 *@details			Viene restituito #NULL_PAWN nel caso in cui la cella
 *					sia vuota.
 *
-*@param	tower		La torre da cui prendere la pedina	
+*@param	tower		La torre da cui prendere la pedina
 **/
 char getTop(Tower tower);
 
@@ -60,10 +60,10 @@ void changeTop(Tower tower, char newTop);
 
 /**
 *@brief 			Promuove la pedina che comanda la torre
-*@details 			Effettua la promozione di una pedina da #SOLDIER1 ad #OFFICER1,
-*					oppure da #SOLDIER2 ad #OFFICER2 chiamando il metodo changeTop() 
+*@details 			Effettua la promozione di una pedina da #SOLDIER0 ad #OFFICER0,
+*					oppure da #SOLDIER1 ad #OFFICER1 chiamando il metodo changeTop()
 *					ed inserendo come parametri la torre da sostituire e la nuova pedina,
-*					ovvero un #OFFICER1 o un #OFFICER2.
+*					ovvero un #OFFICER0 o un #OFFICER1.
 *
 *@param	tower 		La torre la cui pedina che la comanda verrà promossa
 **/

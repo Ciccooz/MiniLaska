@@ -47,8 +47,8 @@ static PlayableBoard allocBoard();
 /**
 *@brief 		Posiziona le pedine sulla griglia
 *@details 		Per prima cosa riempe la griglia di #NULL_PAWN. Poi
-*				nella prima metà della griglia posiziona le pedine #SOLDIER1 e
-*				nella seconda metà #SOLDIER2, la riga in mezzo non viene riempita.
+*				nella prima metà della griglia posiziona le pedine #SOLDIER0 e
+*				nella seconda metà #SOLDIER1, la riga in mezzo non viene riempita.
 *				Il numero di pedine posizionate in ogni riga dipende dal valore
 *				restituito da getRowSize().
 *

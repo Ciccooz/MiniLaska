@@ -11,74 +11,44 @@
 
 int main()
 {
+  int counter = 0;
 	int gameMode = getGameMode();
 	Names names = getNames(gameMode);
 
-	int oTurn = 1;
+	int playerTurn = 0;
 	int UIFrom[2];
 	int UITo[2];
 	int fromIsRight;
 	int toIsRight;
 
-	int won = 0;
+	int gameOver = 0;
 
-	int errorsOccurred;
+	int errorsOccurred = 0;
 
 	PlayableBoard board = newBoard();
 	if(board == NULL)
 		return 1;
 
 	printf("Memory for board successfully allocated\n");
-	printBoard(board);
+	do
+  {
+    printBoard(board);
+    do
+    {
+      printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
+      promptErrors(errorsOccurred);
+      getCoordinates("\nFROM", UIFrom, board);
+      getCoordinates("\nTO", UITo, board);
+    } while(errorsOccurred = isValidMove(UIFrom, UITo, board, playerTurn));
 
-	while(won == 0)
-	{
-		if(oTurn)
-			printf("\n%s's TURN (o)\n", names[0]);
-		else
-			printf("\n%s's TURN (x)\n", names[1]);
-
-		fromIsRight = getCoordinates("\nFROM", UIFrom, board);
-		if(fromIsRight)
-			toIsRight = getCoordinates("\nTO", UITo, board);
-		else
-			toIsRight = fromIsRight;
-
-		if(fromIsRight && toIsRight)
-		{
-			errorsOccurred = isValidMove(UIFrom, UITo, board, oTurn);
-			if(!errorsOccurred)
-			{
-				oTurn = !oTurn;
-				move(board, UIFrom, UITo);
-				checkPromotion(board, UITo);
-				refreshTerminal();
-				printBoard(board);
-
-				if(!oTurn)
-					printf("\n%s moved from (%d, %c) to (%d, %c)", names[0], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
-				else
-					printf("\n%s moved from (%d, %c) to (%d, %c)\n", names[1], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
-
-				won = hasWon(board, names);
-			}
-
-			else
-			{
-				refreshTerminal();
-				printBoard(board);
-				printf("\nTried to move from (%d, %c) to (%d, %c)\n\n", GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
-				printf("Move error/s occurred:\n");
-				promptErrors(errorsOccurred);
-			}
-		}
-
-		else {
-            refreshTerminal();
-            printBoard(board);
-            printf("The input is INVALID\n");
-        }
-	}
+    move(board, UIFrom, UITo);
+    checkPromotion(board, UITo);
+    refreshTerminal();
+    printf("\n%s moved from (%d, %c) to (%d, %c)", names[playerTurn], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
+    playerTurn= !playerTurn;
+    if(++counter == 2)
+      break;
+	}while(1);
 
 	freeBoard(board);
 	printf("\nBoard successfully freed\n");
@@ -86,27 +56,27 @@ int main()
 
 int hasWon(PlayableBoard board, Names names)
 {
-	int xPawns = countPawns(board, SOLDIER1, OFFICER1);
-	int oPawns = countPawns(board, SOLDIER2, OFFICER2);
+	int p0Pawns = countPawns(board, SOLDIER0, OFFICER0);
+	int p1Pawns = countPawns(board, SOLDIER1, OFFICER1);
 
-	int xMoves = countMoves(board, SOLDIER1, OFFICER1);
-	int oMoves = countMoves(board, SOLDIER2, OFFICER2);
+	int p0Moves = countMoves(board, SOLDIER0, OFFICER0);
+	int p1Moves = countMoves(board, SOLDIER1, OFFICER1);
 
-	printf("\nxPawns: %d\n", xPawns);
-	printf("oPawns: %d\n", oPawns);
+	printf("\np0Pawns: %d\n", p0Pawns);
+	printf("p1Pawns: %d\n", p1Pawns);
 
-	printf("xMoves: %d\n", xMoves);
-	printf("oMoves: %d\n", oMoves);
+	printf("p0Moves: %d\n", p0Moves);
+	printf("p1Moves: %d\n", p1Moves);
 
-	if((xPawns == 0) || (xMoves == 0))
+	if((p0Pawns == 0) || (p0Moves == 0))
 	{
-		printf("%s HAS WON", names[0]);
+		printf("%s HAS won", names[1]);
 		return 1;
 	}
 
-	if((oPawns == 0) || (oMoves == 0))
+	if((p1Pawns == 0) || (p1Moves == 0))
 	{
-		printf("%s HAS WON", names[1]);
+		printf("%s HAS won", names[0]);
 		return 1;
 	}
 
@@ -163,7 +133,7 @@ int countMoves(PlayableBoard board, char soldierTop, char officerTop)
 				fromTower = UICoordinatesToTower(board, fromBoard);
 				fromTop = getTop(fromTower);
 
-				if(fromTop == soldierTop && soldierTop == SOLDIER2)
+				if(fromTop == soldierTop && soldierTop == SOLDIER1)
 				{
 					/*CONQUER*/
 					/*UP*/
@@ -216,7 +186,7 @@ int countMoves(PlayableBoard board, char soldierTop, char officerTop)
 					}
 				}
 
-				if(fromTop == officerTop && officerTop == OFFICER2)
+				if(fromTop == officerTop && officerTop == OFFICER1)
 				{
 					/*CONQUER*/
 					/*DOWN*/
@@ -370,7 +340,7 @@ int countMoves(PlayableBoard board, char soldierTop, char officerTop)
 					}
 				}
 
-				if(fromTop == officerTop && officerTop == OFFICER1)
+				if(fromTop == officerTop && officerTop == OFFICER0)
 				{
 					/*CONQUER*/
 					/*DOWN*/
@@ -484,8 +454,8 @@ static void checkPromotion(PlayableBoard board, int UITo[2])
 	Tower promoted = UICoordinatesToTower(board, UITo);
 	Pawn promotedTop = getTop(promoted);
 
-	if((UITo[0] == 6 && promotedTop == SOLDIER1) || (UITo[0] == 0 && promotedTop == SOLDIER2))
-		if(promotedTop != OFFICER1 || promotedTop != OFFICER2)
+	if((UITo[0] == 6 && promotedTop == SOLDIER1) || (UITo[0] == 0 && promotedTop == SOLDIER1))
+		if(promotedTop != OFFICER0 || promotedTop != OFFICER1)
 			promote(promoted);
 }
 

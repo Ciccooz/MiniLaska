@@ -13,7 +13,7 @@
 *@param	from[2]			Un array con le coordinate della pedina da muovere
 *@param	to[2]			Un array contenente le coordinate di destinazione
 *@param	board			La matrice contenente tutte le pedine
-*@param	oTurn			Indica di chi è il turno 
+*@param	oTurn			Indica di chi è il turno
 *
 *@return				errors, ottenuto dal metodo errorFill()
 **/
@@ -64,8 +64,8 @@ int isGoingDown(int from[2], int to[2]);
 
 /**
 *@brief 				Controlla se la torre si può spostare in alto
-*@details				Ricava la pedina che comanda la torre utilizzando il 
-*						metodo getTop(), e controlla se è diversa da SOLDIER1,
+*@details				Ricava la pedina che comanda la torre utilizzando il
+*						metodo getTop(), e controlla se è diversa da SOLDIER0,
 *						dato che è l'unica pedina che non si può muovere verso l'alto.
 *
 *@param	tower			La torre da controllare
@@ -74,8 +74,8 @@ int canGoUp(Tower tower);
 
 /**
 *@brief 				Controlla se la torre si può spostare in basso
-*@details				Ricava la pedina che comanda la torre utilizzando il 
-*						metodo getTop(), e controlla se è diversa da SOLDIER2,
+*@details				Ricava la pedina che comanda la torre utilizzando il
+*						metodo getTop(), e controlla se è diversa da SOLDIER1,
 *						perchè è l'unica pedina che non si può muovere verso il basso.
 *
 *@param tower			La torre da controllare

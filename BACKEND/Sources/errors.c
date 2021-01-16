@@ -42,10 +42,10 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
 
     if(!topIsNull(toTower))
         errors |= TOP_NOT_NULL;
-	
+
 	if(!isYourPawn(from, board, oTurn))
 		errors |= NOT_YOUR_PAWN;
-	
+
 	if((isDoubleMove(from, to) && canConquer(from, to, board)) != mustConquer(board, oTurn))
 		errors |= MUST_CONQUER;
 
@@ -54,6 +54,9 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
 
 void promptErrors(int errors)
 {
+    if(!errors)
+      return;
+      
     printf("Invalid move:\n");
 
     if(errors & OUT_OF_BOUNDS)
@@ -79,10 +82,10 @@ void promptErrors(int errors)
 
     if(errors & TOP_NOT_NULL)
         printf("top not null\n");
-	
+
 	if(errors & NOT_YOUR_PAWN)
 		printf("not your pawn\n");
-	
+
 	if(errors & MUST_CONQUER)
 		printf("must conquer\n");
 }
