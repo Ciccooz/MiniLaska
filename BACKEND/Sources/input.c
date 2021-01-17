@@ -21,14 +21,21 @@ Names getNames()
 	printf("\nInsert Player 2 name: ");
 	fgets(player2, 15, stdin);
 
-	player1[0] = toupper(player1[0]);		/*Prima lettera maiuscola*/
-	player2[0] = toupper(player2[0]);
-
-	player1[strlen(player1)-1] = 0;			/*Cancello il carattere \n*/
-	player2[strlen(player2)-1] = 0;
-
-	strcpy(names[0], player1);
-	strcpy(names[1], player2);
+	if(strlen(player1) != 1){
+		player1[0] = toupper(player1[0]);		/*Prima lettera maiuscola*/
+		player1[strlen(player1)-1] = '\0';		/*Cancello il carattere \n*/
+		strcpy(names[0], player1);
+	}
+	else
+		strcpy(names[0], "Player1");
+	
+	if(strlen(player2) != 1){
+		player2[0] = toupper(player2[0]);
+		player2[strlen(player2)-1] = '\0';
+		strcpy(names[1], player2);
+	}
+	else
+		strcpy(names[1], "Player2");
 
 	return names;
 }

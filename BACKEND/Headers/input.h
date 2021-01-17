@@ -38,7 +38,11 @@ typedef struct
 /**
 *@brief 			  Chiede i nomi dei giocatori
 *@details 			  Chiede ai giocatori di inserire i propri nomi,
-*					  poi li carica in un array e lo returna.
+*					  poi li carica in un array.
+*					  Nel caso in cui non venga inserito un nome,
+*					  viene automaticamente caricato il nome
+*					  "Player1" o "Player2" all'interno dell'array.
+*					  Infine returna l'array.
 **/
 Names getNames();
 

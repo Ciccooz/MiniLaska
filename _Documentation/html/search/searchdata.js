@@ -6,7 +6,8 @@ var indexSectionsWithContent =
   3: "acdefghimnprstu",
   4: "cr",
   5: "gnpt",
-  6: "bcfghmnopstuv"
+  6: "bcfghmnopstuv",
+  7: "p"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "defines"
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Funzioni",
   4: "Variabili",
   5: "Ridefinizioni di tipo (typedef)",
-  6: "Definizioni"
+  6: "Definizioni",
+  7: "Pagine"
 };
 

@@ -13,7 +13,5 @@ var searchData=
   ['clearcell_14',['clearCell',['../moves_8c.html#a3a8076cec4ea8cce9e0223e2c478c7ea',1,'moves.c']]],
   ['column_15',['column',['../struct_user_input.html#a425464903ca3eff181e5efcdb133b4cd',1,'UserInput']]],
   ['conquer_16',['conquer',['../moves_8c.html#a6e10794c721ffbda75bbf56a3032dc3d',1,'moves.c']]],
-  ['coordinateswithinbounds_17',['coordinatesWithinBounds',['../validation_8h.html#ae94faa716805821aba181728332c4100',1,'coordinatesWithinBounds(int from[2], int to[2]):&#160;validation.c'],['../validation_8c.html#ae94faa716805821aba181728332c4100',1,'coordinatesWithinBounds(int from[2], int to[2]):&#160;validation.c']]],
-  ['countmoves_18',['countMoves',['../main_8h.html#a388bb2e7619dfde1d0a3d1dd41a5053e',1,'main.h']]],
-  ['countpawns_19',['countPawns',['../main_8h.html#a8384b8b4cf32a077caa7d250b2083cf2',1,'main.h']]]
+  ['coordinateswithinbounds_17',['coordinatesWithinBounds',['../validation_8h.html#ae94faa716805821aba181728332c4100',1,'coordinatesWithinBounds(int from[2], int to[2]):&#160;validation.c'],['../validation_8c.html#ae94faa716805821aba181728332c4100',1,'coordinatesWithinBounds(int from[2], int to[2]):&#160;validation.c']]]
 ];

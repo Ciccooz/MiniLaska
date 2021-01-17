@@ -6,7 +6,15 @@
 #include "BACKEND/Headers/playableBoard.h"
 #include "BACKEND/Headers/endGameChecks.h"
 
-
+/**
+*@file  		main.c
+*@mainpage      Progetto MiniLaska
+* 				Questo progetto consiste nella creazione di una variante del gioco Laska.\n
+*				In questa variante, chiamata MiniLaska, ci sono regole diverse, ovvero:\n
+*				1. L'altezza massima delle torri è 3\n
+*				2. Superata l'altezza massima, la pedina alla base viene rimossa\n
+*				3. Non è possibile conquistare più volte in una sola mossa\n
+**/
 
 int main()
 {
@@ -49,7 +57,6 @@ int main()
 	freeNames(names);
 	freeBoard(board);
 }
-
 
 void refreshTerminal()
 {
