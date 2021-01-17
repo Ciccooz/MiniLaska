@@ -1,5 +1,12 @@
+-----------------------------------------------------------COMPOSIZIONE GRUPPO-------------------------------------------------------------------
 
-----------------------------------------------------------------MINILASKA---------------------------------------------------------------------
+ID gruppo: 31
+
+Membri gruppo:
+	Ciccone Mattia 885349
+	Marizza Nicola 887004
+
+----------------------------------------------------------------MINILASKA------------------------------------------------------------------------
 
 Per compilare il programma è necessario disporre del gcc compiler.
 Se il gcc compiler è correttamente aggiunto al $PATH del sistema, sarà sufficiente runnare uno degli eseguibili nella directory _Compilers in base
