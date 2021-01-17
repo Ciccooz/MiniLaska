@@ -34,6 +34,13 @@ Names getNames()
 
 	return names;
 }
+void freeNames(Names names)
+{
+  int i;
+  for(i = 0; i < 2; i++)
+    free(names[i]);
+  free(names);
+}
 int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 {
 	UserInput input;
