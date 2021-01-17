@@ -11,22 +11,18 @@
 *@brief 		Soldier x
 **/
 #define SOLDIER0  'x'
-
 /**
 *@brief 		Soldier o
 **/
 #define SOLDIER1  'o'
-
 /**
 *@brief 		Officer X
 **/
 #define OFFICER0  'X'
-
 /**
 *@brief 		Officer O
 **/
 #define OFFICER1  'O'
-
 /**
 *@brief 		Cella vuota
 **/
@@ -41,7 +37,6 @@
 *@param	tower		La torre da cui prendere la pedina
 **/
 char getTop(Tower tower);
-
 /**
 *@brief 			Restituisce l'indice della pedina che comanda la torre
 *@details			Restituisce -1 nel caso in cui la cella sia vuota.
@@ -49,7 +44,6 @@ char getTop(Tower tower);
 *@param	tower		La torre dalla quale prendere l'indice della pedina
 **/
 int getTopIndex(Tower tower);
-
 /**
 *@brief 			Sostituisce la pedina che comanda la torre, con una nuova
 *
@@ -57,7 +51,6 @@ int getTopIndex(Tower tower);
 *@param	newTop 		La pedina che sostituirà quella selezionata
 **/
 void changeTop(Tower tower, char newTop);
-
 /**
 *@brief 			Promuove la pedina che comanda la torre
 *@details 			Effettua la promozione di una pedina da #SOLDIER0 ad #OFFICER0,

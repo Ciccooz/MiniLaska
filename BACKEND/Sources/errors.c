@@ -4,7 +4,9 @@
 #include "../Headers/validation.h"
 #include "../../UI/Headers/laskaBoard.h"
 
-int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
+
+
+int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 {
     int errors = 0;
 
@@ -43,20 +45,19 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn)
     if(!topIsNull(toTower))
         errors |= TOP_NOT_NULL;
 
-	if(!isYourPawn(from, board, oTurn))
+	if(!isYourPawn(from, board, player))
 		errors |= NOT_YOUR_PAWN;
 
-	if((isDoubleMove(from, to) && canConquer(from, to, board)) != mustConquer(board, oTurn))
+	if(isSingleMove(from, to, board) && mustConquer(board, player))
 		errors |= MUST_CONQUER;
 
     return errors;
 }
-
 void promptErrors(int errors)
 {
     if(!errors)
       return;
-      
+
     printf("Invalid move:\n");
 
     if(errors & OUT_OF_BOUNDS)

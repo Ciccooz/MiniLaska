@@ -5,15 +5,14 @@
 #include "../Headers/tower.h"
 #include "../../UI/Headers/laskaBoard.h"
 
+static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], int player);
+
+
+
 int isValidMove(int from[2], int to[2], PlayableBoard board, int playerTurn)
 {
-    int errors = errorFill(from, to, board, playerTurn);
-    if(errors)
-      promptErrors(errors);
-
-    return  errors;
+    return errorFill(from, to, board, playerTurn);
 }
-
 int coordinatesWithinBounds(int from[2], int to[2])
 {
 	int validRows = (from[0] >= 0 && from[0] < GRID_SIZE) && (to[0] >= 0 && to[0] < GRID_SIZE);
@@ -21,37 +20,30 @@ int coordinatesWithinBounds(int from[2], int to[2])
 
 	return validRows && validCols;
 }
-
 int movesFromPlayableCell(int from[2])
 {
     return (from[0] % 2) == (from[1] % 2);
 }
-
 int movesDiagonally(int from[2], int to[2])
 {
 	return abs(from[0] - to[0]) == abs(from[1] - to[1]);
 }
-
 int isGoingUp(int from[2], int to[2])
 {
     return from[0] > to[0];
 }
-
 int isGoingDown(int from[2], int to[2])
 {
     return from[0] < to[0];
 }
-
 int canGoUp(Tower tower)
 {
     return getTop(tower) != SOLDIER0;
 }
-
 int canGoDown(Tower tower)
 {
     return getTop(tower) != SOLDIER1;
 }
-
 int isInSamePosition(int from[2], int to[2])
 {
     int movingRow = from[0] == to[0];
@@ -59,7 +51,6 @@ int isInSamePosition(int from[2], int to[2])
 
     return movingRow && movingCol;
 }
-
 int isMovingTooMuch(int from[2], int to[2])
 {
     int row = abs(from[0] - to[0]);
@@ -70,7 +61,6 @@ int isMovingTooMuch(int from[2], int to[2])
 
     return movingRow || movingCol;
 }
-
 int isSingleMove(int from[2], int to[2])
 {
     int singleRow = (abs(from[0] - to[0]) == 1);
@@ -78,7 +68,6 @@ int isSingleMove(int from[2], int to[2])
 
     return singleRow && singleCol;
 }
-
 int isDoubleMove(int from[2], int to[2])
 {
     int doubleRow = (abs(from[0] - to[0]) == 2);
@@ -86,12 +75,10 @@ int isDoubleMove(int from[2], int to[2])
 
     return doubleRow && doubleCol;
 }
-
 int topIsNull(Tower tower)
 {
     return getTop(tower) == NULL_PAWN;
 }
-
 int canConquer(int from[2], int to[2], PlayableBoard board)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
@@ -105,7 +92,6 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
            (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
            (midTowerTop == SOLDIER0 || midTowerTop == OFFICER0);
 }
-
 int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
@@ -115,197 +101,55 @@ int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
 	return ((top == SOLDIER0 || top == OFFICER0) && playerTurn == 0) ||
 		   ((top == SOLDIER1 || top == OFFICER1) && playerTurn == 1);
 }
-
-int mustConquer(PlayableBoard board, int playerTurn)
+int mustConquer(PlayableBoard board, int player);
 {
-	int row, col;
-	int fromBoard[2], toBoard[2];
-	Tower fromTower, toTower;
-	int xCounter = 0, oCounter = 0;
-	char fromTop;
+  int coordinates[2];
+  int row, col;
 
-	for(row = 0; row < GRID_SIZE; row++)
-	{
-		fromBoard[0] = row;
+  for(row = 0; row < GRID_SIZE; row++)
+    for(col = 0; col < GRID_SIZE; col++)
+    {
+      if(row % 2 != col % 2)
+        continue;
 
-		for(col = 0; col < GRID_SIZE; col++)
-		{
-			if((row + col) % 2 == 0)
-			{
-				fromBoard[1] = col;
+      coordinates[0] = row;
+      coordinates[1] = col;
 
-				fromTower = UICoordinatesToTower(board, fromBoard);
-				fromTop   = getTop(fromTower);
+      if(!isYourPawn(coordinates, board, player))
+        continue;
 
-				if(playerTurn)
-				{
-					if(fromTop == SOLDIER1)
-					{
-						/*UP*/
-						if(fromBoard[0] - 2 >= 0)
-						{
-							toBoard[0] = fromBoard[0] - 2;
+      if(canConquerInSurroundingArea(board, coordinates, player))
+        return 1;
+    }
 
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
-
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
-						}
-					}
-
-					if(fromTop == OFFICER1)
-					{
-						/*DOWN*/
-						if(fromBoard[0] + 2 < GRID_SIZE)
-						{
-							toBoard[0] = fromBoard[0] + 2;
-
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
-
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
-						}
+  return 0;
+}
 
 
-						/*UP*/
-						if(fromBoard[0] - 2 >= 0)
-						{
-							toBoard[0] = fromBoard[0] - 2;
+static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
+{
+  Pawn playerPawn = getTop(UICoordinatesToTower(board, playerPos));
+  int verticalDir = player ? -1 : 1;
+  int horizontalDir = 1;
+  int destinationCoords[2];
+  int i, j;
 
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
+  for(i = 0; i < 2; i++)
+  {
+    for(j = 0; j < 2; j++)
+    {
+      destinationCoords[0] = playerPos[0] + verticalDir * 2;
+      destinationCoords[1] = playerPos[1] + horizontalDir * 2;
 
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									oCounter++;
-							}
-						}
-					}
-				}
+      if(canConquer(playerPos, destinationCoords, board))
+        return 1;
+      horizontalDir *= -1;
+    }
 
-				else
-				{
-					if(fromTop == SOLDIER0)
-					{
-						/*DOWN*/
-						if(fromBoard[0] + 2 < GRID_SIZE)
-						{
-							toBoard[0] = fromBoard[0] + 2;
-
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-						}
-					}
-
-					if(fromTop == OFFICER0)
-					{
-						/*DOWN*/
-						if(fromBoard[0] + 2 < GRID_SIZE)
-						{
-							toBoard[0] = fromBoard[0] + 2;
-
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-						}
-
-
-						/*UP*/
-						if(fromBoard[0] - 2 >= 0)
-						{
-							toBoard[0] = fromBoard[0] - 2;
-
-							/*LEFT*/
-							if(fromBoard[1] - 2 >= 0)
-							{
-								toBoard[1] = fromBoard[1] - 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-
-							/*RIGHT*/
-							if(fromBoard[1] + 2 < GRID_SIZE)
-							{
-								toBoard[1] = fromBoard[1] + 2;
-								toTower = UICoordinatesToTower(board, toBoard);
-								if(canConquer(fromBoard, toBoard, board) && topIsNull(toTower))
-									xCounter++;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	if(playerTurn)
-		return oCounter != 0;
-	else
-		return xCounter != 0;
+    if(playerPawn == OFFICER0 || playerPawn == OFFICER1)
+      verticalDir *= -1;
+    else
+      break;
+  }
+  return 0;
 }

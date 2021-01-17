@@ -2,6 +2,8 @@
 
 #include "../Headers/rules.h"
 
+
+
 char getTop(Tower tower)
 {
 	int i;
@@ -13,7 +15,6 @@ char getTop(Tower tower)
 
 	return top;
 }
-
 int getTopIndex(Tower tower)
 {
 	int i;
@@ -26,14 +27,12 @@ int getTopIndex(Tower tower)
 
 	return index;
 }
-
 void changeTop(Tower tower, char newTop)
 {
 	int index = getTopIndex(tower);
 
 	tower[index] = newTop;
 }
-
 void promote(Tower tower)
 {
 	char top = getTop(tower);

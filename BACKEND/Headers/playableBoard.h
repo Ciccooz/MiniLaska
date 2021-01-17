@@ -5,15 +5,7 @@
 *@file 			playableBoard.h
 *@brief			In questo file si trovano i metodi legati alla griglia di gioco
 **/
-
 /********************************METHODS***********************************/
-/*
-Alloca la memoria per il campo da gioco tramite la chiamata ad allocBoard e posiziona le pedine
-nella posizione di inizio partita tramite la chiamata a spawnPawns
-Restituisce il puntatore base (PlayableBoard) o NULL in caso si verificasse un'eccezione durante
-l'allocazione di memoria
-*/
-
 /**
 *@brief 		Crea una nuova griglia ed inserisce le pedine
 *@details 		Chiama il metodo allocBoard() e, se l'allocazione è
@@ -21,41 +13,6 @@ l'allocazione di memoria
 *				altrimenti restituisce NULL.
 **/
 PlayableBoard newBoard();
-
-/*
-Alloca dinamicamente la memoria per il campo da gioco (limitato alle caselle giocabili) e
-restituisce il puntatore base (PlayableBoard)
-Se la calloc non riesce ad allocare memoria la funzione ripulisce tutto ciò che eventualmente
-era già stato allocato prima che si verificasse l'eccezione chiamando freeBoard e restituisce
-NULL
-*/
-
-/**
-*@brief 		Alloca dinamicamente la memoria del campo da gioco
-*@details 		Prima alloca l'array che conterrà le righe della griglia,
-*				poi alloca le righe della griglia utilizzando dimesioni
-*				diverse, ottenute tramite il metodo getRowSize().
-*				Nel caso in cui una delle allocazioni non vada a buon fine,
-*				chiama il metodo freeBoard().
-*
-*@note			Abbiamo deciso di allocare array di dimensioni diverse per
-*				risparmiare spazio, dato che molte celle non vengono
-*				utilizzate.
-**/
-static PlayableBoard allocBoard();
-
-/**
-*@brief 		Posiziona le pedine sulla griglia
-*@details 		Per prima cosa riempe la griglia di #NULL_PAWN. Poi
-*				nella prima metà della griglia posiziona le pedine #SOLDIER0 e
-*				nella seconda metà #SOLDIER1, la riga in mezzo non viene riempita.
-*				Il numero di pedine posizionate in ogni riga dipende dal valore
-*				restituito da getRowSize().
-*
-*@param grid	Griglia nella quale posizionare le pedine
-**/
-static void spawnPawns(PlayableBoard grid);
-
 /**
 *@brief 		Restituisce la grandezza di una riga
 *@details 		Se l'indice della riga è dispari, restituisce 3,
@@ -65,12 +22,6 @@ static void spawnPawns(PlayableBoard grid);
 *@param	row		L'indice della riga
 **/
 int getRowSize(int row);
-
-/*
-Libera la memoria allocata per il campo da gioco. Nel caso dovesse trovare un puntatore NULL
-procede direttamente con la free del buffer in cui tale puntatore è memorizzato.
-*/
-
 /**
 *@brief 		Libera la memoria allocata per il campo da gioco
 *@details 		Libera la memoria delle singole torri, poi della riga

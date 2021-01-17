@@ -5,8 +5,70 @@
 #include "../../BACKEND/Headers/rules.h"
 #include "../../BACKEND/Headers/input.h"
 
+/**
+*@brief 		 		Stampa le coordinate delle colonne
+*
+*@param cellSide		Dimensioni della singola cella
+**/
+static void printColumnCoordinates(int cellSide);
+/**
+*@brief 		 		Stampa le coordinate delle righe
+*@details				La coordinata viene stampata solo se terminalRow è
+*						pari a cellSide/2.
+*
+*@param cellSide		Dimensioni della singola cella
+*@param terminalRow		Rappresenta a che altezza della cella ci si trova
+*@param boardRow		Indice della riga
+**/
+static void printRowCoordinates(int cellSide, int terminalRow, int boardRow);
+/**
+*@brief 		 		Stampa i separatori in base ai parametri passati
+*@details 		 		Stampa per primo, e per una sola volta, il parametro 'left'.
+*				 		Poi per ogni cella viene stampato il carattere #HORIZONTAL_SIDE
+*				 		e alla fine della cella il parametro 'intersection', questo
+*				 		processo è ripetuto per tutta la lunghezza della griglia.
+*				 		Una volta finita la griglia verrà stampato il parametro 'right'.
+*
+*@param cellSide		Dimensioni della singola cella
+*@param left	 		Carattere da stampare per primo
+*@param intersection	Carattere che viene stampato in mezzo
+*@param right 			Carattere stampato alla fine della griglia
+**/
+static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
+/**
+*@brief 		 		Stampa i separatori superiori
+*@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
+*				 		argomenti #TOP_LEFT_CORNER, #TOP_INTERSECTION, #TOP_RIGHT_CORNER.
+*
+*@param cellSide		Dimensioni della singola cella
+**/
+static void printUpperSeparator(int cellSide);
+/**
+*@brief 		 		Stampa i separatori intermedi
+*@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
+*				 		argomenti #MID_LEFT_SIDE, #MID_INTERSECTION, #MID_RIGHT_SIDE.
+*
+*@param cellSide		Dimensioni della singola cella
+**/
+static void printMidSeparator(int cellSide);
+/**
+*@brief 		 		Stampa i separatori inferiori
+*@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
+*				 		argomenti #BOTTOM_LEFT_CORNER, #BOTTOM_INTERSECTION, #BOTTOM_RIGHT_CORNER.
+*
+*@param cellSide		Dimensioni della singola cella
+**/
+static void printLowerSeparator(int cellSide);
+/**
+*@brief 		 		Stampa il contenuto di una cella
+*
+*@param content			Carattere da stampare all'interno
+*@param cellSide		Dimensioni della singola cella
+**/
+static void printCellContent(char content, int cellSide);
 
-/*la cellSide deve essere un multiplo di TOWER_HEIGHT*/
+
+
 void printBoard(PlayableBoard board)
 {
     int cellSide = TOWER_HEIGHT;
@@ -55,7 +117,6 @@ void printBoard(PlayableBoard board)
         }
     }
 }
-
 Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
 {
   return board[UICoords[0]][UICoords[1] / 2];
@@ -73,6 +134,8 @@ Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])
 
   return UICoordinatesToTower(board, coords);
 }
+
+
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
     printf("\t");

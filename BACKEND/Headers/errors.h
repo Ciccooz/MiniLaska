@@ -14,7 +14,6 @@
 *				al di fuori della griglia.
 **/
 #define OUT_OF_BOUNDS           0x01
-
 /**
 *@brief 		Errore NOT_PLAYABLE_CELL
 *
@@ -23,7 +22,6 @@
 *				utilizzata.
 **/
 #define NOT_PLAYABLE_CELL       0x02
-
 /**
 *@brief 		Errore NOT_DIAGONAL
 *
@@ -31,7 +29,6 @@
 *				in orizzontale o in verticale.
 **/
 #define NOT_DIAGONAL            0x04
-
 /**
 *@brief 		Errore CANT_GO_UP
 *
@@ -40,7 +37,6 @@
 *				quella direzione.
 **/
 #define CANT_GO_UP              0x08
-
 /**
 *@brief 		Errore CANT_GO_DOWN
 *
@@ -49,14 +45,12 @@
 *				quella direzione.
 **/
 #define CANT_GO_DOWN            0x10
-
 /**
 *@brief 		Errore NOT_MOVING
 *
 *@details		Errore generato quando si cerca di far rimanere ferma una torre.
 **/
 #define NOT_MOVING              0x20
-
 /**
 *@brief 		Errore MOVING_TOO_MUCH
 *
@@ -64,7 +58,6 @@
 *				di due posizioni.
 **/
 #define MOVING_TOO_MUCH         0x40
-
 /**
 *@brief 		Errore CANT_CONQUER
 *
@@ -72,7 +65,6 @@
 *				una torre, ma non è possibile.
 **/
 #define CANT_CONQUER            0x80
-
 /**
 *@brief 		Errore TOP_NOT_NULL
 *
@@ -80,14 +72,12 @@
 *				non vuota.
 **/
 #define TOP_NOT_NULL            0x100
-
 /**
 *@brief 		Errore NOT_YOUR_PAWN
 *
 *@details		Errore generato quando l'utente prova a muovere una pedina non sua.
 **/
 #define NOT_YOUR_PAWN			0x200
-
 /**
 *@brief 		Errore MUST_CONQUER
 *
@@ -113,7 +103,6 @@
 *@return				L'intero 'errors' dichiarato all'inizio del metodo
 **/
 int errorFill(int from[2], int to[2], PlayableBoard board, int oTurn);
-
 /**
 *@brief 				Stampa a video l'errore che si è generato
 *@details				La variabile 'errors' viene messa in AND con le variabili che

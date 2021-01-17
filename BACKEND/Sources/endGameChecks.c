@@ -10,6 +10,7 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
 static int hasPawnsLeft(PlayableBoard board, int player);
 
 
+
 GameOverCode isGameOver(PlayableBoard board)
 {
   int player;
@@ -43,7 +44,6 @@ static int hasAvailableMoves(PlayableBoard board, int player)
 
   return 0;
 }
-
 static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
 {
   Pawn playerPawn = getTop(UICoordinatesToTower(board, playerPos));
@@ -52,7 +52,7 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
   int destinationCoords[2];
   int i, j, offset;
 
-  for(i = 0; i <= 2; i++)
+  for(i = 0; i < 2; i++)
   {
     for(j = 0; j < 2; j++)
     {
@@ -75,7 +75,6 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
 
   return 0;
 }
-
 static int hasPawnsLeft(PlayableBoard board, int player)
 {
   int coordinates[2];

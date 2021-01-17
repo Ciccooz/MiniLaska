@@ -18,7 +18,6 @@
 *@return				errors, ottenuto dal metodo errorFill()
 **/
 int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn);
-
 /**
 *@brief 				Controlla se le coordinate sono interne alla griglia
 *
@@ -26,7 +25,6 @@ int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int coordinatesWithinBounds(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla che la posizione di partenza sia giocabile
 *@details				Si fa questo controllo perchè ci sono delle celle
@@ -35,7 +33,6 @@ int coordinatesWithinBounds(int from[2], int to[2]);
 *@param	from[2]			Un array con le coordinate della pedina da muovere
 **/
 int movesFromPlayableCell(int from[2]);
-
 /**
 *@brief 				Controlla che il movimento sia effettuato in diagonale
 *@details				Viene effettuato questo controllo dato che ci si può
@@ -45,7 +42,6 @@ int movesFromPlayableCell(int from[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int movesDiagonally(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla se ci si vuole spostare verso l'alto
 *
@@ -53,7 +49,6 @@ int movesDiagonally(int from[2], int to[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isGoingUp(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla se ci si vuole spostare verso il basso
 *
@@ -61,7 +56,6 @@ int isGoingUp(int from[2], int to[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isGoingDown(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla se la torre si può spostare in alto
 *@details				Ricava la pedina che comanda la torre utilizzando il
@@ -71,7 +65,6 @@ int isGoingDown(int from[2], int to[2]);
 *@param	tower			La torre da controllare
 **/
 int canGoUp(Tower tower);
-
 /**
 *@brief 				Controlla se la torre si può spostare in basso
 *@details				Ricava la pedina che comanda la torre utilizzando il
@@ -81,7 +74,6 @@ int canGoUp(Tower tower);
 *@param tower			La torre da controllare
 **/
 int canGoDown(Tower tower);
-
 /**
 *@brief 				Controlla se si vuole far rimanere ferma la torre
 *
@@ -89,7 +81,6 @@ int canGoDown(Tower tower);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isInSamePosition(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla se si cerca di muovere di troppo una torre
 *
@@ -97,7 +88,6 @@ int isInSamePosition(int from[2], int to[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isMovingTooMuch(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla che ci si vuole muovere di esattamente una posizione
 *
@@ -105,7 +95,6 @@ int isMovingTooMuch(int from[2], int to[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isSingleMove(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla che ci si vuole muovere di esattamente due posizioni
 *
@@ -113,7 +102,6 @@ int isSingleMove(int from[2], int to[2]);
 *@param	to[2]			Un array contenente le coordinate di destinazione
 **/
 int isDoubleMove(int from[2], int to[2]);
-
 /**
 *@brief 				Controlla che la cella selezionata sia vuota
 *@details				Ricava la pedina che controlla la torre utilizzando il
@@ -122,11 +110,10 @@ int isDoubleMove(int from[2], int to[2]);
 *@param tower			La torre da controllare
 **/
 int topIsNull(Tower tower);
-
 /**
 *@brief 				Controlla se si può conquistare la pedina che comanda una torre
 *@details				Nello specifico controlla se la cella precedente, ricavata tramite
-*						il metodo getPrevious(), è diversa da quella con la quale si vuole
+*						il metodo getTowerInBetween(), è diversa da quella con la quale si vuole
 *						conquistare.
 *
 *@param	from[2]			Un array con le coordinate della pedina da muovere
@@ -134,7 +121,6 @@ int topIsNull(Tower tower);
 *@param board			La matrice contenente tutte le pedine
 **/
 int canConquer(int from[2], int to[2], PlayableBoard board);
-
 /**
 *@brief 				Controlla che la torre appartenga al giocatore
 *@details				Questo controllo è necessario per evitare che l'avversario
@@ -145,7 +131,6 @@ int canConquer(int from[2], int to[2], PlayableBoard board);
 *@param oTurn			Il turno del giocatore
 **/
 int isYourPawn(int from[2], PlayableBoard board, int oTurn);
-
 /**
 *@brief 				Controlla se l'utente è costretto a conquistare
 *
