@@ -112,10 +112,13 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
 	if(getTop(UICoordinatesToTower(board, to)) != NULL_PAWN)
         return 0;
 
-    return (fromTop == SOLDIER0 || fromTop == OFFICER0) &&
-           (midTowerTop == SOLDIER1 || midTowerTop == OFFICER1) ||
-           (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
-           (midTowerTop == SOLDIER0 || midTowerTop == OFFICER0);
+  if(getTop(UICoordinatesToTower(board, to)) != NULL_PAWN)
+    return 0;
+
+  return (fromTop == SOLDIER0 || fromTop == OFFICER0) &&
+         (midTowerTop == SOLDIER1 || midTowerTop == OFFICER1) ||
+         (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
+         (midTowerTop == SOLDIER0 || midTowerTop == OFFICER0);
 }
 
 int isYourPawn(int from[2], PlayableBoard board, int player)
@@ -168,6 +171,7 @@ static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], in
 
       if(coordinatesWithinBounds(playerPos, destinationCoords) && canConquer(playerPos, destinationCoords, board))
         return 1;
+
       horizontalDir *= -1;
     }
 
