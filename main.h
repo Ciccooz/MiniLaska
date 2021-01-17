@@ -14,32 +14,3 @@
 *				operativo sta utilizzando l'utente.
 **/
 void refreshTerminal();
-
-/**
-*@brief			Controlla se un giocatore ha vinto
-*@details		Controlla quante pedine di ogni giocatore sono rimaste,
-*				se non ce ne sono, allora l'altro giocatore ha vinto la
-*				partita.
-*
-*@param board 	La matrice contenente tutte le pedine
-*@param names 	Un array che contiene i nomi dei giocatori
-**/
-int hasWon(PlayableBoard board, Names names);
-
-/**
-*@brief			Controlla quante torri sono rimaste da giocare
-*
-*@param board 	La matrice contenente tutte le torri
-*@param soldierTop Serve a contare le torri che hanno come top soldierTop
-*@param officerTop Serve a contare le torri che hanno come top officerTop
-**/
-int countPawns(PlayableBoard board, char soldierTop, char officerTop);
-
-/**
-*@brief			Conta le mosse disponibili
-*
-*@param board 	La matrice contenente tutte le torri
-*@param soldierTop Serve a contare le torri che hanno come top soldierTop
-*@param officerTop Serve a contare le torri che hanno come top officerTop
-**/
-int countMoves(PlayableBoard board, char soldierTop, char officerTop);

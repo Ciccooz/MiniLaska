@@ -20,7 +20,7 @@ Names getNames()
 
 	printf("Insert Player 1 name: ");
 	fgets(player1, 15, stdin);
-	printf("\n\nInsert Player 2 name: ");
+	printf("\nInsert Player 2 name: ");
 	fgets(player2, 15, stdin);
 
 	player1[0] = toupper(player1[0]);		/*Prima lettera maiuscola*/
@@ -51,31 +51,13 @@ int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 	printf("%s: ", title);
 	fgets(move, 4, stdin);
 
-	printf("\nMove: %s", move);
-	printf("Length:%ld\n\n", strlen(move));
+  row = atoi(&move[0]);
+  col = move[1];
 
-	if(atoi(&move[0]) != 0)
-		printf("'%d' is an integer\n", atoi(&move[0]));
-
-	else
-		printf("'%d' is NOT an integer\n", atoi(&move[0]));
-
-	if(isalpha(move[1]))
-		printf("'%c' is a char\n\n", move[1]);
-
-	else
-		printf("'%c' is NOT a char\n\n", move[1]);
-
-	if((atoi(&move[0]) != 0) && isalpha(move[1]))
+	if((row != 0) && isalpha(col))
 	{
-		row = atoi(&move[0]);
-		col = tolower(move[1]);
-
-		printf("Row: %d\n", row);
-		printf("Col: %c\n", col);
-
 		input.row = row;
-		input.column = col;
+		input.column = tolower(col);
 		UserInputToUICoords(input, UICoords);
 		return 1;
 	}
