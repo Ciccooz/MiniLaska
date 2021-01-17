@@ -13,8 +13,4 @@
 *@details 		Viene eseguito un comando diverso in base a quale sistema
 *				operativo sta utilizzando l'utente.
 **/
-<<<<<<< HEAD
 void refreshTerminal();
-=======
-void refreshTerminal();
->>>>>>> ae18e4ad9e97ba70023aacef7a15b34101e5be4e

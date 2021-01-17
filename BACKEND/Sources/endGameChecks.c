@@ -40,11 +40,7 @@ GameOverCode isGameOver(PlayableBoard board)
   for(player = 0; player <=1; player++)
     if(!hasAvailableMoves(board, player) || !hasPawnsLeft(board, player))
       return player ? PLAYER_0_WON : PLAYER_1_WON;
-<<<<<<< HEAD
   
-=======
-
->>>>>>> ae18e4ad9e97ba70023aacef7a15b34101e5be4e
   return NOT_OVER;
 }
 

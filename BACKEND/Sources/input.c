@@ -50,19 +50,11 @@ int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 
 	printf("%s: ", title);
 	fgets(move, 4, stdin);
-<<<<<<< HEAD
 	
 	row = atoi(&move[0]);
 	col = tolower(move[1]);
 
-	if((atoi(&move[0]) != 0) && isalpha(move[1]))
-=======
-
-  row = atoi(&move[0]);
-  col = move[1];
-
 	if((row != 0) && isalpha(col))
->>>>>>> ae18e4ad9e97ba70023aacef7a15b34101e5be4e
 	{
 		input.row = row;
 		input.column = tolower(col);

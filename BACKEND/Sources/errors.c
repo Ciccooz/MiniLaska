@@ -4,10 +4,6 @@
 #include "../Headers/validation.h"
 #include "../../UI/Headers/laskaBoard.h"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ae18e4ad9e97ba70023aacef7a15b34101e5be4e
 int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 {
     int errors = 0;
