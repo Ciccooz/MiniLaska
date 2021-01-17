@@ -36,10 +36,10 @@ Names getNames()
 }
 void freeNames(Names names)
 {
-  int i;
-  for(i = 0; i < 2; i++)
-    free(names[i]);
-  free(names);
+	int i;
+	for(i = 0; i < 2; i++)
+		free(names[i]);
+	free(names);
 }
 int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 {
@@ -51,8 +51,8 @@ int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 	printf("%s: ", title);
 	fgets(move, 4, stdin);
 
-  row = atoi(&move[0]);
-  col = move[1];
+	row = atoi(&move[0]);
+	col = move[1];
 
 	if((row != 0) && isalpha(col))
 	{

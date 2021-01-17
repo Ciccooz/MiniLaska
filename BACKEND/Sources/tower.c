@@ -39,6 +39,6 @@ void promote(Tower tower)
 
 	if(top == SOLDIER0)
 		changeTop(tower, OFFICER0);
-  else if(top == SOLDIER1)
+	else if(top == SOLDIER1)
 		changeTop(tower, OFFICER1);
 }

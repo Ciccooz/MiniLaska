@@ -34,89 +34,89 @@ static void spawnPawns(PlayableBoard grid);
 
 PlayableBoard newBoard()
 {
-   PlayableBoard board = allocBoard();
-   if(board == NULL)
-      return NULL;
+	PlayableBoard board = allocBoard();
+	if(board == NULL)
+		return NULL;
 
-   spawnPawns(board);
-   return board;
+	spawnPawns(board);
+	return board;
 }
 int getRowSize(int row)
 {
-   if(row % 2)
-      return GRID_SIZE / 2;
+	if(row % 2)
+		return GRID_SIZE / 2;
 
-   return (GRID_SIZE / 2) + 1;
+	return (GRID_SIZE / 2) + 1;
 }
 void freeBoard(PlayableBoard board)
 {
-   int row, col;
+	int row, col;
 
-   if(board == NULL)
-      return;
+	if(board == NULL)
+		return;
 
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize;
+	for(row = 0; row < GRID_SIZE; row++)
+	{
+		int rowSize;
 
-      if(board[row] == NULL)
-         break;
+		if(board[row] == NULL)
+			break;
 
-      rowSize = getRowSize(row);
-      for(col = 0; col < rowSize; col++)
-         free(board[row][col]);
+		rowSize = getRowSize(row);
+		for(col = 0; col < rowSize; col++)
+			free(board[row][col]);
 
-      free(board[row]);
-   }
+		free(board[row]);
+	}
 
-   free(board);
+	free(board);
 }
 
 
 static PlayableBoard allocBoard()
 {
-   int row, col;
-   PlayableBoard board = (PlayableBoard) calloc(GRID_SIZE, sizeof(Tower*));
-   if(board == NULL)
-      return NULL;
+	int row, col;
+	PlayableBoard board = (PlayableBoard) calloc(GRID_SIZE, sizeof(Tower*));
+	if(board == NULL)
+		return NULL;
 
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize = getRowSize(row);
+	for(row = 0; row < GRID_SIZE; row++)
+	{
+		int rowSize = getRowSize(row);
 
-      board[row] = (Tower*) calloc(rowSize, sizeof(Tower));
-      if(board[row] == NULL)
-      {
-         freeBoard(board);
-         return NULL;
-      }
+		board[row] = (Tower*) calloc(rowSize, sizeof(Tower));
+		if(board[row] == NULL)
+		{
+			freeBoard(board);
+			return NULL;
+		}
 
-      for(col = 0; col < rowSize; col++)
-      {
-         board[row][col] = (Tower) calloc(TOWER_HEIGHT, sizeof(Pawn));
-         if(board[row][col] == NULL)
-         {
-            freeBoard(board);
-            return NULL;
-         }
-      }
-   }
+		for(col = 0; col < rowSize; col++)
+		{
+			board[row][col] = (Tower) calloc(TOWER_HEIGHT, sizeof(Pawn));
+			if(board[row][col] == NULL)
+			{
+				freeBoard(board);
+				return NULL;
+			}
+		}
+	}
 
-   return board;
+	return board;
 }
 static void spawnPawns(PlayableBoard board)
 {
-   int row, col;
-   for(row = 0; row < GRID_SIZE; row++)
-   {
-      int rowSize = getRowSize(row);
-      for(col = 0; col < rowSize; col++)
-      {
-         memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
-         if(row <= 2)
-            board[row][col][0] = SOLDIER0;
-         else if (row >= 4)
-            board[row][col][0] = SOLDIER1;
-      }
-   }
+	int row, col;
+	for(row = 0; row < GRID_SIZE; row++)
+	{
+		int rowSize = getRowSize(row);
+		for(col = 0; col < rowSize; col++)
+		{
+			memset(board[row][col], NULL_PAWN, TOWER_HEIGHT * sizeof(char));
+			if(row <= 2)
+				board[row][col][0] = SOLDIER0;
+			else if (row >= 4)
+				board[row][col][0] = SOLDIER1;
+		}
+	}
 }

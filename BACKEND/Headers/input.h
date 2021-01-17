@@ -3,8 +3,8 @@
 
 typedef struct
 {
-  char column;
-  int row;
+	har column;
+	int row;
 } UserInput;
 
 

@@ -2,23 +2,20 @@
 
 #include <stdio.h>
 #include "BACKEND/Headers/input.h"
-#include "BACKEND/Headers/rules.h"
 #include "BACKEND/Headers/errors.h"
-#include "BACKEND/Headers/tower.h"
 #include "BACKEND/Headers/playableBoard.h"
 #include "BACKEND/Headers/endGameChecks.h"
 
 
-#include "UI/Headers/laskaBoard.h"
 
 int main()
 {
-  int counter = 0;
+	int counter = 0;
 	Names names = getNames();
-  GameOverCode gameOver;
-  int errorsOccurred = 0;
+	GameOverCode gameOver;
+	int errorsOccurred = 0;
 
-	int playerTurn = 0;
+	int playerTurn = 1;
 	int UIFrom[2];
 	int UITo[2];
 
@@ -27,39 +24,40 @@ int main()
 		return 1;
 
 	do
-  {
-    do
-    {
-      refreshTerminal();
-      printBoard(board);
-      promptErrors(errorsOccurred);
-      printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
-      getCoordinates("\nFROM", UIFrom, board);
-      getCoordinates("\nTO", UITo, board);
-    } while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
+	{
+		do
+		{
+		refreshTerminal();
+		printBoard(board);
+		promptErrors(errorsOccurred);
+		printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
+		printf("Input format example: 3a\n");
+		getCoordinates("\nFROM", UIFrom, board);
+		getCoordinates("\nTO", UITo, board);
+	} while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
 
-    move(board, UIFrom, UITo);
-    refreshTerminal();
+	move(board, UIFrom, UITo);
+	refreshTerminal();
 
-    playerTurn = !playerTurn;
+	playerTurn = !playerTurn;
 
 	}while(!(gameOver = isGameOver(board)));
 
-  printf("%s won!",  names[gameOver - 1]);
+	printf("%s won!",  names[gameOver - 1]);
 
 
-  freeNames(names);
+	freeNames(names);
 	freeBoard(board);
 }
 
 
 void refreshTerminal()
 {
-  #ifdef __unix__
-  system("clear");
-  #endif
+	#ifdef __unix__
+	system("clear");
+	#endif
 
-  #ifdef _WIN32
-  system("cls");
-  #endif
+	#ifdef _WIN32
+	system("cls");
+	#endif
 }
