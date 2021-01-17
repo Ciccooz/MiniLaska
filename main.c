@@ -31,7 +31,7 @@ int main()
 		printBoard(board);
 		promptErrors(errorsOccurred);
 		printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
-		printf("Input format example: 3a\n");
+		printf("Input format example: a3\n");
 		getCoordinates("\nFROM", UIFrom, board);
 		getCoordinates("\nTO", UITo, board);
 	} while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
