@@ -90,7 +90,6 @@ static void checkPromotion(PlayableBoard board, int UITo[2])
 	Tower promoted = UICoordinatesToTower(board, UITo);
 	Pawn promotedTop = getTop(promoted);
 
-	if((UITo[0] == 6 && promotedTop == SOLDIER1) || (UITo[0] == 0 && promotedTop == SOLDIER1))
-		if(promotedTop != OFFICER0 || promotedTop != OFFICER1)
-			promote(promoted);
+	if((UITo[0] == 6 && promotedTop == SOLDIER0) || (UITo[0] == 0 && promotedTop == SOLDIER1))
+		promote(promoted);
 }
