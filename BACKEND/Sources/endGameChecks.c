@@ -1,15 +1,15 @@
 #include "../Headers/endGameChecks.h"
 
-#include "../Headers/playableBoard.h"
 #include "../Headers/tower.h"
 #include "../Headers/rules.h"
+#include "../Headers/validation.h"
 #include "../../UI/Headers/laskaBoard.h"
 
 /**
 *@brief 				Controlla se un giocatore ha mosse disponibili
 *@details 				Appena trova una pedina del giocatore controlla se
 *						si può muovere utilizzando il metodo canMoveInSurroundingArea()
-*						se si può muovere, ha mosse disponibili e returna 1, altrimenti 
+*						se si può muovere, ha mosse disponibili e returna 1, altrimenti
 *						prova con altre pedine. Se non trova nulla returna 0.
 *
 *@param	board   		La griglia contentente le pedine
@@ -40,7 +40,7 @@ GameOverCode isGameOver(PlayableBoard board)
   for(player = 0; player <=1; player++)
     if(!hasAvailableMoves(board, player) || !hasPawnsLeft(board, player))
       return player ? PLAYER_0_WON : PLAYER_1_WON;
-  
+
   return NOT_OVER;
 }
 

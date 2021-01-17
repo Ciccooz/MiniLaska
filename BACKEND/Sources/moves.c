@@ -5,6 +5,8 @@
 #include "../Headers/playableBoard.h"
 #include "../Headers/rules.h"
 #include "../Headers/tower.h"
+#include "../Headers/validation.h"
+
 
 /**
 *@brief 				Conquista una pedina
