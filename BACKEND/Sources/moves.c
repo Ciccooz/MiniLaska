@@ -16,6 +16,7 @@
 *@param	conquerer 		La torre che effettua la conquista.
 **/
 static void conquer(Tower conquered, Tower conquerer);
+
 /**
 *@brief 				Sovrascrive una torre al posto di un'altra
 *
@@ -23,12 +24,14 @@ static void conquer(Tower conquered, Tower conquerer);
 *@param	source			La torre che prenderà il posto dell'altra
 **/
 static void deepCopy(Tower destination, Tower source);
+
 /**
 *@brief 				Cancella una torre
 *
 *@param	tower			La torre da cancellare
 **/
 static void clearCell(Tower tower);
+
 /**
 *@brief			Controlla se è necessario promuovere una pedina
 *@details		Se una torre raggiunge il lato opposto del campo,
@@ -40,7 +43,6 @@ static void clearCell(Tower tower);
 *@param UITo[2] Un array contenente le coordinate di destinazione
 **/
 static void checkPromotion(PlayableBoard board, int UITo[2]);
-
 
 
 void move(PlayableBoard board, int UIFrom[2], int UITo[2])
@@ -55,7 +57,6 @@ void move(PlayableBoard board, int UIFrom[2], int UITo[2])
 	checkPromotion(board, UITo);
 }
 
-
 static void conquer(Tower conquered, Tower conquerer)
 {
 	Pawn conqueredTop = getTop(conquered);
@@ -69,16 +70,19 @@ static void conquer(Tower conquered, Tower conquerer)
 	}
 	changeTop(conquered, NULL_PAWN); /*rimuovo il top conquistato*/
 }
+
 static void deepCopy(Tower destination, Tower source)
 {
 	int i;
 	for(i = 0; i < TOWER_HEIGHT; i++)
 		destination[i] = source[i];
 }
+
 static void clearCell(Tower tower)
 {
 	memset(tower, NULL_PAWN, TOWER_HEIGHT * sizeof(char));
 }
+
 static void checkPromotion(PlayableBoard board, int UITo[2])
 {
 	Tower promoted = UICoordinatesToTower(board, UITo);

@@ -18,6 +18,7 @@
 *				utilizzate.
 **/
 static PlayableBoard allocBoard();
+
 /**
 *@brief 		Posiziona le pedine sulla griglia
 *@details 		Per prima cosa riempe la griglia di #NULL_PAWN. Poi
@@ -31,7 +32,6 @@ static PlayableBoard allocBoard();
 static void spawnPawns(PlayableBoard grid);
 
 
-
 PlayableBoard newBoard()
 {
 	PlayableBoard board = allocBoard();
@@ -41,6 +41,7 @@ PlayableBoard newBoard()
 	spawnPawns(board);
 	return board;
 }
+
 int getRowSize(int row)
 {
 	if(row % 2)
@@ -48,6 +49,7 @@ int getRowSize(int row)
 
 	return (GRID_SIZE / 2) + 1;
 }
+
 void freeBoard(PlayableBoard board)
 {
 	int row, col;
@@ -71,7 +73,6 @@ void freeBoard(PlayableBoard board)
 
 	free(board);
 }
-
 
 static PlayableBoard allocBoard()
 {
@@ -104,6 +105,7 @@ static PlayableBoard allocBoard()
 
 	return board;
 }
+
 static void spawnPawns(PlayableBoard board)
 {
 	int row, col;

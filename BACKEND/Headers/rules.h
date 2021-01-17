@@ -10,6 +10,7 @@
 *@brief 		Grandezza della griglia
 **/
 #define GRID_SIZE 7
+
 /**
 *@brief 		Altezza massima delle torri
 **/

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/updatedDevelop/miniLaska/BACKEND/Headers/moves.h</title>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/updatedDevelop/miniLaska/BACKEND/Headers/endGameChecks.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,18 +66,27 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">moves.h</div>  </div>
+<div class="title">endGameChecks.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="moves_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="laska_types_8h.html">laskaTypes.h</a>&quot;</span></div>
+<a href="end_game_checks_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../Headers/playableBoard.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moves_8h.html#a32420be81ad66f34bfdf5e856fd8615a">move</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">int</span> UIFrom[2], <span class="keywordtype">int</span> UITo[2]);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/******************************DEFINITIONS*********************************/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="end_game_checks_8h.html#aacfcaf316e0c1c6843015c5e292db061">   13</a></span>&#160;<span class="preprocessor">#define NOT_OVER 0</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="end_game_checks_8h.html#a2da8afaa837ce0f1db6b3e2fa08f934b">   18</a></span>&#160;<span class="preprocessor">#define PLAYER_0_WON 1</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="end_game_checks_8h.html#a003f250902dd67ffc33b7029dc746739">   23</a></span>&#160;<span class="preprocessor">#define PLAYER_1_WON 2</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="end_game_checks_8h.html#a90f945be1f02e3215070b30515b7c885">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">char</span> <a class="code" href="end_game_checks_8h.html#a90f945be1f02e3215070b30515b7c885">GameOverCode</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="end_game_checks_8h.html#a90f945be1f02e3215070b30515b7c885">GameOverCode</a> <a class="code" href="end_game_checks_8h.html#a9a4951c019ec9329c2b33a02545d657a">isGameOver</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="amoves_8h_html_a32420be81ad66f34bfdf5e856fd8615a"><div class="ttname"><a href="moves_8h.html#a32420be81ad66f34bfdf5e856fd8615a">move</a></div><div class="ttdeci">void move(PlayableBoard board, int UIFrom[2], int UITo[2])</div><div class="ttdoc">Muove una torre.</div><div class="ttdef"><b>Definition:</b> moves.c:48</div></div>
 <div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:21</div></div>
-<div class="ttc" id="alaska_types_8h_html"><div class="ttname"><a href="laska_types_8h.html">laskaTypes.h</a></div><div class="ttdoc">All'interno di questo file sono presenti i tipi utilizzati all'interno del codice.</div></div>
+<div class="ttc" id="aend_game_checks_8h_html_a90f945be1f02e3215070b30515b7c885"><div class="ttname"><a href="end_game_checks_8h.html#a90f945be1f02e3215070b30515b7c885">GameOverCode</a></div><div class="ttdeci">char GameOverCode</div><div class="ttdef"><b>Definition:</b> endGameChecks.h:28</div></div>
+<div class="ttc" id="aend_game_checks_8h_html_a9a4951c019ec9329c2b33a02545d657a"><div class="ttname"><a href="end_game_checks_8h.html#a9a4951c019ec9329c2b33a02545d657a">isGameOver</a></div><div class="ttdeci">GameOverCode isGameOver(PlayableBoard board)</div><div class="ttdoc">Controlla se un giocatore ha vinto.</div><div class="ttdef"><b>Definition:</b> endGameChecks.c:37</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

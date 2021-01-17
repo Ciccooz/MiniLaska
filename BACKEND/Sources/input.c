@@ -5,8 +5,6 @@
 #include <string.h>
 #include "../../UI/Headers/laskaBoard.h"
 
-
-
 Names getNames()
 {
 	int i;
@@ -29,11 +27,12 @@ Names getNames()
 	player1[strlen(player1)-1] = 0;			/*Cancello il carattere \n*/
 	player2[strlen(player2)-1] = 0;
 
-	strcpy(names[1], player2);
 	strcpy(names[0], player1);
+	strcpy(names[1], player2);
 
 	return names;
 }
+
 void freeNames(Names names)
 {
 	int i;
@@ -41,6 +40,7 @@ void freeNames(Names names)
 		free(names[i]);
 	free(names);
 }
+
 int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 {
 	UserInput input;
@@ -50,7 +50,7 @@ int getCoordinates(const char* title, int UICoords[2], PlayableBoard board)
 
 	printf("%s: ", title);
 	fgets(move, 4, stdin);
-
+	
 	row = atoi(&move[0]);
 	col = move[1];
 

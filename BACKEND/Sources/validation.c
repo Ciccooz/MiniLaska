@@ -5,14 +5,24 @@
 #include "../Headers/tower.h"
 #include "../../UI/Headers/laskaBoard.h"
 
+/**
+*@brief				 Controlla se la pedina può conquistare
+*@details			 Prende le pedine appartenenti ad un giocatore e, in base al tipo di
+*					 pedina, controlla nelle giuste direzioni se può essere conquistata una
+*					 pedina.
+*
+*@param board 		 La griglia contenente le pedine
+*@param playerPos[2] Le coordinate della pedina 
+*@param player 		 Il giocatore da controllare
+**/
 static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], int player);
-
 
 
 int invalidMove(int from[2], int to[2], PlayableBoard board, int playerTurn)
 {
 		return errorFill(from, to, board, playerTurn);
 }
+
 int coordinatesWithinBounds(int from[2], int to[2])
 {
 	int validRows = (from[0] >= 0 && from[0] < GRID_SIZE) && (to[0] >= 0 && to[0] < GRID_SIZE);
@@ -20,30 +30,37 @@ int coordinatesWithinBounds(int from[2], int to[2])
 
 	return validRows && validCols;
 }
+
 int movesFromPlayableCell(int from[2])
 {
 		return (from[0] % 2) == (from[1] % 2);
 }
+
 int movesDiagonally(int from[2], int to[2])
 {
 	return abs(from[0] - to[0]) == abs(from[1] - to[1]);
 }
+
 int isGoingUp(int from[2], int to[2])
 {
 		return from[0] > to[0];
 }
+
 int isGoingDown(int from[2], int to[2])
 {
 		return from[0] < to[0];
 }
+
 int canGoUp(Tower tower)
 {
 		return getTop(tower) != SOLDIER0;
 }
+
 int canGoDown(Tower tower)
 {
 		return getTop(tower) != SOLDIER1;
 }
+
 int isInSamePosition(int from[2], int to[2])
 {
 		int movingRow = from[0] == to[0];
@@ -51,6 +68,7 @@ int isInSamePosition(int from[2], int to[2])
 
 		return movingRow && movingCol;
 }
+
 int isMovingTooMuch(int from[2], int to[2])
 {
 		int row = abs(from[0] - to[0]);
@@ -61,6 +79,7 @@ int isMovingTooMuch(int from[2], int to[2])
 
 		return movingRow || movingCol;
 }
+
 int isSingleMove(int from[2], int to[2])
 {
 		int singleRow = (abs(from[0] - to[0]) == 1);
@@ -68,6 +87,7 @@ int isSingleMove(int from[2], int to[2])
 
 		return singleRow && singleCol;
 }
+
 int isDoubleMove(int from[2], int to[2])
 {
 		int doubleRow = (abs(from[0] - to[0]) == 2);
@@ -75,17 +95,22 @@ int isDoubleMove(int from[2], int to[2])
 
 		return doubleRow && doubleCol;
 }
+
 int topIsNull(Tower tower)
 {
 		return getTop(tower) == NULL_PAWN;
 }
+
 int canConquer(int from[2], int to[2], PlayableBoard board)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
 	Tower midTower  = getTowerInBetween(board, from, to);
 
-	char fromTop 	 = getTop(fromTower);
-	char midTowerTop = getTop(midTower);
+	Pawn fromTop 	 = getTop(fromTower);
+	Pawn midTowerTop = getTop(midTower);
+	
+	if(getTop(UICoordinatesToTower(board, to)) != NULL_PAWN)
+        return 0;
 
 	if(getTop(UICoordinatesToTower(board, to)) != NULL_PAWN)
 		return 0;
@@ -95,19 +120,20 @@ int canConquer(int from[2], int to[2], PlayableBoard board)
 				 (fromTop == SOLDIER1 || fromTop == OFFICER1) &&
 				 (midTowerTop == SOLDIER0 || midTowerTop == OFFICER0);
 }
-int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
+
+int isYourPawn(int from[2], PlayableBoard board, int player)
 {
 	Tower fromTower = UICoordinatesToTower(board, from);
+	Pawn top = getTop(fromTower);
 
-	char top = getTop(fromTower);
-
-	return ((top == SOLDIER0 || top == OFFICER0) && playerTurn == 0) ||
-			 ((top == SOLDIER1 || top == OFFICER1) && playerTurn == 1);
+	return ((top == SOLDIER0 || top == OFFICER0) && player == 0) ||
+		   ((top == SOLDIER1 || top == OFFICER1) && player == 1);
 }
+
 int mustConquer(PlayableBoard board, int player)
 {
-	int coordinates[2];
-	int row, col;
+  int destinationCoords[2];
+  int row, col;
 
 	for(row = 0; row < GRID_SIZE; row++)
 		for(col = 0; col < GRID_SIZE; col++)
@@ -115,19 +141,18 @@ int mustConquer(PlayableBoard board, int player)
 			if(row % 2 != col % 2)
 				continue;
 
-			coordinates[0] = row;
-			coordinates[1] = col;
+      destinationCoords[0] = row;
+      destinationCoords[1] = col;
 
-			if(!isYourPawn(coordinates, board, player))
-				continue;
+      if(!isYourPawn(destinationCoords, board, player))
+        continue;
 
-			if(canConquerInSurroundingArea(board, coordinates, player))
-				return 1;
-		}
+      if(canConquerInSurroundingArea(board, destinationCoords, player))
+        return 1;
+    }
 
 	return 0;
 }
-
 
 static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], int player)
 {

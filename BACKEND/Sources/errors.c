@@ -4,7 +4,6 @@
 #include "../Headers/validation.h"
 #include "../../UI/Headers/laskaBoard.h"
 
-
 int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 {
 	int errors = 0;
@@ -53,6 +52,7 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 
 	return errors;
 }
+
 void promptErrors(int errors)
 {
 	if(!errors)

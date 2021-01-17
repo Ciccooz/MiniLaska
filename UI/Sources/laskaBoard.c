@@ -11,6 +11,7 @@
 *@param cellSide		Dimensioni della singola cella
 **/
 static void printColumnCoordinates(int cellSide);
+
 /**
 *@brief 		 		Stampa le coordinate delle righe
 *@details				La coordinata viene stampata solo se terminalRow è
@@ -21,6 +22,7 @@ static void printColumnCoordinates(int cellSide);
 *@param boardRow		Indice della riga
 **/
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow);
+
 /**
 *@brief 		 		Stampa i separatori in base ai parametri passati
 *@details 		 		Stampa per primo, e per una sola volta, il parametro 'left'.
@@ -35,6 +37,7 @@ static void printRowCoordinates(int cellSide, int terminalRow, int boardRow);
 *@param right 			Carattere stampato alla fine della griglia
 **/
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right);
+
 /**
 *@brief 		 		Stampa i separatori superiori
 *@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
@@ -43,6 +46,7 @@ static void printHorizontalSeparator(int cellSide, char left, char intersection,
 *@param cellSide		Dimensioni della singola cella
 **/
 static void printUpperSeparator(int cellSide);
+
 /**
 *@brief 		 		Stampa i separatori intermedi
 *@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
@@ -51,6 +55,7 @@ static void printUpperSeparator(int cellSide);
 *@param cellSide		Dimensioni della singola cella
 **/
 static void printMidSeparator(int cellSide);
+
 /**
 *@brief 		 		Stampa i separatori inferiori
 *@details 		 		Chiama il metodo printHorizontalSeparator(), passando come
@@ -59,6 +64,7 @@ static void printMidSeparator(int cellSide);
 *@param cellSide		Dimensioni della singola cella
 **/
 static void printLowerSeparator(int cellSide);
+
 /**
 *@brief 		 		Stampa il contenuto di una cella
 *
@@ -66,7 +72,6 @@ static void printLowerSeparator(int cellSide);
 *@param cellSide		Dimensioni della singola cella
 **/
 static void printCellContent(char content, int cellSide);
-
 
 
 void printBoard(PlayableBoard board)
@@ -92,10 +97,10 @@ void printBoard(PlayableBoard board)
 
 				UserInputToUICoords(userInput, UICoords);
 
-				if(UICoords[0] % 2 == UICoords[1] % 2)
-				{
-					int pawnIndex = TOWER_HEIGHT - 1 - (terminalRow / (cellSide / TOWER_HEIGHT)); /*indice della pedina da printare*/
-					char pawn;
+                if(UICoords[0] % 2 == UICoords[1] % 2)
+                {
+                    int pawnIndex = TOWER_HEIGHT - 1 - (terminalRow / (cellSide / TOWER_HEIGHT)); /*indice della pedina da printare*/
+                    Pawn pawn;
 
 					pawn = UICoordinatesToTower(board, UICoords)[pawnIndex];
 					printCellContent(pawn, cellSide);
@@ -117,15 +122,18 @@ void printBoard(PlayableBoard board)
 		}
 	}
 }
+
 Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])
 {
 	return board[UICoords[0]][UICoords[1] / 2];
 }
+
 void UserInputToUICoords(UserInput input, int UICoordinates[2])
 {
 	UICoordinates[0] = GRID_SIZE - input.row;
 	UICoordinates[1] = input.column - FIRST_COLUMN;
 }
+
 Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])
 {
 	int coords[2];
@@ -135,7 +143,6 @@ Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])
 	return UICoordinatesToTower(board, coords);
 }
 
-
 static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 {
 	printf("\t");
@@ -144,6 +151,7 @@ static void printRowCoordinates(int cellSide, int terminalRow, int boardRow)
 	else
 		printf(" ");
 }
+
 static void printColumnCoordinates(int cellSide)
 {
 	int currentChar = 0;
@@ -163,6 +171,7 @@ static void printColumnCoordinates(int cellSide)
 	}
 	printf("\n");
 }
+
 static void printHorizontalSeparator(int cellSide, char left, char intersection, char right)
 {
 	int i, j;
@@ -177,6 +186,7 @@ static void printHorizontalSeparator(int cellSide, char left, char intersection,
 
 	printf("\b%c\n", right);
 }
+
 static void printUpperSeparator(int cellSide)
 {
 	printHorizontalSeparator(
@@ -185,6 +195,7 @@ static void printUpperSeparator(int cellSide)
 			TOP_INTERSECTION,
 			TOP_RIGHT_CORNER);
 }
+
 static void printMidSeparator(int cellSide)
 {
 	printHorizontalSeparator(
@@ -193,6 +204,7 @@ static void printMidSeparator(int cellSide)
 			MID_INTERSECTION,
 			MID_RIGHT_SIDE);
 }
+
 static void printLowerSeparator(int cellSide)
 {
 	printHorizontalSeparator(
@@ -201,6 +213,7 @@ static void printLowerSeparator(int cellSide)
 			BOTTOM_INTERSECTION,
 			BOTTOM_RIGHT_CORNER);
 }
+
 static void printCellContent(char content, int cellSide)
 {
 	int i;
