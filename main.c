@@ -45,13 +45,13 @@ int main()
 	} while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
 
 	move(board, UIFrom, UITo);
-	refreshTerminal();
-
 	playerTurn = !playerTurn;
 
 	}while(!(gameOver = isGameOver(board)));
 
-	printf("%s won!\n",  names[gameOver - 1]);
+	refreshTerminal();
+	printBoard(board);
+	printf("%s won!\n\n",  names[gameOver - 1]);
 
 
 	freeNames(names);
