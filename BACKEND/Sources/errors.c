@@ -4,8 +4,6 @@
 #include "../Headers/validation.h"
 #include "../../UI/Headers/laskaBoard.h"
 
-
-
 int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 {
     int errors = 0;
@@ -53,6 +51,7 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 
     return errors;
 }
+
 void promptErrors(int errors)
 {
     if(!errors)
@@ -82,11 +81,11 @@ void promptErrors(int errors)
         printf("\tYou cannot conquer that pawn\n");
 
     if(errors & TOP_NOT_NULL)
-        printf("top not null\n");
+        printf("\tDestination cell is not empty\n");
 
 	if(errors & NOT_YOUR_PAWN)
-		printf("not your pawn\n");
+		printf("\tThat pawn is not yours\n");
 
 	if(errors & MUST_CONQUER)
-		printf("must conquer\n");
+		printf("\tYou have the possibility to conquer a pawn\n\tyou must do so\n");
 }

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['soldier1_209',['SOLDIER1',['../tower_8h.html#a940f991061b49dc0a68b12197c864989',1,'tower.h']]],
-  ['soldier2_210',['SOLDIER2',['../tower_8h.html#ab9b34dcb15bd3627632309db52db03c1',1,'tower.h']]]
+  ['player_5f0_5fwon_229',['PLAYER_0_WON',['../end_game_checks_8h.html#a2da8afaa837ce0f1db6b3e2fa08f934b',1,'endGameChecks.h']]],
+  ['player_5f1_5fwon_230',['PLAYER_1_WON',['../end_game_checks_8h.html#a003f250902dd67ffc33b7029dc746739',1,'endGameChecks.h']]]
 ];

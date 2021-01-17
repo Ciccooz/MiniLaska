@@ -28,22 +28,25 @@ int main()
 
 	do
   {
-    printBoard(board);
     do
     {
-      printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
+      refreshTerminal();
+      printBoard(board);
       promptErrors(errorsOccurred);
+      printf("\n%s's TURN (%c)\n", names[playerTurn], playerTurn ? OFFICER1 : OFFICER0);
       getCoordinates("\nFROM", UIFrom, board);
       getCoordinates("\nTO", UITo, board);
     } while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
 
     move(board, UIFrom, UITo);
     refreshTerminal();
-    printf("\n%s moved from (%d, %c) to (%d, %c)\n", names[playerTurn], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
-    playerTurn= !playerTurn;
+
+    playerTurn = !playerTurn;
+
 	}while(!(gameOver = isGameOver(board)));
 
   printf("%s won!",  names[gameOver - 1]);
+
 
   freeNames(names);
 	freeBoard(board);

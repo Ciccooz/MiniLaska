@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertical_5fside_217',['VERTICAL_SIDE',['../laska_board_8h.html#a8cd0f2876b8f3814ccbfe18aaaa8f66e',1,'laskaBoard.h']]]
+  ['unplayable_5fpawn_238',['UNPLAYABLE_PAWN',['../laska_board_8h.html#aa0689bb17ff0e41e9a04b5d631861e13',1,'laskaBoard.h']]]
 ];

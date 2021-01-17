@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pawn_183',['Pawn',['../laska_types_8h.html#a86bb7a220fa1efeeabcca809e7d478f8',1,'laskaTypes.h']]],
-  ['playableboard_184',['PlayableBoard',['../laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666',1,'laskaTypes.h']]]
+  ['name_200',['Name',['../input_8h.html#ace12fb824e557a97606e33f86edd69d9',1,'input.h']]],
+  ['names_201',['Names',['../input_8h.html#a7493dd5fbd529e6440fec379ffbded7a',1,'input.h']]]
 ];

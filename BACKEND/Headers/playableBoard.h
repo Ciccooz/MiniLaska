@@ -5,6 +5,7 @@
 *@file 			playableBoard.h
 *@brief			In questo file si trovano i metodi legati alla griglia di gioco
 **/
+
 /********************************METHODS***********************************/
 /**
 *@brief 		Crea una nuova griglia ed inserisce le pedine
@@ -13,6 +14,7 @@
 *				altrimenti restituisce NULL.
 **/
 PlayableBoard newBoard();
+
 /**
 *@brief 		Restituisce la grandezza di una riga
 *@details 		Se l'indice della riga è dispari, restituisce 3,
@@ -22,6 +24,7 @@ PlayableBoard newBoard();
 *@param	row		L'indice della riga
 **/
 int getRowSize(int row);
+
 /**
 *@brief 		Libera la memoria allocata per il campo da gioco
 *@details 		Libera la memoria delle singole torri, poi della riga

@@ -5,8 +5,8 @@ var indexSectionsWithContent =
   2: "eilmprtv",
   3: "acdefghimnprstu",
   4: "cr",
-  5: "npt",
-  6: "bcfghmnostuv"
+  5: "gnpt",
+  6: "bcfghmnopstuv"
 };
 
 var indexSectionNames =
