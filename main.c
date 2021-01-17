@@ -51,7 +51,7 @@ int main()
 
 	}while(!(gameOver = isGameOver(board)));
 
-	printf("%s won!",  names[gameOver - 1]);
+	printf("%s won!\n",  names[gameOver - 1]);
 
 
 	freeNames(names);
