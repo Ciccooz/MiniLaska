@@ -17,7 +17,7 @@
 *
 *@return				errors, ottenuto dal metodo errorFill()
 **/
-int isValidMove(int from[2], int to[2], PlayableBoard board, int oTurn);
+int invalidMove(int from[2], int to[2], PlayableBoard board, int oTurn);
 /**
 *@brief 				Controlla se le coordinate sono interne alla griglia
 *

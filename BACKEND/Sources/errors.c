@@ -48,7 +48,7 @@ int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 	if(!isYourPawn(from, board, player))
 		errors |= NOT_YOUR_PAWN;
 
-	if(isSingleMove(from, to, board) && mustConquer(board, player))
+	if(isSingleMove(from, to) && mustConquer(board, player))
 		errors |= MUST_CONQUER;
 
     return errors;

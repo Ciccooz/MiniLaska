@@ -7,14 +7,13 @@
 
 
 
-Names getNames(int gameMode)
+Names getNames()
 {
 	int i;
 
 	Names names = malloc(sizeof(char *) * 2);
 	char player1[15];
 	char player2[15];
-	char cpu[] = "CPU";
 
 	for(i = 0; i < 2; i++)
 		names[i] = malloc(sizeof(char) * 15);
@@ -31,10 +30,7 @@ Names getNames(int gameMode)
 	player2[strlen(player2)-1] = 0;
 
 	strcpy(names[1], player2);
-
-
 	strcpy(names[0], player1);
-	refreshTerminal();
 
 	return names;
 }

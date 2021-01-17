@@ -9,7 +9,7 @@ static int canConquerInSurroundingArea(PlayableBoard board, int playerPos[2], in
 
 
 
-int isValidMove(int from[2], int to[2], PlayableBoard board, int playerTurn)
+int invalidMove(int from[2], int to[2], PlayableBoard board, int playerTurn)
 {
     return errorFill(from, to, board, playerTurn);
 }
@@ -101,7 +101,7 @@ int isYourPawn(int from[2], PlayableBoard board, int playerTurn)
 	return ((top == SOLDIER0 || top == OFFICER0) && playerTurn == 0) ||
 		   ((top == SOLDIER1 || top == OFFICER1) && playerTurn == 1);
 }
-int mustConquer(PlayableBoard board, int player);
+int mustConquer(PlayableBoard board, int player)
 {
   int coordinates[2];
   int row, col;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../BACKEND/Headers/laskaTypes.h"
+#include "../../BACKEND/Headers/input.h"
 
 /******************************DEFINITIONS*********************************/
 /**

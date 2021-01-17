@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "../../main.h"
 #include "../../BACKEND/Headers/rules.h"
-#include "../../BACKEND/Headers/input.h"
+
 
 /**
 *@brief 		 		Stampa le coordinate delle colonne

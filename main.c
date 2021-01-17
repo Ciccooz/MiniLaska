@@ -14,24 +14,18 @@
 int main()
 {
   int counter = 0;
-	int gameMode = getGameMode();
-	Names names = getNames(gameMode);
+	Names names = getNames();
+  GameOverCode gameOver;
+  int errorsOccurred = 0;
 
 	int playerTurn = 0;
 	int UIFrom[2];
 	int UITo[2];
-	int fromIsRight;
-	int toIsRight;
-
-	GameOverCode gameOver;
-
-	int errorsOccurred = 0;
 
 	PlayableBoard board = newBoard();
 	if(board == NULL)
 		return 1;
 
-	printf("Memory for board successfully allocated\n");
 	do
   {
     printBoard(board);
@@ -41,20 +35,17 @@ int main()
       promptErrors(errorsOccurred);
       getCoordinates("\nFROM", UIFrom, board);
       getCoordinates("\nTO", UITo, board);
-    } while(errorsOccurred = isValidMove(UIFrom, UITo, board, playerTurn));
+    } while(errorsOccurred = invalidMove(UIFrom, UITo, board, playerTurn));
 
     move(board, UIFrom, UITo);
-    checkPromotion(board, UITo);
     refreshTerminal();
     printf("\n%s moved from (%d, %c) to (%d, %c)\n", names[playerTurn], GRID_SIZE - UIFrom[0], UIFrom[1] + 97, GRID_SIZE - UITo[0], UITo[1] + 97);
     playerTurn= !playerTurn;
-    if(++counter == 4)
-      break;
 	}while(!(gameOver = isGameOver(board)));
 
+  printf("%s won!",  names[gameOver - 1]);
 
 	freeBoard(board);
-	printf("\nBoard successfully freed\n");
 }
 
 

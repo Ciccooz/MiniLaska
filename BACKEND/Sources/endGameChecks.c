@@ -61,7 +61,7 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
         destinationCoords[0] = playerPos[0] + verticalDir * offset;
         destinationCoords[1] = playerPos[1] + horizontalDir * offset;
 
-        if(isValidMove(playerPos, destinationCoords, board, player))
+        if(!invalidMove(playerPos, destinationCoords, board, player))
           return 1;
       }
       horizontalDir *= -1;
