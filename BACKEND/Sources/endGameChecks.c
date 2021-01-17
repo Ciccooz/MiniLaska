@@ -14,10 +14,11 @@ static int hasPawnsLeft(PlayableBoard board, int player);
 GameOverCode isGameOver(PlayableBoard board)
 {
   int player;
-
   for(player = 0; player <=1; player++)
     if(!hasAvailableMoves(board, player) || !hasPawnsLeft(board, player))
       return player ? PLAYER_0_WON : PLAYER_1_WON;
+
+  return NOT_OVER;
 }
 
 
@@ -52,6 +53,8 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
   int destinationCoords[2];
   int i, j, offset;
 
+  int errors;
+
   for(i = 0; i < 2; i++)
   {
     for(j = 0; j < 2; j++)
@@ -63,6 +66,7 @@ static int canMoveInSurroundingArea(PlayableBoard board, int playerPos[2], int p
 
         if(!invalidMove(playerPos, destinationCoords, board, player))
           return 1;
+
       }
       horizontalDir *= -1;
     }

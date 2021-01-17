@@ -45,6 +45,7 @@ int main()
 
   printf("%s won!",  names[gameOver - 1]);
 
+
   freeNames(names);
 	freeBoard(board);
 }

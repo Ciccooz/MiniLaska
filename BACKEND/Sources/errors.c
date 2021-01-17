@@ -5,7 +5,6 @@
 #include "../../UI/Headers/laskaBoard.h"
 
 
-
 int errorFill(int from[2], int to[2], PlayableBoard board, int player)
 {
     int errors = 0;
