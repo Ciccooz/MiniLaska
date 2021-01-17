@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mini Laska:  File sorgente C:/Users/cicco/Desktop/updatedDevelop/miniLaska/UI/Headers/laskaBoard.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Mini Laska
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generato da Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_53ff6e473d46d4e442ba5a7ce9f895e3.html">UI</a></li><li class="navelem"><a class="el" href="dir_477c72a885ef9d3e35f4bf8e8548d5d6.html">Headers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">laskaBoard.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="laska_board_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../../BACKEND/Headers/laskaTypes.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../../BACKEND/Headers/input.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/******************************DEFINITIONS*********************************/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="laska_board_8h.html#aa0689bb17ff0e41e9a04b5d631861e13">   10</a></span>&#160;<span class="preprocessor">#define UNPLAYABLE_PAWN     (char)0xb0   </span><span class="comment">/*░*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a2a3239f12fd9f93eb26730fdec6f3db3">   14</a></span>&#160;<span class="preprocessor">#define TOP_LEFT_CORNER     (char)0xc9   </span><span class="comment">/*╔*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a033cbb26f7c136bf3445d99bb8cdb073">   18</a></span>&#160;<span class="preprocessor">#define TOP_INTERSECTION    (char)0xcb   </span><span class="comment">/*╦*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a534b88264eed644d5ebf6fa07b494b7e">   22</a></span>&#160;<span class="preprocessor">#define TOP_RIGHT_CORNER    (char)0xbb   </span><span class="comment">/*╗*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a0011eb96b16ac3ca1b8ca147cc7d99ec">   26</a></span>&#160;<span class="preprocessor">#define MID_LEFT_SIDE       (char)0xcc   </span><span class="comment">/*╠*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a25fc7e610050452ec81e6e76b41968a9">   30</a></span>&#160;<span class="preprocessor">#define MID_INTERSECTION    (char)0xce   </span><span class="comment">/*╬*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="laska_board_8h.html#aedeba3b4616f132ef7aa8d87a6a4dff9">   34</a></span>&#160;<span class="preprocessor">#define MID_RIGHT_SIDE      (char)0xb9   </span><span class="comment">/*╣*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a4d333093278eccdfded1be7afcce23a1">   38</a></span>&#160;<span class="preprocessor">#define BOTTOM_LEFT_CORNER  (char)0xc8   </span><span class="comment">/*╚*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a1bfbb6dc35ff72f5c019022b55a3a250">   42</a></span>&#160;<span class="preprocessor">#define BOTTOM_INTERSECTION (char)0xca   </span><span class="comment">/*╩*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="laska_board_8h.html#aba066fed58b0eef6c274b61c571c501a">   46</a></span>&#160;<span class="preprocessor">#define BOTTOM_RIGHT_CORNER (char)0xbc   </span><span class="comment">/*╝*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a3cb9569b5a1ef540ede1a6939d4c8d98">   50</a></span>&#160;<span class="preprocessor">#define HORIZONTAL_SIDE     (char)0xcd   </span><span class="comment">/*═*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a8cd0f2876b8f3814ccbfe18aaaa8f66e">   54</a></span>&#160;<span class="preprocessor">#define VERTICAL_SIDE       (char)0xba   </span><span class="comment">/*║*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a997797182ece434a64899fa615c16df4">   58</a></span>&#160;<span class="preprocessor">#define FIRST_COLUMN        &#39;a&#39;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="laska_board_8h.html#a9764c1857d04c387df2e05307e3ef473">   62</a></span>&#160;<span class="preprocessor">#define FIRST_ROW           GRID_SIZE</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/********************************METHODS***********************************/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> <a class="code" href="laska_board_8h.html#ab37bac650d6f99cef1ed6c2f6f5e7e29">printBoard</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> <a class="code" href="laska_board_8h.html#a7adde1cd4ddbd351c04c9d7193903b7f">UICoordinatesToTower</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">int</span> UICoords[2]);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> <a class="code" href="laska_board_8h.html#a05c5c098fda649905713ea836c2e0adb">UserInputToUICoords</a>(<a class="code" href="struct_user_input.html">UserInput</a> input, <span class="keywordtype">int</span> UICoords[2]);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<a class="code" href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a> <a class="code" href="laska_board_8h.html#abd6ac929b20eaf89d435ad26b87903bd">getTowerInBetween</a>(<a class="code" href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a> board, <span class="keywordtype">int</span> UIPos1[2], <span class="keywordtype">int</span> UIPos2[2]);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="alaska_board_8h_html_ab37bac650d6f99cef1ed6c2f6f5e7e29"><div class="ttname"><a href="laska_board_8h.html#ab37bac650d6f99cef1ed6c2f6f5e7e29">printBoard</a></div><div class="ttdeci">void printBoard(PlayableBoard board)</div><div class="ttdoc">Stampa a video tutta la griglia.</div><div class="ttdef"><b>Definition:</b> laskaBoard.c:72</div></div>
+<div class="ttc" id="alaska_board_8h_html_abd6ac929b20eaf89d435ad26b87903bd"><div class="ttname"><a href="laska_board_8h.html#abd6ac929b20eaf89d435ad26b87903bd">getTowerInBetween</a></div><div class="ttdeci">Tower getTowerInBetween(PlayableBoard board, int UIPos1[2], int UIPos2[2])</div><div class="ttdoc">Restituisce la torre compresa tra due celle.</div><div class="ttdef"><b>Definition:</b> laskaBoard.c:129</div></div>
+<div class="ttc" id="alaska_types_8h_html_a6f3edbd37910373787bdb76ec0fba666"><div class="ttname"><a href="laska_types_8h.html#a6f3edbd37910373787bdb76ec0fba666">PlayableBoard</a></div><div class="ttdeci">Tower ** PlayableBoard</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:21</div></div>
+<div class="ttc" id="astruct_user_input_html"><div class="ttname"><a href="struct_user_input.html">UserInput</a></div><div class="ttdef"><b>Definition:</b> input.h:25</div></div>
+<div class="ttc" id="alaska_board_8h_html_a7adde1cd4ddbd351c04c9d7193903b7f"><div class="ttname"><a href="laska_board_8h.html#a7adde1cd4ddbd351c04c9d7193903b7f">UICoordinatesToTower</a></div><div class="ttdeci">Tower UICoordinatesToTower(PlayableBoard board, int UICoords[2])</div><div class="ttdoc">Restituisce la torre che corrisponde alle coordinate date.</div><div class="ttdef"><b>Definition:</b> laskaBoard.c:120</div></div>
+<div class="ttc" id="alaska_board_8h_html_a05c5c098fda649905713ea836c2e0adb"><div class="ttname"><a href="laska_board_8h.html#a05c5c098fda649905713ea836c2e0adb">UserInputToUICoords</a></div><div class="ttdeci">void UserInputToUICoords(UserInput input, int UICoords[2])</div><div class="ttdoc">Converte le coordinate dell'utente in quelle della UI.</div><div class="ttdef"><b>Definition:</b> laskaBoard.c:124</div></div>
+<div class="ttc" id="alaska_types_8h_html_a017584424bfd55dd8e59b0d31521f608"><div class="ttname"><a href="laska_types_8h.html#a017584424bfd55dd8e59b0d31521f608">Tower</a></div><div class="ttdeci">Pawn * Tower</div><div class="ttdef"><b>Definition:</b> laskaTypes.h:17</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>
