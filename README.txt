@@ -1,17 +1,7 @@
------------------------------------------------------------COMPOSIZIONE GRUPPO-------------------------------------------------------------------
+The gcc compiler is required to compile the program.
+If the gcc compiler is correctly added to the system's $PATH, you will only need to run one of the executables in the _Compilers directory according to
+the operating system you are using.
+This will generate the game executable in the bin/Unix or bin/Windows directory.
 
-ID gruppo: 31
-
-Membri gruppo:
-	Ciccone Mattia 885349
-	Marizza Nicola 887004
-
-----------------------------------------------------------------MINILASKA------------------------------------------------------------------------
-
-Per compilare il programma è necessario disporre del gcc compiler.
-Se il gcc compiler è correttamente aggiunto al $PATH del sistema, sarà sufficiente runnare uno degli eseguibili nella directory _Compilers in base
-al sistema operativo che si sta utilizzando.
-Verrà generato così l'eseguibile del gioco nella directory bin/Unix o bin/Windows.
-
-Per visualizzare correttamente i caratteri del campo da gioco è necessario che la codifica dei caratteri del terminale sia IBM850.
-Per il cmd di windows questa codifica è già supportata di default, per altri sistemi operativi potrebbe essere necessario impostarla manualmente.
+To display the characters of the playing field correctly, the character encoding of the terminal must be IBM850.
+For the windows cmd this encoding is already supported by default, for other operating systems it may have to be set manually.
